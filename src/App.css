@@ -137,11 +137,13 @@ body {
       }
 
       .motif {
-        width: 18vw;
-        /*padding-bottom: 3vh;*/
+        /*width: 20vw;*/
+        /*padding-bottom: 2vh;*/
       }
 
       .contact-button {
+        text-decoration: none;
+        color: black;
         font-size: 20px;
         font-weight: 800;
         align-self: end;
@@ -154,7 +156,7 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
       gap: 19px;
       width: 100%;
-      max-width: 1200px;
+      max-width: 75%;
       margin-top: 6%;
 
       .grid-item {
@@ -183,9 +185,9 @@ body {
     }
 
     .end-motif {
-      width: 18vw;
-      height: auto;
-      align-self: center;
+      /*width: 18vw;*/
+      /*height: auto;*/
+      /*align-self: center;*/
       margin-top: 12%;
     }
 

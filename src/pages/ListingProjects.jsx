@@ -10,7 +10,7 @@ const ListingProjects = () => {
             <header className="header">
                 <img src={LogoMc} alt="Logo de Maëlle Camissogo" className="logo"/>
                 <img src={MotifMc} alt="Motif de Maëlle Camissogo" className="motif"/>
-                <p className="contact-button">CONTACT</p>
+                <a href="/" className="contact-button">CONTACT</a>
             </header>
 
             {/* Grille des projets */}
