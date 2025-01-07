@@ -131,9 +131,10 @@ body {
       width: 100%;
 
       .logo {
-        width: 75px;
-        /*margin-bottom: 10px;*/
+        width: 110px;
+        /* padding-top: 10px; */
         align-self: end;
+        height: 60px;
       }
 
       .motif {
@@ -148,6 +149,7 @@ body {
         font-weight: 800;
         align-self: end;
         margin: 2vh 0 0;
+        width: 110px;
       }
     }
 
@@ -193,4 +195,10 @@ body {
 
   }
 
+  -ms-overflow-style: none; // IE 10+
+  overflow: -moz-scrollbars-none; // Firefox
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}*
