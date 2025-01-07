@@ -1,0 +1,194 @@
+
+:root {
+  font-family: Be Vietnam Pro, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  .portfolio-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      filter : blur(3px);
+      scale: 1.02;
+      transition: background-image 0.5s ease-in-out;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 7vh;
+      text-align: center;
+      z-index: 10;
+
+      .logo {
+        filter: invert();
+
+        img {
+          width: 120px;
+          height: auto;
+        }
+      }
+
+      .info {
+        width: 70vw;
+        display: flex;
+        font-size: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .divider {
+          border: 3px solid #FFFFFF;
+        }
+
+        .category,
+        .title {
+          display: flex;
+          flex-direction: column;
+          margin: 0.5rem 0;
+          text-transform: uppercase;
+          width: 43%;
+          font-weight: 800;
+        }
+
+        .category-text.is-changing,
+        .title-text.is-changing {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.4s ease-in-out;
+        }
+
+        .category-text,
+        .title-text {
+          transition: transform 0.5s ease-in-out;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .category {
+          align-items: flex-end;
+          gap: 15px;
+
+          .category-title,
+          .category-text {
+            text-align: end;
+            margin: 0;
+          }
+
+          .category-text {
+            font-weight: 600;
+          }
+        }
+
+        .title {
+          align-items: flex-start;
+          gap: 15px;
+
+          .title-title,
+          .title-text {
+            text-align: start;
+            margin: 0;
+          }
+
+          .title-text {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  .listing-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    width: auto;
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 3vw 5vh;
+      width: 100%;
+
+      .logo {
+        width: 75px;
+        /*margin-bottom: 10px;*/
+        align-self: end;
+      }
+
+      .motif {
+        width: 18vw;
+        /*padding-bottom: 3vh;*/
+      }
+
+      .contact-button {
+        font-size: 20px;
+        font-weight: 800;
+        align-self: end;
+        margin: 2vh 0 0;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+      gap: 19px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 6%;
+
+      .grid-item {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.4s ease-in-out;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease-in-out;
+        }
+
+        img:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .grid-item:hover {
+        transform: rotateY(10deg) rotateX(10deg);
+        cursor: pointer;
+
+      }
+
+    }
+
+    .end-motif {
+      width: 18vw;
+      height: auto;
+      align-self: center;
+      margin-top: 12%;
+    }
+
+  }
+
+}
