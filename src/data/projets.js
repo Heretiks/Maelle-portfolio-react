@@ -23,8 +23,6 @@ import ArtisanFasoCarre from '../assets/projects/artisan-du-faso/131206-2519.png
 import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.png'
 
 
-
-
 const projects = [
     {
         id: 1,
@@ -32,6 +30,7 @@ const projects = [
         title: 'Hands Up',
         image: HandsUpImg,
         imageCarre: HandsUpCarre,
+        link: '/projects/hands-up',
     },
     {
         id: 2,
@@ -39,6 +38,7 @@ const projects = [
         title: 'Maison Marie',
         image: MaisonMarieImg,
         imageCarre: MaisonMarieCarre,
+        link: '/projects/maison-marie',
     },
     {
         id: 3,
@@ -46,6 +46,7 @@ const projects = [
         title: 'NATURO’PATTES & SABOTS',
         image: NaturoPattesImg,
         imageCarre: NaturoPatteCarre,
+        link: '/projects/naturopatte',
     },
     {
         id: 4,
@@ -53,6 +54,7 @@ const projects = [
         title: 'Congrès Nîmes Tourisme',
         image: CongresNimesImg,
         imageCarre: CongresNimesCarre,
+        link: '/projects/nimes-tourisme',
     },
     {
         id: 5,
@@ -60,6 +62,7 @@ const projects = [
         title: 'SAT & SPL Agate',
         image: SATetSPLImg,
         imageCarre: SATetSPLCarre,
+        link: '/projects/plaquette-sat-spl',
     },
     {
         id: 6,
@@ -67,6 +70,7 @@ const projects = [
         title: 'SPL Agate',
         image: SplPlaqueteImg,
         imageCarre: SplPlaqueteCarre,
+        link: '/projects/plaquette-spl',
     },
     {
         id: 7,
@@ -74,6 +78,7 @@ const projects = [
         title: 'Domaine de l\'Aiglade',
         image: DomaineAigladeImg,
         imageCarre: DomaineAigladeCarre,
+        link: '/projects/domaine-de-laiglade',
     },
     {
         id: 8,
@@ -81,6 +86,7 @@ const projects = [
         title: 'Bleu Libellule',
         image: BleuLibelluleImg,
         imageCarre: BleuLibelluleCarre,
+        link: '/projects/bleu-libellule',
     },
     {
         id: 9,
@@ -88,6 +94,7 @@ const projects = [
         title: '7ème Element',
         image: SeptiemeElementImg,
         imageCarre: SeptiemeCarre,
+        link: '/projects/7eme-element',
     },
     {
         id: 10,
@@ -95,6 +102,7 @@ const projects = [
         title: 'Artisan Du Faso',
         image: ArtisanFasoImg,
         imageCarre: ArtisanFasoCarre,
+        link: '/projects/artisan-du-faso',
     },
     {
         id: 11,
@@ -102,6 +110,7 @@ const projects = [
         title: 'Mariage',
         image: MariageImg,
         imageCarre: MariageCarre,
+        link: '/projects/mariage',
     },
 ];
 

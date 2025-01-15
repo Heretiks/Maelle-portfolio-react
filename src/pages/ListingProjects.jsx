@@ -1,17 +1,13 @@
 import React from "react";
 import projects from "../data/projets.js";
-import LogoMc from "../assets/global/logo.svg";
-import MotifMc from "../assets/global/motif.png";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 
 
 const ListingProjects = () => {
     return (
         <div className="listing-projects">
-            <header className="header">
-                <img src={LogoMc} alt="Logo de Maëlle Camissogo" className="logo"/>
-                <img src={MotifMc} alt="Motif de Maëlle Camissogo" className="motif"/>
-                <a href="/" className="contact-button">CONTACT</a>
-            </header>
+            <Header/>
 
             {/* Grille des projets */}
             <main className="grid">
@@ -22,7 +18,8 @@ const ListingProjects = () => {
                 ))}
 
             </main>
-            <img src={MotifMc} alt="Motif de Maëlle Camissogo" className="end-motif"/>
+
+            <Footer/>
 
         </div>
     );

@@ -4,6 +4,7 @@ import LogoMc from './assets/global/logo.svg';
 import projects from './data/projets.js';
 
 import ListingProject from "./pages/ListingProjects.jsx";
+import Contact from "./pages/Contact.jsx";
 
 function App() {
     const [currentProject, setCurrentProject] = useState(0);
@@ -46,7 +47,7 @@ function App() {
 
         window.addEventListener('wheel', handleWheel);
         return () => window.removeEventListener('wheel', handleWheel);
-    }, [isScrolling]); // Dépendance pour rafraîchir le listener lorsque `isScrolling` change
+    }, [isScrolling]);
 
     return (
         <>
@@ -74,7 +75,9 @@ function App() {
             {/*</div>*/}
 
 
-            <ListingProject />
+            {/*<ListingProject />*/}
+
+            <Contact/>
         </>
     );
 }
