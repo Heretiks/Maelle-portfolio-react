@@ -4,6 +4,8 @@
 }
 
 body {
+  width: 100vw;
+  height: auto;
   margin: 0;
   padding: 0;
 
@@ -230,6 +232,11 @@ body {
       align-self: end;
       margin: 2vh 0 0;
       width: 110px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        font-size: 21px;
+      }
     }
   }
 
