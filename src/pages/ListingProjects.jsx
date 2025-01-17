@@ -12,7 +12,7 @@ const ListingProjects = () => {
             {/* Grille des projets */}
             <main className="grid">
                 {projects.map((project) => (
-                    <a href={project.link} key={project.id} className="grid-item">
+                    <a href={"/projet/" + project.id} key={project.id} className="grid-item">
                         <img src={project.imageCarre} alt={`Project ${project.id}`}/>
                     </a>
                 ))}

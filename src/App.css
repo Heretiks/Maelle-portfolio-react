@@ -203,13 +203,91 @@ body {
     }
   }
 
+  /* Page détail projet */
+  .detail-container {
+
+    .presentation-projet {
+      margin: auto;
+      width: 80%;
+
+      .image-presentaion {
+        width: 100%;
+      }
+
+      .content-presentation {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 5vh;
+
+        .info {
+          width: 75%;
+          margin: auto;
+          display: flex;
+          font-size: 20px;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .category,
+          .title {
+            display: flex;
+            flex-direction: column;
+            margin: 0.5rem 0;
+            text-transform: uppercase;
+            width: 43%;
+            font-weight: 800;
+          }
+
+          .category {
+            align-items: flex-end;
+          }
+          .title {
+            align-items: flex-start;
+          }
+
+          .category-text,
+          .title-text {
+            margin: 0;
+            font-weight: 600;
+          }
+
+          .divider {
+            border: 3px solid #000000;
+            height: 80px;
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+
+    .info-projet {
+
+    }
+
+    .autre-projet {
+      font-size: 45px;
+      margin: auto;
+      height: 50vh;
+      text-align: center;
+      align-content: center;
+      text-decoration: none;
+
+      .lien-liste-projets {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black;
+        font-weight: 900;
+      }
+    }
+  }
+
   .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0 3vw 5vh;
-    width: 94vw;
+    margin: 0 2vw 5vh;
+    width: 96vw;
 
     .logo {
       align-self: end;
@@ -221,7 +299,7 @@ body {
     }
 
     .motif {
-      padding-bottom: 2vh;
+      padding-bottom: 3vh;
     }
 
     .contact-button {

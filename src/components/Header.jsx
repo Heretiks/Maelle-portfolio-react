@@ -9,12 +9,23 @@ const Header = () => {
 
     return (
         <header className="header">
-            <a href="/" className="logo"><img src={LogoMc} alt="Logo de Maëlle Camissogo" className="logo-image"/></a>
-            <img src={MotifMc} alt="Motif de Maëlle Camissogo" className="motif"/>
+            <a href="/" className="logo" style={{position: location.pathname.startsWith('/projet/') ? "fixed" : "initial"}}>
+                <img src={LogoMc} alt="Logo de Maëlle Camissogo" className="logo-image"/>
+            </a>
+            <img
+                src={MotifMc}
+                alt="Motif de Maëlle Camissogo"
+                className="motif"
+                style={{ visibility: location.pathname.startsWith('/projet/') ? "hidden" : "visible" }}
+            />
             <a
                 href="/contact"
                 className="contact-button"
-                style={{ visibility: location.pathname === "/contact" ? "hidden" : "visible" }}
+                style={{ visibility:
+                        ((location.pathname === "/") ||
+                        (location.pathname === "/contact") ||
+                        (location.pathname.startsWith('/projet/'))) ?
+                        "hidden" : "visible" }}
             >
                 CONTACT
             </a>
