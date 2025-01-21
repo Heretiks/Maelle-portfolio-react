@@ -22,6 +22,14 @@ import SeptiemeCarre from '../assets/projects/7eme-element/FLYER 1.png'
 import ArtisanFasoCarre from '../assets/projects/artisan-du-faso/131206-2519.png'
 import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.png'
 
+import HandsUpDescription from '../assets/projects/hands-up/image-description/pexels-jerchung-2792186.png';
+import HandsUpCouleurs from '../assets/projects/hands-up/couleurs-identite/Groupe162.png';
+import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe161.png';
+import HandsUpMenuLarge from '../assets/projects/hands-up/mockup-menu-large/Groupe163.png';
+import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/Poster-MockUp-Vert-and-Horiz.png';
+
+
+
 
 const projects = [
     {
@@ -31,6 +39,14 @@ const projects = [
         image: HandsUpImg,
         imageCarre: HandsUpCarre,
         link: '/projects/hands-up',
+        imageCouleurs: HandsUpCouleurs,
+        imageLogoLarge: HandsUpLogoLarge,
+        imageMenuLarge: HandsUpMenuLarge,
+        imageDescription: HandsUpDescription,
+        imageMenuCarre: HandsUpMenuCarre,
+        couleurPrimaire: '#DAD7C4',
+        couleurSecondaire: '#1E2B5C',
+        description: 'HANDS UP EST UN RESTAURANT ÉPHÉMÈRE CRÉER PAR LES ÉTUDIANTS DE L’INSTITUT PAUL BAUCUSE. L’OBJECTIF EST DE CRÉER UN UNIVERS LÉGER ET ÉLÉGANT METTANT EN AVANT LES CODES DE LA GASTRONOMIE'
     },
     {
         id: 2,

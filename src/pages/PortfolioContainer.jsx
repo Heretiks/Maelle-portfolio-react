@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import projects from '../data/projets.js';
 import LogoMc from '../assets/global/logo.svg';
 import '../App.css';
@@ -47,7 +47,7 @@ function PortfolioContainer() {
     }, [isScrolling]);
 
     return (
-        <div className="portfolio-container">
+        <a className="portfolio-container" href={"/projet/" + projects[currentProject].id}>
             <div
                 className="background-image"
                 style={{ backgroundImage: `url(${projects[currentProject].image})` }}
@@ -72,7 +72,7 @@ function PortfolioContainer() {
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     );
 }
 

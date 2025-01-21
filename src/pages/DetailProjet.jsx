@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import projects from '../data/projets.js';
 import '../App.css';
@@ -14,7 +13,7 @@ function DetailProjet() {
 
     // Si le projet n'existe pas, rediriger vers la liste des projets ou une page d'erreur
     if (!project) {
-        return <Navigate to="/projets" replace />;
+        return <Navigate to="/" replace />;
     }
 
     return (
@@ -25,7 +24,6 @@ function DetailProjet() {
             <main className="detail-container">
                 <div className="presentation-projet">
                     <img className="image-presentaion" src={project.image} alt={project.title} />
-
                     <div className="content-presentation">
                         <div className="info">
                             <div className="category">
@@ -41,7 +39,22 @@ function DetailProjet() {
                     </div>
                 </div>
                 <div className="info-projet">
-                    <p className="project-description">{project.description}</p>
+                    <div className="description-et-image">
+                        <div className="description">
+                            <p className="description-text">{project.description}</p>
+                        </div>
+                        <img src={project.imageDescription} alt=""/>
+                    </div>
+                    <div className="image-large">
+                        <img src={project.imageLogoLarge} alt=""/>
+                    </div>
+                    <div className="double-image">
+                        <img src={project.imageMenuCarre} alt=""/>
+                        <img src={project.imageCouleurs} alt=""/>
+                    </div>
+                    <div className="image-large">
+                        <img src={project.imageMenuLarge} alt=""/>
+                    </div>
                 </div>
                 <div className="autre-projet">
                     <a className="lien-liste-projets" href="/projets">+ de projets</a>

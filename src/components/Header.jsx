@@ -1,5 +1,4 @@
 // src/components/Header.jsx
-import React from "react";
 import { useLocation } from "react-router-dom";
 import LogoMc from "../assets/global/logo.svg";
 import MotifMc from "../assets/global/motif.png";
@@ -21,11 +20,17 @@ const Header = () => {
             <a
                 href="/contact"
                 className="contact-button"
-                style={{ visibility:
-                        ((location.pathname === "/") ||
-                        (location.pathname === "/contact") ||
-                        (location.pathname.startsWith('/projet/'))) ?
-                        "hidden" : "visible" }}
+                style={{
+                    visibility:
+                        (location.pathname === "/" || location.pathname === "/contact")
+                            ? "hidden"
+                            : "visible",
+                    position: location.pathname.startsWith("/projet/")
+                        ? "fixed"
+                        : "static",
+                    top: location.pathname.startsWith("/projet/") ? "3vh" : "auto",
+                    right: location.pathname.startsWith("/projet/") ? "2vw" : "auto"
+                }}
             >
                 CONTACT
             </a>
