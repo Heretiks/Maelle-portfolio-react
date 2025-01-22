@@ -28,6 +28,17 @@ import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Grou
 import HandsUpMenuLarge from '../assets/projects/hands-up/mockup-menu-large/Groupe163.png';
 import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/Poster-MockUp-Vert-and-Horiz.png';
 
+import MaisonMarieDescription from '../assets/projects/maison-marie/image-description/pexels-rdne-7755524.png';
+import MaisonMarieCouleurs from '../assets/projects/maison-marie/couleurs-identite/Groupe164.png';
+import MaisonMarieLogoFin from '../assets/projects/maison-marie/image-fine/Groupe166.png';
+import MaisonMarieMockupLogo from '../assets/projects/maison-marie/mockup-logo/Groupe165.png';
+import MaisonMarieMockupCarte from '../assets/projects/maison-marie/mockup-carte-visite-1/mockup2.png';
+import MaisonMarieMockupCarte2 from '../assets/projects/maison-marie/mockup-carte-visite-2/Groupe167.png';
+import MaisonMarieMockupFlyerInter from '../assets/projects/maison-marie/mockup-flyer-inter/mockup4.png';
+import MaisonMarieMockupFlyerExter from '../assets/projects/maison-marie/mockup-flyer-exter/mockup6.png';
+import MaisonMarieMockupFlyerEtCarte from '../assets/projects/maison-marie/mockup-flyer-et-carte/mockup3.png';
+import MaisonMarieMockupMM from '../assets/projects/maison-marie/mockup-mm/mockup-mm.png';
+
 
 
 
@@ -39,14 +50,20 @@ const projects = [
         image: HandsUpImg,
         imageCarre: HandsUpCarre,
         link: '/projects/hands-up',
-        imageCouleurs: HandsUpCouleurs,
-        imageLogoLarge: HandsUpLogoLarge,
-        imageMenuLarge: HandsUpMenuLarge,
-        imageDescription: HandsUpDescription,
-        imageMenuCarre: HandsUpMenuCarre,
-        couleurPrimaire: '#DAD7C4',
-        couleurSecondaire: '#1E2B5C',
-        description: 'HANDS UP EST UN RESTAURANT ÉPHÉMÈRE CRÉER PAR LES ÉTUDIANTS DE L’INSTITUT PAUL BAUCUSE. L’OBJECTIF EST DE CRÉER UN UNIVERS LÉGER ET ÉLÉGANT METTANT EN AVANT LES CODES DE LA GASTRONOMIE'
+        couleurPrimaire: '#1E2B5C',
+        couleurSecondaire: '#DAD7C4',
+        blocks: [
+            {
+                type: 'description-et-image',
+                text: 'HANDS UP EST UN RESTAURANT ÉPHÉMÈRE CRÉER PAR LES ÉTUDIANTS ' +
+                    'DE L’INSTITUT PAUL BAUCUSE. L’OBJECTIF EST DE CRÉER UN UNIVERS LÉGER ' +
+                    'ET ÉLÉGANT METTANT EN AVANT LES CODES DE LA GASTRONOMIE',
+                image: HandsUpDescription
+            },
+            {type: 'image-large',image: HandsUpLogoLarge},
+            {type: 'double-image',images: [HandsUpMenuCarre, HandsUpCouleurs]},
+            {type: 'image-large',image: HandsUpMenuLarge}
+        ]
     },
     {
         id: 2,
@@ -55,6 +72,22 @@ const projects = [
         image: MaisonMarieImg,
         imageCarre: MaisonMarieCarre,
         link: '/projects/maison-marie',
+        couleurPrimaire: '#422F21',
+        couleurSecondaire: '#DAD2D2',
+        blocks: [
+            {
+                type: 'description-et-image',
+                text: 'MAISON MARIE EST UN INSTITUT DE BEAUTÉ SPÉCIALISÉ DANS LES ' +
+                    'EXTENSIONS DE CILS. L’OBJECTIF EST DE DÉVELOPPER UNE IDENTITÉ CHALEUREUSE' +
+                    ' INTEMPORELLE ET ÉLÉGANTE À DESTINATION DES FEMMES.',
+                image: MaisonMarieDescription
+            },
+            {type: 'double-image',images: [MaisonMarieCouleurs, MaisonMarieMockupLogo]},
+            {type: 'image-large',image: MaisonMarieLogoFin},
+            {type: 'double-image',images: [MaisonMarieMockupCarte, MaisonMarieMockupCarte2]},
+            {type: 'double-image',images: [MaisonMarieMockupMM, MaisonMarieMockupFlyerInter]},
+            {type: 'double-image',images: [MaisonMarieMockupFlyerEtCarte, MaisonMarieMockupFlyerExter]},
+        ]
     },
     {
         id: 3,

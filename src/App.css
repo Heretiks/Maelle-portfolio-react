@@ -1,6 +1,7 @@
 
-:root {
-  font-family: Be Vietnam Pro, sans-serif;
+/* Suppression du cursor par defaut */
+html, body, * {
+  cursor: none;
 }
 
 body {
@@ -8,6 +9,8 @@ body {
   height: auto;
   margin: 0;
   padding: 0;
+  background-color: #FFFFFF;
+  font-family: Be Vietnam Pro, sans-serif;
 
   /* Page accueil */
   .portfolio-container {
@@ -150,9 +153,9 @@ body {
         }
       }
 
-      .grid-item:hover {
-        cursor: pointer;
-      }
+      /*.grid-item:hover {*/
+      /*  cursor: pointer;*/
+      /*}*/
 
     }
 
@@ -271,6 +274,21 @@ body {
             }
           }
         }
+
+        .info.fixed {
+          width: 100%;
+          background-color: #FFFFFF;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 100;
+          margin: 0 auto;
+          padding: 4vh 0 2vh 0;
+        }
+      }
+
+      .content-presentation.add-margin {
+        margin-top: 15vh;
       }
     }
 
@@ -283,7 +301,6 @@ body {
 
       .description-et-image,
       .double-image,
-      .image-fine,
       .image-large {
         display: flex;
         justify-content: center;
@@ -292,6 +309,7 @@ body {
       }
 
       .description-et-image {
+        flex-direction: row;
         gap: 12px;
 
         .description {
@@ -299,7 +317,6 @@ body {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: #1E2B5C;
           width: 49%;
 
           .description-text {
@@ -307,7 +324,6 @@ body {
             width: 75%;
             font-size: 20px;
             text-transform: uppercase;
-            color: #DAD7C4;
           }
         }
 
@@ -316,21 +332,27 @@ body {
         }
       }
 
-      .double-image {
-
-        img {
-          width: 50%;
-        }
+      .description-et-image > * {
+        flex: 1 1 0;
+        object-fit: cover;
+        width: 50%;
       }
 
-      .image-fine {
+      .double-image {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        width: calc(100% - 12px);
+      }
 
-        img {
-          width: 100%;
-        }
+      .double-image > * {
+        flex: 1 1 0;
+        object-fit: cover;
+        width: 50%;
       }
 
       .image-large {
+        width: 100%;
 
         img {
           width: 100%;
@@ -365,6 +387,7 @@ body {
 
     .logo {
       align-self: end;
+      z-index: 1000;
 
       .logo-image {
         width: 110px;
@@ -374,6 +397,7 @@ body {
 
     .motif {
       padding-bottom: 3vh;
+      z-index: 1000;
     }
 
     .contact-button {
@@ -385,6 +409,7 @@ body {
       margin: 2vh 0 0;
       width: 110px;
       transition: all 0.3s ease-in-out;
+      z-index: 1000;
 
       &:hover {
         font-size: 21px;
@@ -406,6 +431,27 @@ body {
 
 }
 
+/* Suppression de la scrollbar */
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* Curseur par défaut */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+}
+
+/* Curseur en hover de lien */
+.custom-cursor.hover {
+  width: 20px;
+  height: 20px;
 }
