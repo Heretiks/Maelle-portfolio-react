@@ -15,25 +15,25 @@ const Header = () => {
                 src={MotifMc}
                 alt="Motif de Maëlle Camissogo"
                 className="motif"
-                style={{ visibility: location.pathname.startsWith('/projet/') ? "hidden" : "visible" }}
+                style={{ visibility: "hidden" }}
             />
-            <a
-                href="/contact"
-                className="contact-button"
-                style={{
-                    visibility:
-                        (location.pathname === "/" || location.pathname === "/contact")
-                            ? "hidden"
-                            : "visible",
-                    position: location.pathname.startsWith("/projet/")
-                        ? "fixed"
-                        : "static",
-                    top: location.pathname.startsWith("/projet/") ? "3vh" : "auto",
-                    right: location.pathname.startsWith("/projet/") ? "2vw" : "auto"
-                }}
-            >
-                CONTACT
-            </a>
+            {/*<a*/}
+            {/*    href="/contact"*/}
+            {/*    className="contact-button"*/}
+            {/*    style={{*/}
+            {/*        visibility:*/}
+            {/*            (location.pathname === "/" || location.pathname === "/contact")*/}
+            {/*                ? "hidden"*/}
+            {/*                : "visible",*/}
+            {/*        position: location.pathname.startsWith("/projet/")*/}
+            {/*            ? "fixed"*/}
+            {/*            : "static",*/}
+            {/*        top: location.pathname.startsWith("/projet/") ? "3vh" : "auto",*/}
+            {/*        right: location.pathname.startsWith("/projet/") ? "2vw" : "auto"*/}
+            {/*    }}*/}
+            {/*>*/}
+            {/*    CONTACT*/}
+            {/*</a>*/}
         </header>
     );
 };

@@ -1,15 +1,15 @@
 // Images Présentation
-import HandsUpImg from '../assets/projects/hands-up/format-paysage-x2.png';
+import HandsUpImg from '../assets/projects/hands-up/format-paysage.png';
 import MaisonMarieImg from '../assets/projects/maison-marie/format-paysage.png'
-import NaturoPattesImg from '../assets/projects/naturopatte/format-paysage-x2.png'
-import CongresNimesImg from '../assets/projects/congres-nimes-tourisme/format-paysage-x2.png'
-import SATetSPLImg from '../assets/projects/plaquette-sat-et-spl/format-paysage-x2.png'
-import SplPlaqueteImg from '../assets/projects/plaquette-spl/format-paysage-x2.png'
-import DomaineAigladeImg from '../assets/projects/domaine-de-laiglade/format-paysage-x2.png'
-import BleuLibelluleImg from '../assets/projects/bleu-libellule/SCINTILLANTE2@2x.png'
-import SeptiemeElementImg from '../assets/projects/7eme-element/format-paysage-x2.png'
-import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage-x2.png'
-import MariageImg from '../assets/projects/mariage-mathilde/format-paysage-x2.png'
+import NaturoPattesImg from '../assets/projects/naturopatte/format-paysage.png'
+import CongresNimesImg from '../assets/projects/congres-nimes-tourisme/format-paysage.png'
+import SATetSPLImg from '../assets/projects/plaquette-sat-et-spl/format-paysage.png'
+import SplPlaqueteImg from '../assets/projects/plaquette-spl/format-paysage.png'
+import DomaineAigladeImg from '../assets/projects/domaine-de-laiglade/format-paysage.png'
+import BleuLibelluleImg from '../assets/projects/bleu-libellule/multiple-produit-large/multiple-produits-large.png'
+import SeptiemeElementImg from '../assets/projects/7eme-element/format-paysage.png'
+import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage.png'
+import MariageImg from '../assets/projects/mariage-mathilde/format-paysage.png'
 
 // Images Carre
 import HandsUpCarre from '../assets/projects/hands-up/pexels-tiarrasorte-30048200.png';
@@ -207,7 +207,7 @@ const projects = [
     },
     {
         id: 4,
-        category: 'Plaquette Commerciale',
+        category: 'Brochure',
         title: 'Congrès Nîmes Tourisme',
         image: CongresNimesImg,
         imageCarre: CongresNimesCarre,
@@ -231,7 +231,7 @@ const projects = [
     },
     {
         id: 5,
-        category: 'Plaquette Commerciale',
+        category: 'Brochure',
         title: 'SAT & SPL Agate',
         image: SATetSPLImg,
         imageCarre: SATetSPLCarre,
@@ -248,13 +248,13 @@ const projects = [
             {type: 'double-image',images: [SatSplPlaquetteCarreFermee, SatSplBaseline]},
             {type: 'image-large',image: SatSplDoublePageLarge},
             {type: 'double-image',images: [SatSplImage, SatSplPlaquetteCarreOuverte]},
-            {type: 'image-large',image: SatSplSlider1}, //ici transformer en slider
+            {type: 'slider',images: [SatSplSlider1, SatSplSlider2, SatSplSlider3, SatSplSlider4]},
             {type: 'image-large',image: SatSplCouvertures},
         ]
     },
     {
         id: 6,
-        category: 'Plaquette Commerciale',
+        category: 'Brochure',
         title: 'SPL Agate',
         image: SplPlaqueteImg,
         imageCarre: SplPlaqueteCarre,
@@ -324,7 +324,7 @@ const projects = [
             {type: 'image-large',image: ElementFlyerComplet},
             {type: 'image-large',image: ElementMagazine},
             {type: 'image-large',image: ElementInstaTel},
-            {type: 'quadruple-image',image: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
+            {type: 'quadruple-image',images: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
         ]
     },
     {

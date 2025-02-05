@@ -4,6 +4,7 @@ import '../App.css';
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import {useEffect, useRef, useState} from "react";
+import SliderComponent from "../components/SliderComponent.jsx";
 
 function DetailProjet() {
     const [isFixed, setIsFixed] = useState(false);
@@ -34,6 +35,9 @@ function DetailProjet() {
         };
     }, []);
 
+    let nextProjectId = project.id % projects.length + 1;
+    let previousProjectId = project.id === 1 ? projects.length : project.id - 1;
+
     if (!project) {
         return <Navigate to="/" replace />;
     }
@@ -46,19 +50,33 @@ function DetailProjet() {
             <main className="detail-container">
                 <div className="presentation-projet">
                     <img className="image-presentaion" src={project.image} alt={project.title} />
-                    <div className={`content-presentation ${isFixed ? 'add-margin' : ''}`}>
-                        <div
-                            className={`info ${isFixed ? 'fixed' : ''}`}
-                            ref={infoRef}
-                        >
-                            <div className="category">
-                                <p className="category-title">Catégorie</p>
-                                <p className="category-text">{project.category}</p>
+                    <div className="content-presentation">
+                        <div className="info">
+                            <div className="first-block">
+                                <div className="category">
+                                    <p className="category-title">Catégorie</p>
+                                    <p className="category-text">
+                                        {project.category}
+                                    </p>
+                                </div>
+                                <div className="title">
+                                    <p className="title-title">Projet</p>
+                                    <p className="title-text">
+                                        {project.title}
+                                    </p>
+                                </div>
                             </div>
-                            <span className="divider"></span>
-                            <div className="title">
-                                <p className="title-title">Projet</p>
-                                <p className="title-text">{project.title}</p>
+                            <div className="second-block">
+                                <div className="next-back">
+                                    <a href={`/projet/${previousProjectId}`}><p className="next-text"> {"<"} </p></a>
+                                    <a href={`/projet/${nextProjectId}`}><p className="next-text"> {">"} </p></a>
+                                </div>
+                                <div className="list">
+                                    <a href="/projets"><p className="list-text">VUE D&#39;ENSEMBLE</p></a>
+                                </div>
+                                <div className="contact">
+                                    <a href="/contact"><p className="contact-text">UN PROJET ?</p></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,9 +105,33 @@ function DetailProjet() {
                                         <img src={block.image} alt="" />
                                     </div>
                                 );
+                            case "slider":
+                                return (
+                                    <SliderComponent images={block.images} />
+                                );
                             case "double-image":
                                 return (
                                     <div className="double-image" key={index}>
+                                        {block.images.map((img, imgIndex) => {
+                                            const taille80 = (project.id === 6 && img.includes('6694')) ? 'taille-80' : '';
+                                            const taille20 = (project.id === 6 && img.includes('2')) ? 'taille-20' : '';
+                                            const taille40 = (project.id === 8) && (img.includes('TE2.png') || img.includes('TE2.png') || img.includes('TE2.png') || img.includes('TE2.png')) ? 'taille-40' : '';
+                                            const taille60 = (project.id === 8) && (img.includes('TE.png') || img.includes('TE.png') || img.includes('TE.png') || img.includes('TE.png')) ? 'taille-60' : '';
+
+                                            return (
+                                                <img
+                                                    className={`image-${imgIndex} ${taille20} ${taille40} ${taille60} ${taille80}`}
+                                                    src={img}
+                                                    alt=""
+                                                    key={imgIndex}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                );
+                            case "quadruple-image":
+                                return (
+                                    <div className="quadruple-image" key={index}>
                                         {block.images.map((img, imgIndex) => (
                                             <img className={`${"image-" + imgIndex}`} src={img} alt="" key={imgIndex} />
                                         ))}
@@ -100,9 +142,9 @@ function DetailProjet() {
                         }
                     })}
                 </div>
-                <div className="autre-projet">
-                    <a className="lien-liste-projets" href="/projets">+ de projets</a>
-                </div>
+                {/*<div className="autre-projet">*/}
+                {/*    <a className="lien-liste-projets" href="/projets">+ de projets</a>*/}
+                {/*</div>*/}
             </main>
 
             <Footer />

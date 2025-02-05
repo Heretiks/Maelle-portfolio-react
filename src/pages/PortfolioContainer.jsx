@@ -71,23 +71,36 @@ function PortfolioContainer() {
                 className="background-image"
                 style={{ backgroundImage: `url(${projects[currentProject].image})` }}
             ></div>
-            <div className="content">
+            <div className={`content ${currentProject === 4 ? 'black-text' : ''}`}>
                 <div className="logo">
                     <img src={LogoMc} alt="Logo de Maëlle Camissogo" />
                 </div>
-                <div className="info">
+                <div className="nom-metier">
+                    <p className="nom">MAËLLE CAMISSOGO</p>
+                    <p className="metier">Graphiste</p>
+                </div>
+            </div>
+            <div className="info">
+                <div className={`first-block ${currentProject === 4 ? 'black-text' : ''}`}>
                     <div className="category">
                         <p className="category-title">Catégorie</p>
                         <p className={`category-text ${isChanging && animateCategory ? 'is-changing' : ''}`}>
                             {projects[currentProject].category}
                         </p>
                     </div>
-                    <span className="divider"></span>
                     <div className="title">
                         <p className="title-title">Projet</p>
                         <p className={`title-text ${isChanging ? 'is-changing' : ''}`}>
                             {projects[currentProject].title}
                         </p>
+                    </div>
+                </div>
+                <div className={`second-block ${currentProject === 4 ? 'black-text' : ''}`}>
+                    <div className="next">
+                        <a href="/projets"><p className="next-text">VUE D&#39;ENSEMBLE</p></a>
+                    </div>
+                    <div className="contact">
+                        <a href="/contact"><p className="contact-text">UN PROJET ?</p></a>
                     </div>
                 </div>
             </div>
