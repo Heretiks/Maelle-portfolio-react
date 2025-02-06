@@ -17,23 +17,6 @@ const Header = () => {
                 className="motif"
                 style={{ visibility: "hidden" }}
             />
-            {/*<a*/}
-            {/*    href="/contact"*/}
-            {/*    className="contact-button"*/}
-            {/*    style={{*/}
-            {/*        visibility:*/}
-            {/*            (location.pathname === "/" || location.pathname === "/contact")*/}
-            {/*                ? "hidden"*/}
-            {/*                : "visible",*/}
-            {/*        position: location.pathname.startsWith("/projet/")*/}
-            {/*            ? "fixed"*/}
-            {/*            : "static",*/}
-            {/*        top: location.pathname.startsWith("/projet/") ? "3vh" : "auto",*/}
-            {/*        right: location.pathname.startsWith("/projet/") ? "2vw" : "auto"*/}
-            {/*    }}*/}
-            {/*>*/}
-            {/*    CONTACT*/}
-            {/*</a>*/}
         </header>
     );
 };

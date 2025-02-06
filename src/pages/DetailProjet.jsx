@@ -68,8 +68,12 @@ function DetailProjet() {
                             </div>
                             <div className="second-block">
                                 <div className="next-back">
-                                    <a href={`/projet/${previousProjectId}`}><p className="next-text"> {"<"} </p></a>
-                                    <a href={`/projet/${nextProjectId}`}><p className="next-text"> {">"} </p></a>
+                                    <a href={`/projet/${previousProjectId}`}>
+                                        <p className="prev-text"> {"<"} </p>
+                                    </a>
+                                    <a href={`/projet/${nextProjectId}`}>
+                                        <p className="next-text"> {">"} </p>
+                                    </a>
                                 </div>
                                 <div className="list">
                                     <a href="/projets"><p className="list-text">VUE D&#39;ENSEMBLE</p></a>
@@ -142,9 +146,6 @@ function DetailProjet() {
                         }
                     })}
                 </div>
-                {/*<div className="autre-projet">*/}
-                {/*    <a className="lien-liste-projets" href="/projets">+ de projets</a>*/}
-                {/*</div>*/}
             </main>
 
             <Footer />

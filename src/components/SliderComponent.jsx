@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const SliderComponent = ({ images }) => {
+const Slider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextImage = () => {
@@ -12,6 +12,12 @@ const SliderComponent = ({ images }) => {
             (prevIndex) => (prevIndex - 1 + images.length) % images.length
         );
     };
+
+    useEffect(() => {
+        const interval = setInterval(nextImage, 5000);
+
+        return () => clearInterval(interval); // Nettoyage de l'intervalle au démontage
+    }, [currentIndex]); // Redémarre l'intervalle à chaque changement d'image
 
     return (
         <div className="slider">
@@ -28,4 +34,4 @@ const SliderComponent = ({ images }) => {
     );
 };
 
-export default SliderComponent;
+export default Slider;
