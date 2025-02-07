@@ -6,7 +6,7 @@ import CongresNimesImg from '../assets/projects/congres-nimes-tourisme/format-pa
 import SATetSPLImg from '../assets/projects/plaquette-sat-et-spl/format-paysage.webp'
 import SplPlaqueteImg from '../assets/projects/plaquette-spl/format-paysage.webp'
 import DomaineAigladeImg from '../assets/projects/domaine-de-laiglade/format-paysage.webp'
-import BleuLibelluleImg from '../assets/projects/bleu-libellule/multiple-produit-large/multiple-produits-large.webp'
+import BleuLibelluleImg from '../assets/projects/bleu-libellule/format-paysage.webp'
 import SeptiemeElementImg from '../assets/projects/7eme-element/format-paysage.webp'
 import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage.webp'
 import MariageImg from '../assets/projects/mariage-mathilde/format-paysage.webp'
@@ -25,7 +25,7 @@ import ArtisanFasoCarre from '../assets/projects/artisan-du-faso/131206-2519.web
 import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.webp'
 
 // HandsUp
-import HandsUpDescription from '../assets/projects/hands-up/image-description/pexels-jerchung-2792186.webp';
+import HandsUpDescription from '../assets/projects/hands-up/image-description/image-description.webp';
 import HandsUpCouleurs from '../assets/projects/hands-up/couleurs-identite/Groupe162.webp';
 import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe161.webp';
 import HandsUpMenuLarge from '../assets/projects/hands-up/mockup-menu-large/Groupe163.webp';
@@ -44,7 +44,7 @@ import MaisonMarieMockupFlyerEtCarte from '../assets/projects/maison-marie/mocku
 import MaisonMarieMockupMM from '../assets/projects/maison-marie/mockup-mm/mockup-mm.webp';
 
 // NaturoPattes & Sabots
-import NaturoDescription from '../assets/projects/naturopatte/image-description/pexels-tara-winstead-6694188.webp';
+import NaturoDescription from '../assets/projects/naturopatte/image-description/image-description.webp';
 import NaturoCouleurs from '../assets/projects/naturopatte/couleur-identite/Groupe172.webp';
 import NaturoLogo from '../assets/projects/naturopatte/logo/logo.webp';
 import NaturoLogoLarge from '../assets/projects/naturopatte/mockup-large/logo-large.webp';
@@ -132,6 +132,11 @@ import MariageTampon from '../assets/projects/mariage-mathilde/tampon/tampon.web
 
 //Artisan du Faso
 import FasoAffiche from '../assets/projects/artisan-du-faso/mockup-affiche/mockup-affiche.webp'
+import FasoCarre1 from '../assets/projects/artisan-du-faso/carre-1/carre-1.webp'
+import FasoCarre2 from '../assets/projects/artisan-du-faso/carre-2/carre-2.webp'
+import FasoCarre3 from '../assets/projects/artisan-du-faso/carre-3/carre-3.webp'
+import FasoCarre4 from '../assets/projects/artisan-du-faso/carre-4/carre-4.webp'
+
 
 const projects = [
     {
@@ -194,7 +199,7 @@ const projects = [
                 type: 'description-et-image',
                 text: 'SOUCI EXPRESSIF DU BIEN ÊTRE D’AUTRUI, DÉCOURAGEMENT, PEUR, INCERTITUDE…' +
                     'NATURO’PATTES & SABOTS APPORTE SOLUTIONS AUX PROBLÉMATIQUES DE VOS ANIMAUX À L’AIDE DE LA NATUROPATHIE. ' +
-                    'UN UNIVERS NATUREL, SAIN, LUMINEUX ET HUMAIN;',
+                    'UN UNIVERS NATUREL, SAIN, LUMINEUX ET HUMAIN.',
                 image: NaturoDescription
             },
             {type: 'double-image',images: [NaturoCouleurs, NaturoLogo]},
@@ -220,7 +225,7 @@ const projects = [
                 text: 'RÉPUTÉE POUR SA SITUATION GÉOGRAPHIQUE ENTRE CÉVENNES, PROVENCE ET CAMARGUE, ' +
                     'NÎMES ET SES LIEUX CHARGÉS D’HISTOIRE VOUS ACCUEILLENT POUR L’ORGANISATION DE VOTRE ÉVÈNEMENT. \n\n' +
                     'MISE EN AVANT DES POINTS FORTS DE LA VILLE ET SES ALENTOURS AINSI QUE DES INFRASTRUCTURES ' +
-                    'ET DES OFFRES PROPOSÉS PAR LA BUREAU DES CONFESSIONS DE LA VILLE DE NÎMES',
+                    'ET DES OFFRES PROPOSÉS PAR LA BUREAU DES CONFESSIONS DE LA VILLE DE NÎMES.',
                 image: CongresDescription
             },
             {type: 'image-large',image: CongresLarge1},
@@ -338,6 +343,8 @@ const projects = [
         couleurSecondaire: '#FFFFFF',
         blocks: [
             {type: 'image-large',image: FasoAffiche},
+            {type: 'double-image',images: [FasoCarre1, FasoCarre2]},
+            {type: 'double-image',images: [FasoCarre3, FasoCarre4]},
         ]
     },
     {

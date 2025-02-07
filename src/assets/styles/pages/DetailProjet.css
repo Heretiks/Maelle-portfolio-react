@@ -1,0 +1,307 @@
+/* Style page DetailProjet */
+
+.detail-container {
+    margin: auto auto 20vh;
+    width: 80%;
+
+    .presentation-projet {
+
+        .image-presentaion {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .content-presentation {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 85vh;
+
+            .info {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 12vh;
+                width: 100%;
+                height: 5vh;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                z-index: 100;
+                margin: 0 auto;
+                padding: 1vh 0 1vh 7.5vw;
+                background-color: rgb(255, 255, 255, 0.5);
+                font-size: 14px;
+
+
+                .first-block,
+                .second-block {
+                    display: flex;
+                    text-align: center;
+                }
+
+                .first-block {
+                    width: 45%;
+                    gap: 2vh;
+                    display: flex;
+                    align-items: center;
+
+                    .category,
+                    .title {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        text-transform: uppercase;
+                        font-weight: 800;
+
+                    }
+
+                    .category-text.is-changing,
+                    .title-text.is-changing {
+                        opacity: 0;
+                        transform: translateY(20px);
+                        /*transition: transform 0.5s ease-in-out;*/
+                    }
+
+                    .category-text,
+                    .title-text {
+                        height: 100%;
+                        display: flex;
+                        align-items: flex-end;
+                        transition: transform 0.4s ease-in-out;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    .category {
+                        gap: 10px;
+                        width: 42%;
+
+                        .category-title,
+                        .category-text {
+                            margin: 0;
+                        }
+
+                        .category-text {
+                            font-weight: 500;
+                        }
+                    }
+
+                    .title {
+                        gap: 10px;
+                        width: 52%;
+
+                        .title-title,
+                        .title-text {
+                            margin: 0;
+                        }
+
+                        .title-text {
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .second-block {
+                    color: black;
+                    width: 33%;
+                    font-weight: 800;
+                    justify-content: space-between;
+                    max-height: 100%;
+
+                    .next-back {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 2vw;
+                        text-transform: uppercase;
+                        text-decoration: none;
+
+                        a {
+                            font-size: 20px;
+                            font-weight: 800;
+                            color: black;
+                            text-transform: uppercase;
+                            text-decoration: none;
+
+                            .next-text,
+                            .prev-text {
+                                margin: 9px 0 0;
+                                width: 18px;
+                                height: 18px;
+                                transition: all 0.1s ease;
+                                cursor: default;
+
+                                &:hover {
+                                    scale: 1.4;
+                                }
+
+                                &:active {
+                                    scale: 2;
+                                }
+                            }
+                        }
+                    }
+
+                    .contact {
+                        display: flex;
+                        align-items: center;
+                        text-transform: uppercase;
+                        text-decoration: none;
+
+                        a {
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            color: white;
+
+                            .contact-text {
+                                color: black;
+                                margin: 0;
+                            }
+                        }
+
+                    }
+
+                    .list {
+                        display: flex;
+                        align-items: center;
+                        text-transform: uppercase;
+                        text-decoration: none;
+
+                        a {
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            color: white;
+
+                            .list-text {
+                                color: black;
+                                margin: 0;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+    .info-projet {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15vh;
+        gap: 12px;
+
+        .description-et-image,
+        .double-image,
+        .image-large {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        .description-et-image {
+            flex-direction: row;
+            gap: 12px;
+
+            .description {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 49%;
+
+                .description-text {
+                    margin: auto;
+                    width: 75%;
+                    font-size: 20px;
+                    text-transform: uppercase;
+                }
+            }
+
+            img {
+                width: 49%;
+            }
+        }
+
+        .description-et-image > * {
+            flex: 1 1 0;
+            object-fit: cover;
+            width: 50%;
+            white-space: pre-line;
+        }
+
+        .double-image {
+            display: flex;
+            flex-direction: row;
+            gap: 12px;
+            width: calc(100% - 12px);
+        }
+
+        .double-image > * {
+            flex: 1 1 0;
+            object-fit: cover;
+            width: 50%;
+        }
+
+        .image-large {
+            width: 100%;
+
+            img {
+                width: 100%;
+                /*max-height: 80vh;*/
+                object-fit: cover;
+            }
+        }
+
+        .quadruple-image {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 12px;
+            width: calc(100% - (3 * 12px));
+
+            img {
+                height: auto;
+                object-fit: cover;
+                width: 25%;
+            }
+        }
+
+        .taille-20 {
+            width: 20%;
+        }
+        .taille-40 {
+            width:40%;
+        }
+        .taille-60 {
+            width: 60%;
+        }
+        .taille-80 {
+            width: 80%;
+        }
+    }
+
+    .autre-projet {
+        font-size: 45px;
+        margin: auto;
+        height: 70vh;
+        text-align: center;
+        align-content: center;
+        text-decoration: none;
+
+        .lien-liste-projets {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: black;
+            font-weight: 900;
+        }
+    }
+}

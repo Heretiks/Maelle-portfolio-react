@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const CustomCursor = () => {
     const cursorRef = useRef(null);
-    const [isHovering, setIsHovering] = useState(false); // Nouvel état
+    const [isHovering, setIsHovering] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const cursor = cursorRef.current;
@@ -11,7 +13,7 @@ const CustomCursor = () => {
         let mouseY = 0;
         let currentX = 0;
         let currentY = 0;
-        const speed = 0.1; // Vitesse de l'interpolation
+        const speed = 0.1;
 
         const followMouse = () => {
             currentX += (mouseX - currentX) * speed;
@@ -30,17 +32,17 @@ const CustomCursor = () => {
         };
 
         const handleMouseEnterLink = () => {
-            setIsHovering(true); // Activer l'état quand on survole un lien
+            setIsHovering(true);
         };
 
         const handleMouseLeaveLink = () => {
-            setIsHovering(false); // Désactiver l'état quand on quitte le lien
+            setIsHovering(false);
         };
 
-        // Écoute des mouvements de souris
+        // Listener pour le mouvement de la souris
         window.addEventListener("mousemove", handleMouseMove);
 
-        // Écoute des événements de survol de lien
+        // Listener pour le survol des liens
         const links = document.querySelectorAll("a");
         links.forEach((link) => {
             link.addEventListener("mouseenter", handleMouseEnterLink);
@@ -57,6 +59,21 @@ const CustomCursor = () => {
             });
         };
     }, []);
+
+    // Réinitialiser le curseur lors du changement d'URL
+    useEffect(() => {
+        // Ce useEffect réinitialise le curseur mais ne désactive pas la logique de hover
+        const linksAndButtons = [...document.querySelectorAll("a"), ...document.querySelectorAll("button")];
+
+        // Reset l'état de survol à false au moment du changement de page, mais n'affecte pas le hover
+        setIsHovering(false);
+
+        // Réactive les listeners pour que le hover fonctionne correctement après un changement de page
+        linksAndButtons.forEach((link) => {
+            link.addEventListener("mouseenter", () => setIsHovering(true));
+            link.addEventListener("mouseleave", () => setIsHovering(false));
+        });
+    }, [location.pathname]); // Dépendance sur le changement d'URL
 
     return (
         <div

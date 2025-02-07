@@ -1,0 +1,23 @@
+/* Style composant CustomCursor */
+
+/* Curseur par défaut */
+.custom-cursor {
+    position: fixed;
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease;
+}
+
+/* Curseur en hover de lien */
+.custom-cursor.hover {
+    width: 24px;
+    height: 24px;
+}
+

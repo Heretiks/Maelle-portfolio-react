@@ -1,4 +1,8 @@
 import { useState, useEffect } from 'react';
+import '../assets/styles/components/Slider.css';
+
+import LeftBullet from '../assets/global/left-bullet-point.svg';
+import RightBullet from '../assets/global/right-bullet-point.svg';
 
 const Slider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,15 +26,16 @@ const Slider = ({ images }) => {
     return (
         <div className="slider">
             <button className="arrow left" onClick={prevImage}>
-                {"<"}
+                <img src={LeftBullet} alt="Previous" className="arrow-icon" />
             </button>
             <div className="image-container">
                 <img src={images[currentIndex]} alt="Slider" className="slider-image" />
             </div>
             <button className="arrow right" onClick={nextImage}>
-                {">"}
+                <img src={RightBullet} alt="Next" className="arrow-icon" />
             </button>
         </div>
+
     );
 };
 

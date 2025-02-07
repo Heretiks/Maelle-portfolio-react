@@ -1,10 +1,14 @@
-import { useParams, Navigate } from 'react-router-dom';
+import {useParams, Navigate, Link} from 'react-router-dom';
 import projects from '../data/projets.js';
-import '../App.css';
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import {useEffect, useRef, useState} from "react";
 import SliderComponent from "../components/SliderComponent.jsx";
+import '../assets/styles/pages/DetailProjet.css';
+
+import LeftBullet from '../assets/global/left-bullet-point.svg';
+import RightBullet from '../assets/global/right-bullet-point.svg';
+
 
 function DetailProjet() {
     const [isFixed, setIsFixed] = useState(false);
@@ -68,18 +72,18 @@ function DetailProjet() {
                             </div>
                             <div className="second-block">
                                 <div className="next-back">
-                                    <a href={`/projet/${previousProjectId}`}>
-                                        <p className="prev-text"> {"<"} </p>
-                                    </a>
-                                    <a href={`/projet/${nextProjectId}`}>
-                                        <p className="next-text"> {">"} </p>
-                                    </a>
+                                    <Link to={`/projet/${previousProjectId}`}>
+                                        <img src={LeftBullet} alt="Left bullet" className="prev-text" />
+                                    </Link>
+                                    <Link to={`/projet/${nextProjectId}`}>
+                                        <img src={RightBullet} alt="Left bullet" className="next-text" />
+                                    </Link>
                                 </div>
                                 <div className="list">
-                                    <a href="/projets"><p className="list-text">VUE D&#39;ENSEMBLE</p></a>
+                                    <Link to="/projets"><p className="list-text">VUE D&#39;ENSEMBLE</p></Link>
                                 </div>
                                 <div className="contact">
-                                    <a href="/contact"><p className="contact-text">UN PROJET ?</p></a>
+                                    <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>
                                 </div>
                             </div>
                         </div>
@@ -119,8 +123,8 @@ function DetailProjet() {
                                         {block.images.map((img, imgIndex) => {
                                             const taille80 = (project.id === 6 && img.includes('6694')) ? 'taille-80' : '';
                                             const taille20 = (project.id === 6 && img.includes('2')) ? 'taille-20' : '';
-                                            const taille40 = (project.id === 8) && (img.includes('TE2.png') || img.includes('TE2.png') || img.includes('TE2.png') || img.includes('TE2.png')) ? 'taille-40' : '';
-                                            const taille60 = (project.id === 8) && (img.includes('TE.png') || img.includes('TE.png') || img.includes('TE.png') || img.includes('TE.png')) ? 'taille-60' : '';
+                                            const taille40 = (project.id === 8) && (img.includes('TE2.webp') || img.includes('TE2.webp') || img.includes('TE2.webp') || img.includes('TE2.webp')) ? 'taille-40' : '';
+                                            const taille60 = (project.id === 8) && (img.includes('TE.webp') || img.includes('TE.webp') || img.includes('TE.webp') || img.includes('TE.webp')) ? 'taille-60' : '';
 
                                             return (
                                                 <img

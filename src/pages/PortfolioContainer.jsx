@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import projects from '../data/projets.js';
 import LogoMc from '../assets/global/logo.svg';
-import '../App.css';
+import '../assets/styles/pages/PortfolioContainer.css';
+import {Link} from "react-router-dom";
+
 
 function PortfolioContainer() {
     const [currentProject, setCurrentProject] = useState(() => Math.floor(Math.random() * projects.length));
@@ -66,7 +68,7 @@ function PortfolioContainer() {
     }, [currentProject]);
 
     return (
-        <a className="portfolio-container" href={`/projet/${projects[currentProject].id}`}>
+        <Link className="portfolio-container" to={`/projet/${projects[currentProject].id}`}>
             <div
                 className="background-image"
                 style={{ backgroundImage: `url(${projects[currentProject].image})` }}
@@ -97,14 +99,14 @@ function PortfolioContainer() {
                 </div>
                 <div className={`second-block ${currentProject === 4 ? 'black-text' : ''}`}>
                     <div className="next">
-                        <a href="/projets"><p className="next-text">VUE D&#39;ENSEMBLE</p></a>
+                        <Link to="/projets"><p className="next-text">VUE D&#39;ENSEMBLE</p></Link>
                     </div>
                     <div className="contact">
-                        <a href="/contact"><p className="contact-text">UN PROJET ?</p></a>
+                        <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }
 

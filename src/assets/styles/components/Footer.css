@@ -1,0 +1,13 @@
+/* Style composant Footer */
+
+.footer {
+    display: flex;
+    margin-top: 8vh;
+    justify-content: center;
+    align-items: flex-end;
+
+    .end-motif {
+        width: 18vw;
+    }
+
+}

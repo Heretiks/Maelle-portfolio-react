@@ -1,0 +1,39 @@
+/* Style page Contact */
+
+.contact-page {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .contact-container {
+        height: 60%;
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 100%;
+            width: 75%;
+            margin: auto;
+
+            .contact-input {
+                width: 50%;
+                height: 45px;
+            }
+
+            .contact-textarea {
+                width: 50%;
+                height: 160px;
+                resize: none;
+            }
+
+            .contact-input,
+            .contact-textarea {
+                border: solid 1px #707070;
+            }
+        }
+
+    }
+}
