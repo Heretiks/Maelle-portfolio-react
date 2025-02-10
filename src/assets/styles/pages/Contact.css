@@ -1,39 +1,107 @@
-/* Style page Contact */
-
-.contact-page {
+.container {
     display: flex;
-    height: 100vh;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+    height: 100vh;
 
-    .contact-container {
-        height: 60%;
+    position: relative;
+    overflow: hidden;
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            height: 100%;
-            width: 75%;
-            margin: auto;
+    .motif {
+        position: absolute;
+        width: 28vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-            .contact-input {
-                width: 50%;
-                height: 45px;
+    .motif-top {
+        top: 0;
+        transform: translate(-50%, -50%);
+    }
+    .motif-bottom {
+        bottom: 0;
+        transform: translate(-50%, 50%);
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 85%;
+        margin: auto;
+
+        .logo {
+            width: 15%;
+            transition: all 0.3s ease-in-out;
+
+            .logo-img {
+                width: 100%;
+                height: auto;
             }
 
-            .contact-textarea {
-                width: 50%;
-                height: 160px;
-                resize: none;
+            &:hover {
+                scale: 1.2;
+            }
+        }
+
+        .form-container {
+            width: 40%;
+            /*max-width: 400px;*/
+
+            .title {
+                text-align: center;
+                font-size: 22px;
+                font-weight: 800;
+                margin-bottom: 80px;
             }
 
-            .contact-input,
-            .contact-textarea {
-                border: solid 1px #707070;
+            .form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+
+                .input,
+                .textarea {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid black;
+                    outline-color: black;
+                }
+
+                .textarea {
+                    width: 100%;
+                    min-height: 100px;
+                    max-height: 180px;
+                    resize: vertical;
+                }
+
+                .button {
+                    padding: 10px 20px;
+                    font-weight: 800;
+                    border: none;
+                    border-radius: 10%;
+                    background: none;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+                    margin-top: 30px;
+                }
+
+                .button:hover {
+                    scale: 1.2;
+                }
             }
         }
 
     }
 }
+
+
+
+
+
+
+
+
+

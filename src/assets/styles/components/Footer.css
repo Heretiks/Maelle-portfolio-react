@@ -2,12 +2,34 @@
 
 .footer {
     display: flex;
-    margin-top: 8vh;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    width: 94vw;
+    height: 8vh;
+    margin: 2vh 3vw 0 3vw;
 
-    .end-motif {
-        width: 18vw;
+    .nom-maelle {
+        text-transform: uppercase;
+        color: black;
+        font-weight: 800;
+        font-size: 14px;
     }
+
+    .contact-link {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black;
+        font-weight: 800;
+        font-size: 16px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            scale: 1.2;
+        }
+    }
+
+    /*.end-motif {*/
+    /*    width: 18vw;*/
+    /*}*/
 
 }

@@ -1,55 +1,41 @@
-import Header from "../components/Header.jsx";
-import Footer from "../components/Footer.jsx";
-import '../assets/styles/pages/Contact.css';
+import "../assets/styles/pages/Contact.css"; // Importation du fichier CSS
+import Motif from '../assets/global/motif-grand.png'
+import Logo from '../assets/global/logo.svg'
+import {Link} from "react-router-dom";
 
+const ContactForm = () => {
 
-const Contact = () => {
+    // Quand on clique sur le bouton Envoyer :
+    //    - Verification des données (nom, mail et message)
+    //    - Envoi des infos du formulaire via EmailJS à l'adresse : contact@portfolio.com
+
     return (
-        <div className="contact-page">
-            <Header/>
+        <div className="container">
+            {/* Motif du haut */}
+            <img src={Motif} alt="Motif haut" className="motif motif-top" />
 
-            {/* Formulaire de contact */}
-            <main className="contact-container">
+            <div className="content">
+                {/* Logo MC */}
+                <Link to="/" className="logo">
+                    <img src={Logo} alt="Logo MC" className="logo-img" />
+                </Link>
 
-                <form className="contact-form" /*onSubmit={handleSubmit}*/>
-                    <input
-                        type="text"
-                        name="nom"
-                        placeholder="Votre nom"
-                        // value={formData.nom}
-                        // onChange={handleChange}
-                        required
-                        className="contact-input"
-                        maxLength="32"
-                    />
-                    <input
-                        type="email"
-                        name="mail"
-                        placeholder="Votre email"
-                        // value={formData.mail}
-                        // onChange={handleChange}
-                        required
-                        className="contact-input"
-                        maxLength="50"
-                    />
-                    <textarea
-                        name="message"
-                        placeholder="Votre message"
-                        // value={formData.message}
-                        // onChange={handleChange}
-                        required
-                        rows="5"
-                        className="contact-textarea"
-                        maxLength="500"
-                    />
-                    <button type="submit" className="contact-button">Envoyer</button>
-                </form>
+                {/* Formulaire */}
+                <div className="form-container">
+                    <h2 className="title">PARLONS DE VOTRE PROJET</h2>
+                    <form className="form">
+                        <input type="text" placeholder="NOM" className="input" />
+                        <input type="email" placeholder="MAIL" className="input" />
+                        <textarea placeholder="MESSAGE" className="textarea"></textarea>
+                        <button type="submit" className="button">ENVOYER</button>
+                    </form>
+                </div>
+            </div>
 
-            </main>
-
-            <Footer/>
+            {/* Motif du bas */}
+            <img src={Motif} alt="Motif bas" className="motif motif-bottom" />
         </div>
     );
 };
 
-export default Contact;
+export default ContactForm;

@@ -5,8 +5,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0 1vw 5vh;
-    width: 98vw;
+    margin: 0 3vw 5vh 1vw;
+    width: 96vw;
 
     .logo {
         align-self: end;
@@ -42,6 +42,22 @@
 
         &:hover {
             font-size: 21px;
+        }
+    }
+
+    .contact-link {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black;
+        font-weight: 800;
+        font-size: 16px;
+        /*position: fixed;*/
+        top: 40px;
+        right: 40px;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            scale: 1.2;
         }
     }
 }

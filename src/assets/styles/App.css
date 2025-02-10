@@ -5,11 +5,6 @@
 
 html, body, * {
   /*cursor: none;*/
-
-  img {
-    image-rendering: crisp-edges; /* Ou 'pixelated' pour un style plus graphique */
-  }
-
 }
 
 /* Suppression de la scrollbar */

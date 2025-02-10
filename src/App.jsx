@@ -8,6 +8,7 @@ import ListingProject from './pages/ListingProjects.jsx';
 import Contact from './pages/Contact.jsx';
 import DetailProjet from './pages/DetailProjet.jsx';
 import CustomCursor from "./components/CustomCursor.jsx";
+import LegalPage from "./pages/LegalPage.jsx";
 
 function App() {
     const location = useLocation();
@@ -53,6 +54,8 @@ function App() {
                 <Route path="/projets" element={<ListingProject />} />
                 <Route path="/projet/:projectId" element={<DetailProjet />} />
                 <Route path="/contact" element={<Contact />} />
+
+                <Route path="/mentions-legales" element={<LegalPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </>

@@ -29,13 +29,19 @@ const Slider = ({ images }) => {
                 <img src={LeftBullet} alt="Previous" className="arrow-icon" />
             </button>
             <div className="image-container">
-                <img src={images[currentIndex]} alt="Slider" className="slider-image" />
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        src={image}
+                        alt="Slider"
+                        className={`slider-image ${index === currentIndex ? 'active' : ''}`}
+                    />
+                ))}
             </div>
             <button className="arrow right" onClick={nextImage}>
                 <img src={RightBullet} alt="Next" className="arrow-icon" />
             </button>
         </div>
-
     );
 };
 

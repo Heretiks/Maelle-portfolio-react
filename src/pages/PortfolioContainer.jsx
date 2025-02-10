@@ -98,8 +98,8 @@ function PortfolioContainer() {
                     </div>
                 </div>
                 <div className={`second-block ${currentProject === 4 ? 'black-text' : ''}`}>
-                    <div className="next">
-                        <Link to="/projets"><p className="next-text">VUE D&#39;ENSEMBLE</p></Link>
+                    <div className="listing">
+                        <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
                     </div>
                     <div className="contact">
                         <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>

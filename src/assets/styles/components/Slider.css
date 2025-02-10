@@ -7,15 +7,28 @@
     position: relative;
     width: 100%;
     margin: auto;
+    overflow: hidden;
 
     .image-container {
         width: 100%;
-        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        aspect-ratio: 16 / 9;
 
         .slider-image {
+            position: absolute; /* Positionnement absolu pour empiler les images */
             width: 100%;
             height: auto;
             display: block;
+            transition: opacity 0.5s ease-in-out; /* Effet de fondu fluide */
+            opacity: 0; /* Les images commencent avec opacité 0 */
+            object-fit: cover;
+        }
+
+        .slider-image.active {
+            opacity: 1; /* Lorsque l'image est active, elle devient visible */
         }
     }
 

@@ -79,8 +79,8 @@ function DetailProjet() {
                                         <img src={RightBullet} alt="Left bullet" className="next-text" />
                                     </Link>
                                 </div>
-                                <div className="list">
-                                    <Link to="/projets"><p className="list-text">VUE D&#39;ENSEMBLE</p></Link>
+                                <div className="listing">
+                                    <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
                                 </div>
                                 <div className="contact">
                                     <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>

@@ -45,6 +45,11 @@ const Header = () => {
                 className="motif"
                 style={{ visibility: "hidden" }}
             />
+            <Link
+                className="contact-link"
+                to="/contact"
+                style={{ visibility: location.pathname.startsWith('/projets') ? "initial" : "hidden " }}
+            >Un projet ?</Link>
         </header>
     );
 };

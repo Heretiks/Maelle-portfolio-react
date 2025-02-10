@@ -71,19 +71,14 @@
         width: 100%;
         height: 4vh;
         display: flex;
-        font-size: 16px;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         margin: 0 0 2vh 15vw;
         font-size: 14px;
 
-        .first-block,
-        .second-block {
-            display: flex;
-        }
-
         .first-block {
+            display: flex;
             width: 58%;
             gap: 2vh;
 
@@ -92,7 +87,7 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
-                align-items: center;
+                align-items: flex-end;
                 text-transform: uppercase;
                 font-weight: 800;
 
@@ -144,6 +139,7 @@
         }
 
         .second-block {
+            display: flex;
             width: 34%;
             font-weight: 800;
             justify-content: space-around;
@@ -159,12 +155,18 @@
 
                     .contact-text {
                         margin: 0;
+                        transition: scale 0.2s ease-in-out;
+
+                        &:hover {
+                            scale: 1.1;
+                            cursor: default;
+                        }
                     }
                 }
 
             }
 
-            .next {
+            .listing {
                 text-transform: uppercase;
                 text-decoration: none;
 
@@ -173,8 +175,14 @@
                     text-decoration: none;
                     color: white;
 
-                    .next-text {
+                    .listing-text {
                         margin: 0;
+                        transition: scale 0.2s ease-in-out;
+
+                        &:hover {
+                            scale: 1.1;
+                            cursor: default;
+                        }
                     }
                 }
             }
