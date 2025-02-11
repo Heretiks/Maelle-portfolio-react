@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import projects from '../data/projets.js';
 import LogoMc from '../assets/global/logo.svg';
+import Motif from '../assets/global/motif-grand.png';
 import '../assets/styles/pages/PortfolioContainer.css';
 import {Link} from "react-router-dom";
 
@@ -34,7 +35,6 @@ function PortfolioContainer() {
                     setIsChanging(true);
                     setTimeout(() => setIsChanging(false), 500);
 
-                    // Vérifie si la catégorie est identique et met à jour l'état
                     setAnimateCategory(projects[nextProjectIndex].category !== projects[currentProject].category);
 
                     setCurrentProject(nextProjectIndex);
@@ -47,8 +47,52 @@ function PortfolioContainer() {
             });
         };
 
+        // Événement pour la souris
         window.addEventListener('wheel', handleWheel);
-        return () => window.removeEventListener('wheel', handleWheel);
+
+        // Gestion des événements touch (mobile)
+        let touchStartY = 0;
+        const handleTouchStart = (e) => {
+            touchStartY = e.touches[0].clientY;
+        };
+
+        const handleTouchMove = (e) => {
+            if (isScrolling) return;
+
+            const touchEndY = e.touches[0].clientY;
+            const swipeDistance = touchStartY - touchEndY;
+
+            if (Math.abs(swipeDistance) >= SCROLL_THRESHOLD) {
+                let nextProjectIndex = currentProject;
+
+                if (swipeDistance > 0) {
+                    nextProjectIndex = (currentProject + 1) % projects.length; // Swipe vers le bas
+                } else if (swipeDistance < 0) {
+                    nextProjectIndex = (currentProject - 1 + projects.length) % projects.length; // Swipe vers le haut
+                }
+
+                if (nextProjectIndex !== currentProject) {
+                    setIsChanging(true);
+                    setTimeout(() => setIsChanging(false), 500);
+
+                    setAnimateCategory(projects[nextProjectIndex].category !== projects[currentProject].category);
+
+                    setCurrentProject(nextProjectIndex);
+                    setIsScrolling(true);
+                    setTimeout(() => setIsScrolling(false), SCROLL_DELAY);
+                    touchStartY = 0; // Réinitialiser pour éviter les faux déclenchements
+                }
+            }
+        };
+
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchmove', handleTouchMove);
+
+        return () => {
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
+        };
     }, [isScrolling, currentProject]);
 
     // Auto-scroll toutes les 3 secondes
@@ -73,6 +117,9 @@ function PortfolioContainer() {
                 className="background-image"
                 style={{ backgroundImage: `url(${projects[currentProject].image})` }}
             ></div>
+            <div className="background-motif">
+                <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+            </div>
             <div className={`content ${currentProject === 4 ? 'black-text' : ''}`}>
                 <div className="logo">
                     <img src={LogoMc} alt="Logo de Maëlle Camissogo" />

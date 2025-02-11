@@ -1,3 +1,5 @@
+/* Style page Contact */
+
 .container {
     display: flex;
     flex-direction: column;
@@ -41,13 +43,12 @@
             }
 
             &:hover {
-                scale: 1.2;
+                scale: 1.1;
             }
         }
 
         .form-container {
             width: 40%;
-            /*max-width: 400px;*/
 
             .title {
                 text-align: center;
@@ -95,13 +96,116 @@
         }
 
     }
+
+    .retour-accueil {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .retour-listing {
+        position: absolute;
+        top: 28px;
+        left: 120px;
+        color: black;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+
+        .lien-listing {
+            margin: 0;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
 }
 
 
+/* Styles pour les écrans type tablette */
+@media (max-width: 900px) {
+    .container {
 
+        .retour-listing {
+            right: 40px;
+            left: auto;
+        }
 
+        .content {
 
+            .logo {
+                width: 20%;
+            }
 
+            .form-container {
+                width: 50%;
+            }
+        }
+    }
+}
 
+@media (max-width: 650px) {
+    .container {
 
+        .motif {
+            width: 25vh;
+        }
 
+        .retour-listing {
+            right: 20px;
+            left: auto;
+        }
+    }
+}
+
+/* Styles pour les écrans type smartphone */
+@media (max-width: 500px) {
+    .container {
+        overflow: auto;
+
+        .retour-listing {
+            visibility: hidden;
+        }
+
+        .motif-bottom {
+            display: none;
+        }
+
+        .content {
+            flex-direction: column;
+            gap: 5vh;
+            margin-top: 15vh;
+
+            .logo {
+                width: 25%;
+            }
+
+            .form-container {
+                width: auto;
+                margin-bottom: 5vh;
+
+                .title {
+                    margin-bottom: 7vh;
+                }
+            }
+        }
+    }
+}

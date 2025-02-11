@@ -64,3 +64,30 @@
         right: 20px;
     }
 }
+
+
+/* Styles pour les écrans type tablette */
+@media (max-width: 900px) {
+    .slider {
+
+
+    }
+}
+
+/*@media (max-width: 650px) {*/
+/*    .slider {*/
+
+/*    }*/
+/*}*/
+
+/* Styles pour les écrans type smartphone */
+@media (max-width: 500px) {
+    .slider {
+        height: 30vh;
+
+        .image-container {
+            height: 100%;
+            width: auto;
+        }
+    }
+}

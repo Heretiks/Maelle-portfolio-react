@@ -7,6 +7,11 @@
     padding: 0 20px;
     width: auto;
 
+    .header {
+        margin: 0 3vw 5vh 2.5vw;
+        width: 94.5vw;
+    }
+
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
@@ -29,6 +34,79 @@
 
             img:hover {
                 transform: scale(1.5);
+            }
+        }
+    }
+
+    .footer {
+        margin: 2vh 3vw 0 5vw;
+        width: 92vw;
+    }
+}
+
+
+/* Styles pour les écrans type tablette */
+@media (max-width: 900px) {
+    .listing-projects {
+
+        .header {
+            margin: 5vh 3vw 1vh 2.5vw;
+
+            .logo {
+                align-self: center;
+
+                .logo-image {
+                    width: 75px;
+                }
+            }
+
+            .motif {
+                padding: 0;
+            }
+
+            .contact-link {
+                align-self: flex-start;
+            }
+        }
+
+        .grid {
+            gap: 8px;
+            max-width: 90%;
+            margin-top: 5vh;
+        }
+
+    }
+}
+
+/*@media (max-width: 650px) {*/
+/*    .listing-projects {*/
+
+/*    }*/
+/*}*/
+
+/* Styles pour les écrans type smartphone */
+@media (max-width: 500px) {
+    .listing-projects {
+
+        .header {
+            width: 96vw;
+            margin: 4vh 0 2vh 0;
+        }
+
+        .grid {
+            grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+            max-width: 100%;
+            /*gap: 8px;*/
+        }
+
+        .footer {
+
+            .nom-maelle {
+                font-size: 10px;
+            }
+
+            .contact-link {
+                font-size: 13px;
             }
         }
     }

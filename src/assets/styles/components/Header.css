@@ -11,6 +11,7 @@
     .logo {
         align-self: end;
         z-index: 1000;
+        transition: all 0.2s ease-in-out;
 
         .logo-image {
             width: 113px;
@@ -20,6 +21,10 @@
 
         .logo-image.inverted {
             filter: invert(1);
+        }
+
+        &:hover {
+            scale: 1.2;
         }
     }
 

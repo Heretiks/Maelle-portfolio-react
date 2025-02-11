@@ -26,6 +26,18 @@
         transition: background-image 0.5s ease-in-out;
     }
 
+    .background-motif {
+        position: absolute;
+        width: 28vh;
+        right: -14vh;
+        transform: rotate(90deg);
+        z-index: 1000000;
+
+        img {
+            width: 100%;
+        }
+    }
+
     .content {
         display: flex;
         flex-direction: column;
@@ -202,5 +214,53 @@
             color: black !important;
             transition: all 0.3s ease-in-out;
         }
+    }
+}
+
+/* Styles pour les écrans type tablette */
+@media (max-width: 900px) {
+    .portfolio-container {
+
+        .info {
+
+            .first-block {
+                width: 70%;
+                gap: 0;
+
+                .category {
+                    width: 50%;
+                }
+
+                .title {
+                    width: 57%;
+                }
+            }
+
+            .second-block {
+                width: 30%;
+                justify-content: flex-start;
+
+                .listing {
+
+                }
+
+                .contact {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+/*@media (max-width: 650px) {*/
+/*    .portfolio-container {*/
+
+/*    }*/
+/*}*/
+
+/* Styles pour les écrans type smartphone */
+@media (max-width: 500px) {
+    .portfolio-container {
+
     }
 }

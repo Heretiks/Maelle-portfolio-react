@@ -1,6 +1,7 @@
 import "../assets/styles/pages/Contact.css"; // Importation du fichier CSS
 import Motif from '../assets/global/motif-grand.png'
 import Logo from '../assets/global/logo.svg'
+import Bullet from '../assets/global/left-bullet-point.svg';
 import {Link} from "react-router-dom";
 
 const ContactForm = () => {
@@ -11,6 +12,15 @@ const ContactForm = () => {
 
     return (
         <div className="container">
+
+            <Link to="/" className="retour-accueil">
+                <img src={Bullet} alt="Next" className="arrow-icon" />
+            </Link>
+
+            <Link to="/projets" className="retour-listing">
+                <p className="lien-listing">Vue d&#39;ensemble</p>
+            </Link>
+
             {/* Motif du haut */}
             <img src={Motif} alt="Motif haut" className="motif motif-top" />
 
