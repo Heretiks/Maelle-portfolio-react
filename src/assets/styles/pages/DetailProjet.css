@@ -149,6 +149,10 @@
                                     }
                                 }
                             }
+
+                            .listing {
+                                display: none;
+                            }
                         }
 
                         .contact {
@@ -325,35 +329,117 @@
 
 }
 
-/* Styles pour les écrans type tablette */
-@media (max-width: 900px) {
+/* Styles pour les écrans type ordinateur large */
+@media (min-width: 1600px) {
     .detail-projet {
+
+        .header {
+
+            .logo {
+
+                /*.logo-image {*/
+                /*    width: 150px;*/
+                /*    height: 60px;*/
+                /*}*/
+            }
+        }
+    }
+}
+
+
+/* Styles pour les écrans type tablette */
+@media (max-width: 800px) {
+    .detail-projet {
+
+        .header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            margin: 1.5vh 0 0 0;
+
+            .burger-icon {
+                align-self: center;
+            }
+        }
 
         .detail-container {
             margin: auto auto 10vh;
 
-            .info-projet {
+            .presentation-projet {
 
-                .description-et-image {
-                    flex-direction: column-reverse;
-                    align-items: center;
+                .content-presentation {
 
-                    .description {
-                        width: 100%;
-                        min-height: 30vh;
+                    .info {
+                        padding: 1vh 0;
 
-                        .description-text {
-                            margin: 3vh auto;
+                        .first-block {
+                            display: none;
+                        }
+
+                        .second-block {
+                            width: 100%;
+                            height: 100%;
+                            justify-content: center;
+
+                            .listing {
+                                display: none;
+                            }
+
+                            .contact {
+                                display: none;
+                            }
+
+                            .next-back {
+                                position: absolute;
+                                bottom: 1vh;
+                                width: 80%;
+                                justify-content: space-between;
+                                text-align: center;
+
+                                a {
+
+                                    .next-text, .prev-text {
+                                        width: 25px;
+                                        height: 25px;
+
+                                        &:hover{
+                                            scale: 1;
+                                        }
+                                    }
+                                }
+
+                                .listing {
+                                    display: block;
+
+                                    .listing-text {
+                                        font-size: 16px;
+                                    }
+                                }
+
+                            }
                         }
                     }
+                }
+            }
 
-                    img {
-                        width: 100%;
+            .info-projet {
+                gap: 8px;
+                margin-top: 25vh;
+
+                .description-et-image {
+                    gap: 8px;
+
+                    .description {
+
+                        .description-text {
+                            font-size: 16px;
+                        }
                     }
                 }
 
                 .double-image {
-
+                    gap: 8px;
+                    width: calc(100% - 8px);
                 }
 
                 .image-large {
@@ -361,7 +447,8 @@
                 }
 
                 .quadruple-image {
-
+                    width: calc(100% - (3 * 8px));
+                    gap: 8px;
                 }
 
             }
@@ -380,20 +467,31 @@
     .detail-projet {
 
         .header {
-            width: 100%;
-            margin: 5vh 0 0 0;
+            position: fixed;
+            top: 0;
+            margin: 2.5vh 0 0 0;
+
+            .logo {
+
+                .logo-image {
+                    width: 95px;
+                    height: 40px;
+                }
+            }
+
+            .burger-icon {
+                align-self: flex-start;
+            }
         }
 
         .detail-container {
-            margin: auto auto 10vh;
+            margin: auto auto 6vh;
 
             .info-projet {
-                gap: 8px;
 
                 .description-et-image {
                     flex-direction: column-reverse;
                     align-items: center;
-                    gap: 8px;
                     width: 100%;
 
                     .description {
@@ -414,7 +512,6 @@
                 .double-image {
                     flex-direction: column;
                     align-items: center;
-                    gap: 8px;
                     width: 100%;
 
                     & > * {
@@ -427,8 +524,7 @@
                 }
 
                 .quadruple-image {
-                    width: calc(100% - (3 * 8px));
-                    gap: 8px;
+
                 }
 
             }

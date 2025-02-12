@@ -4,6 +4,7 @@ import LogoMc from '../assets/global/logo.svg';
 import Motif from '../assets/global/motif-grand.png';
 import '../assets/styles/pages/PortfolioContainer.css';
 import {Link} from "react-router-dom";
+import Header from "../components/Header.jsx";
 
 
 function PortfolioContainer() {
@@ -112,48 +113,54 @@ function PortfolioContainer() {
     }, [currentProject]);
 
     return (
-        <Link className="portfolio-container" to={`/projet/${projects[currentProject].id}`}>
-            <div
-                className="background-image"
-                style={{ backgroundImage: `url(${projects[currentProject].image})` }}
-            ></div>
-            <div className="background-motif">
-                <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+        <div className="portfolio-home">
+            <div className={`${currentProject === 4 ? 'black-menu' : ''}`}>
+                <Header/>
             </div>
-            <div className={`content ${currentProject === 4 ? 'black-text' : ''}`}>
-                <div className="logo">
-                    <img src={LogoMc} alt="Logo de Maëlle Camissogo" />
+
+            <Link className="portfolio-container" to={`/projet/${projects[currentProject].id}`}>
+                <div
+                    className="background-image"
+                    style={{ backgroundImage: `url(${projects[currentProject].image})` }}
+                ></div>
+                <div className="background-motif">
+                    <img src={Motif} alt="Motif de Maëlle Camissogo"/>
                 </div>
-                <div className="nom-metier">
-                    <p className="nom">MAËLLE CAMISSOGO</p>
-                    <p className="metier">Graphiste</p>
-                </div>
-            </div>
-            <div className="info">
-                <div className={`first-block ${currentProject === 4 ? 'black-text' : ''}`}>
-                    <div className="category">
-                        <p className="category-title">Catégorie</p>
-                        <p className={`category-text ${isChanging && animateCategory ? 'is-changing' : ''}`}>
-                            {projects[currentProject].category}
-                        </p>
+                <div className={`content ${currentProject === 4 ? 'black-text' : ''}`}>
+                    <div className="logo">
+                        <img src={LogoMc} alt="Logo de Maëlle Camissogo" />
                     </div>
-                    <div className="title">
-                        <p className="title-title">Projet</p>
-                        <p className={`title-text ${isChanging ? 'is-changing' : ''}`}>
-                            {projects[currentProject].title}
-                        </p>
+                    <div className="nom-metier">
+                        <p className="nom">MAËLLE CAMISSOGO</p>
+                        <p className="metier">Graphiste</p>
                     </div>
                 </div>
-                <div className={`second-block ${currentProject === 4 ? 'black-text' : ''}`}>
-                    <div className="listing">
-                        <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
+                <div className="info">
+                    <div className={`first-block ${currentProject === 4 ? 'black-text' : ''}`}>
+                        <div className="category">
+                            <p className="category-title">Catégorie</p>
+                            <p className={`category-text ${isChanging && animateCategory ? 'is-changing' : ''}`}>
+                                {projects[currentProject].category}
+                            </p>
+                        </div>
+                        <div className="title">
+                            <p className="title-title">Projet</p>
+                            <p className={`title-text ${isChanging ? 'is-changing' : ''}`}>
+                                {projects[currentProject].title}
+                            </p>
+                        </div>
                     </div>
-                    <div className="contact">
-                        <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>
+                    <div className={`second-block ${currentProject === 4 ? 'black-text' : ''}`}>
+                        <div className="listing">
+                            <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
+                        </div>
+                        <div className="contact">
+                            <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </div>
     );
 }
 

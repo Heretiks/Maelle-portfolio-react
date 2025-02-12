@@ -6,9 +6,12 @@
     align-items: center;
     justify-content: space-between;
     height: 100vh;
-
     position: relative;
     overflow: hidden;
+
+    .header {
+        display: none;
+    }
 
     .motif {
         position: absolute;
@@ -32,6 +35,7 @@
         justify-content: space-around;
         width: 85%;
         margin: auto;
+        padding-top: 6vh;
 
         .logo {
             width: 15%;
@@ -54,7 +58,7 @@
                 text-align: center;
                 font-size: 22px;
                 font-weight: 800;
-                margin-bottom: 80px;
+                margin-bottom: 12vh;
             }
 
             .form {
@@ -87,11 +91,25 @@
                     cursor: pointer;
                     transition: all 0.3s ease-in-out;
                     margin-top: 30px;
+
+                    &:hover {
+                        scale: 1.2;
+                    }
                 }
 
-                .button:hover {
-                    scale: 1.2;
+                .button.hide {
+                    display: none;
                 }
+            }
+
+            .success-message {
+                display: flex;
+                align-self: center;
+                justify-content: center;
+                color: green;
+                font-size: 20px;
+                margin: 8vh 0;
+                text-align: center;
             }
         }
 
@@ -108,6 +126,7 @@
         justify-content: center;
         text-decoration: none;
         transition: all 0.3s ease-in-out;
+        z-index: 999999;
 
         &:hover {
             transform: scale(1.2);
@@ -137,6 +156,8 @@
         }
     }
 
+
+
 }
 
 
@@ -144,12 +165,23 @@
 @media (max-width: 900px) {
     .container {
 
+        .header {
+            display: flex;
+            padding-top: 3vh;
+            margin-bottom: 0;
+
+            .logo {
+                visibility: hidden;
+            }
+        }
+
         .retour-listing {
             right: 40px;
             left: auto;
         }
 
         .content {
+            padding-top: 0;
 
             .logo {
                 width: 20%;
@@ -158,6 +190,15 @@
             .form-container {
                 width: 50%;
             }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+
+        .retour-listing {
+            visibility: hidden;
         }
     }
 }
@@ -181,6 +222,10 @@
     .container {
         overflow: auto;
 
+        .burger-icon {
+            padding-top: 10px;
+        }
+
         .retour-listing {
             visibility: hidden;
         }
@@ -192,7 +237,7 @@
         .content {
             flex-direction: column;
             gap: 5vh;
-            margin-top: 15vh;
+            margin: 7vh 0;
 
             .logo {
                 width: 25%;
@@ -200,7 +245,7 @@
 
             .form-container {
                 width: auto;
-                margin-bottom: 5vh;
+                /*margin-bottom: 5vh;*/
 
                 .title {
                     margin-bottom: 7vh;

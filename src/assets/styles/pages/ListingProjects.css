@@ -107,6 +107,7 @@
 
             .contact-link {
                 font-size: 13px;
+                visibility: hidden;
             }
         }
     }

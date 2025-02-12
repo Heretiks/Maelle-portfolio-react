@@ -75,9 +75,6 @@ function DetailProjet() {
                                     <Link to={`/projet/${previousProjectId}`}>
                                         <img src={LeftBullet} alt="Left bullet" className="prev-text" />
                                     </Link>
-                                    <div className="listing">
-                                        <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
-                                    </div>
                                     <Link to={`/projet/${nextProjectId}`}>
                                         <img src={RightBullet} alt="Left bullet" className="next-text" />
                                     </Link>
