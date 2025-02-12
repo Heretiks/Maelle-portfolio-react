@@ -330,17 +330,17 @@
 }
 
 /* Styles pour les écrans type ordinateur large */
-@media (min-width: 1600px) {
+@media (min-width: 1800px) {
     .detail-projet {
 
         .header {
 
             .logo {
 
-                /*.logo-image {*/
-                /*    width: 150px;*/
-                /*    height: 60px;*/
-                /*}*/
+                .logo-image {
+                    width: 150px;
+                    height: 60px;
+                }
             }
         }
     }
