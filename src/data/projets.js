@@ -153,7 +153,7 @@ const projects = [
                 type: 'description-et-image',
                 text: 'HANDS UP EST UN RESTAURANT ÉPHÉMÈRE CRÉER PAR LES ÉTUDIANTS ' +
                     'DE L’INSTITUT PAUL BAUCUSE. L’OBJECTIF EST DE CRÉER UN UNIVERS LÉGER ' +
-                    'ET ÉLÉGANT METTANT EN AVANT LES CODES DE LA GASTRONOMIE',
+                    'ET ÉLÉGANT METTANT EN AVANT LES CODES DE LA GASTRONOMIE.',
                 image: HandsUpDescription
             },
             {type: 'image-large',image: HandsUpLogoLarge},

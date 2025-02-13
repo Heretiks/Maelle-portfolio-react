@@ -181,7 +181,7 @@
 
         .burger-icon {
             display: flex;
-            padding-top: 1vh;
+            /*padding-top: 1vh;*/
         }
 
         .burger-icon.inverted {
@@ -191,7 +191,7 @@
         }
 
         .contact-link {
-            display: none; /* Masque le lien "Un projet ?" sur mobile */
+            display: none;
         }
 
     }

@@ -28,8 +28,8 @@
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: 12vh;
-                    width: 100%;
+                    gap: 3vw;
+                    width: 92.5vw;
                     height: 5vh;
                     position: fixed;
                     bottom: 0;
@@ -48,7 +48,7 @@
                     }
 
                     .first-block {
-                        width: 45%;
+                        width: 58%;
                         gap: 2vh;
                         display: flex;
                         align-items: center;
@@ -112,7 +112,7 @@
 
                     .second-block {
                         color: black;
-                        width: 33%;
+                        width: 34%;
                         font-weight: 800;
                         justify-content: space-between;
                         max-height: 100%;
@@ -126,7 +126,7 @@
                             text-decoration: none;
 
                             a {
-                                font-size: 20px;
+                                /*font-size: 20px;*/
                                 font-weight: 800;
                                 color: black;
                                 text-transform: uppercase;
@@ -239,7 +239,7 @@
                     .description-text {
                         margin: auto;
                         width: 75%;
-                        font-size: 20px;
+                        font-size: 1.6vw;
                         text-transform: uppercase;
                     }
                 }
@@ -343,6 +343,18 @@
                 }
             }
         }
+
+        .detail-container {
+            .info-projet {
+                .description-et-image {
+                    .description {
+                        .description-text {
+                            font-size: 30px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -371,6 +383,8 @@
 
                     .info {
                         padding: 1vh 0;
+                        width: 100%;
+                        justify-content: center;
 
                         .first-block {
                             display: none;
@@ -395,6 +409,7 @@
                                 width: 80%;
                                 justify-content: space-between;
                                 text-align: center;
+                                height: 5vh;
 
                                 a {
 
@@ -432,7 +447,7 @@
                     .description {
 
                         .description-text {
-                            font-size: 16px;
+                            font-size: 2vw;
                         }
                     }
                 }
@@ -487,6 +502,22 @@
         .detail-container {
             margin: auto auto 6vh;
 
+            .presentation-projet {
+                .content-presentation {
+                    .info {
+                        .second-block {
+                            .next-back {
+                                .listing {
+                                    .listing-text {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
             .info-projet {
 
                 .description-et-image {
@@ -530,5 +561,6 @@
             }
 
         }
+
     }
 }

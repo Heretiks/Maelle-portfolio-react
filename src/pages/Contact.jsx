@@ -4,8 +4,9 @@ import Logo from '../assets/global/logo.svg';
 import Bullet from '../assets/global/left-bullet-point.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import { useState } from "react";
-import emailjs from '@emailjs/browser'
+import {useRef, useState} from "react";
+import EmailJS from '@emailjs/browser'
+import gsap from "gsap";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const ContactForm = () => {
         email: "",
         message: "",
     });
+    const logoRef = useRef(null);
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
@@ -38,7 +40,7 @@ const ContactForm = () => {
 
         try {
             // Envoi via EmailJS
-            await emailjs.send(
+            await EmailJS.send(
                 "service_lfnnnup", // Remplace par ton service ID
                 "template_dn3ie19", // Remplace par ton template ID
                 {
@@ -59,6 +61,16 @@ const ContactForm = () => {
         setIsSubmitting(false);
     };
 
+    const handleMouseEnter = () => {
+        gsap.to(logoRef.current, {
+            scale: 1.2,
+            duration: 0.2,
+            ease: "power1.out",
+            repeat: 3,
+            yoyo: true,
+        });
+    };
+
     return (
         <div className="container">
             <Header />
@@ -71,7 +83,14 @@ const ContactForm = () => {
             <img src={Motif} alt="Motif haut" className="motif motif-top" />
             <div className="content">
                 <Link to="/" className="logo">
-                    <img src={Logo} alt="Logo MC" className="logo-img" />
+                    <img
+                        src={Logo}
+                        alt="Logo MC"
+                        className="logo-img"
+                        ref={logoRef}
+                        onMouseEnter={handleMouseEnter}
+                        // onMouseLeave={handleMouseLeave}
+                    />
                 </Link>
                 <div className="form-container">
                     <h2 className="title">PARLONS DE VOTRE PROJET</h2>

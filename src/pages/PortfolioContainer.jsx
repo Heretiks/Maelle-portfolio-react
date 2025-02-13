@@ -63,7 +63,7 @@ function PortfolioContainer() {
             const touchEndY = e.touches[0].clientY;
             const swipeDistance = touchStartY - touchEndY;
 
-            if (Math.abs(swipeDistance) >= SCROLL_THRESHOLD) {
+            if (Math.abs(swipeDistance) >= (SCROLL_THRESHOLD * 2)) {
                 let nextProjectIndex = currentProject;
 
                 if (swipeDistance > 0) {
@@ -96,13 +96,13 @@ function PortfolioContainer() {
         };
     }, [isScrolling, currentProject]);
 
-    // Auto-scroll toutes les 3 secondes
+    // Auto-scroll toutes les 5 secondes
     useEffect(() => {
         const interval = setInterval(() => {
             const nextProjectIndex = (currentProject + 1) % projects.length;
 
             setIsChanging(true);
-            setTimeout(() => setIsChanging(false), 500);
+            setTimeout(() => setIsChanging(false), SCROLL_DELAY);
 
             setAnimateCategory(projects[nextProjectIndex].category !== projects[currentProject].category);
 
