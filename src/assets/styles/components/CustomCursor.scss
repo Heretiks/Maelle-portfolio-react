@@ -1,0 +1,31 @@
+/* Style composant CustomCursor */
+
+.custom-cursor {
+    position: fixed;
+    top: -6px;
+    left: -6px;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    mix-blend-mode: difference;
+    background-blend-mode: difference; /* Fallback si mix-blend-mode échoue */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Fallback pour meilleure visibilité */
+    -webkit-transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease, -webkit-transform 0.1s ease-out;
+    -o-transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease;
+    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease, -webkit-transform 0.1s ease-out;
+}
+
+.custom-cursor.hover {
+    width: 24px;
+    height: 24px;
+    top: -12px;
+    left: -12px;
+}
+
+.custom-cursor.mobile {
+    display: none;
+}

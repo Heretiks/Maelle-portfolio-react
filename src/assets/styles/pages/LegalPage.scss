@@ -1,0 +1,70 @@
+/* Style de la page LegalPage */
+
+.legal-container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    section {
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            -webkit-transition: color 0.2s ease-in-out;
+            -o-transition: color 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out;
+            color: inherit; /* Garantie que le lien hérite de la couleur du texte */
+
+            &:hover {
+                color: #007bff;
+            }
+        }
+
+        .back-home {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin-top: 8vh;
+
+            a {
+                font-size: 20px;
+                color: black;
+                -webkit-transition: all 0.3s ease-in-out;
+                -o-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    scale: 1.2;
+                    -webkit-transform: scale(1.2);
+                    -moz-transform: scale(1.2);
+                }
+            }
+        }
+    }
+}

@@ -1,40 +1,62 @@
 /* Style composant Header */
 
 .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0 3vw 5vh 1vw;
     width: 96vw;
     z-index: 9999;
 
     .logo {
+        -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
         align-self: end;
+        -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
         z-index: 9999;
 
         .logo-image {
             width: 113px;
             height: 50px;
-            transition: filter 0.3s ease-in-out;
+            -webkit-transition: filter 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -webkit-transition: -webkit-filter 0.3s ease-in-out;
+            transition: -webkit-filter 0.3s ease-in-out;
+            -o-transition: filter 0.3s ease-in-out;
+            transition: filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
         }
 
         .logo-image.inverted {
+            -webkit-filter: invert(1);
             filter: invert(1);
         }
 
         .logo-image.open {
+            -webkit-filter: invert(0);
             filter: invert(0);
         }
 
         &:hover {
-            scale: 1.2;
+            -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
         }
     }
 
     .logo.open {
         z-index: 9999;
+        -webkit-filter: invert(1);
         filter: invert(1);
     }
 
@@ -49,9 +71,13 @@
         color: black;
         font-size: 20px;
         font-weight: 800;
+        -ms-flex-item-align: end;
+        -ms-grid-row-align: end;
         align-self: end;
         margin: 2vh 0 0;
         width: 110px;
+        -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
         z-index: 1000;
 
@@ -69,21 +95,31 @@
         /*position: fixed;*/
         top: 40px;
         right: 40px;
+        -webkit-transition: all 0.2s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
 
         &:hover {
-            scale: 1.2;
+            -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
         }
     }
 
     .burger-icon {
         display: none;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         width: 30px;
         height: 20px;
         cursor: pointer;
         margin-right: 3.5vw;
+        -ms-flex-item-align: start;
         align-self: flex-start;
         z-index: 9999;
 
@@ -92,6 +128,8 @@
             height: 4px;
             width: 100%;
             border-radius: 2px;
+            -webkit-transition: all 0.3s ease; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -o-transition: all 0.3s ease;
             transition: all 0.3s ease;
         }
     }
@@ -101,6 +139,8 @@
     }
 
     .burger-icon.open span:nth-child(1) {
+        -webkit-transform: rotate(45deg) translate(5px, 5px); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -ms-transform: rotate(45deg) translate(5px, 5px);
         transform: rotate(45deg) translate(5px, 5px);
     }
 
@@ -109,6 +149,8 @@
     }
 
     .burger-icon.open span:nth-child(3) {
+        -webkit-transform: rotate(-45deg) translate(6px, -6px); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -ms-transform: rotate(-45deg) translate(6px, -6px);
         transform: rotate(-45deg) translate(6px, -6px);
     }
 
@@ -122,15 +164,24 @@
         height: 100vh;
         padding: 3vw;
         z-index: 100;
+        -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
 
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
             gap: 5vh;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
             flex-direction: column;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
             font-size: 30px;
             font-weight: 800;
@@ -155,6 +206,8 @@
             position: absolute;
             width: 28vh;
             right: -14vh;
+            -webkit-transform: rotate(90deg); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: rotate(90deg);
             transform: rotate(90deg);
             z-index: 1000000;
 
@@ -165,23 +218,25 @@
     }
 
     .header-mobile.open {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
-
 }
-
-
-
 
 /* Afficher le menu burger uniquement sur mobile/tablette */
 @media (max-width: 800px) {
     .header {
-
         .burger-icon {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            /*padding-top: 1vh;*/
         }
 
         .burger-icon.inverted {
@@ -193,6 +248,5 @@
         .contact-link {
             display: none;
         }
-
     }
 }

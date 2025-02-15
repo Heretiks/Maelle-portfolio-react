@@ -1,0 +1,108 @@
+/* Style composant SliderComponent */
+
+.slider {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+    .image-container {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        position: relative;
+        aspect-ratio: 16 / 9;
+
+        .slider-image {
+            position: absolute; /* Positionnement absolu pour empiler les images */
+            width: 100%;
+            height: auto;
+            display: block;
+            -webkit-transition: opacity 0.5s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -o-transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out; /* Effet de fondu fluide */
+            opacity: 0; /* Les images commencent avec opacité 0 */
+            -o-object-fit: cover;
+            object-fit: cover;
+
+            &.active {
+                opacity: 1; /* Lorsque l'image est active, elle devient visible */
+            }
+        }
+    }
+
+    .arrow {
+        border: none;
+        padding: 0;
+        font-size: 0;
+        cursor: default;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        z-index: 10;
+        -webkit-transition: all 0.1s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -o-transition: all 0.1s ease-in-out;
+        transition: all 0.1s ease-in-out;
+
+        width: 18px;
+        height: 18px;
+        background: transparent;
+
+        &:hover {
+            -webkit-transform: translateY(-50%) scale(1.4); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: translateY(-50%) scale(1.4);
+            transform: translateY(-50%) scale(1.4);
+        }
+
+        &:active {
+            -webkit-transform: translateY(-50%) scale(2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: translateY(-50%) scale(2);
+            transform: translateY(-50%) scale(2);
+        }
+    }
+
+    .left {
+        left: 20px;
+    }
+
+    .right {
+        right: 20px;
+    }
+}
+
+/* Styles pour les écrans type tablette */
+@media (max-width: 900px) {
+    .slider {
+        /* Ajustements spécifiques à ajouter ici selon tes besoins */
+    }
+}
+
+/* Styles pour les écrans type smartphone */
+@media (max-width: 500px) {
+    .slider {
+        height: 30vh;
+    }
+
+    .slider .image-container {
+        height: 100%;
+        width: auto;
+    }
+}

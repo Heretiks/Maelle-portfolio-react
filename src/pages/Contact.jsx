@@ -1,10 +1,10 @@
-import "../assets/styles/pages/Contact.css";
+import "../assets/styles/pages/Contact.scss";
 import Motif from '../assets/global/motif-grand.png';
 import Logo from '../assets/global/logo.svg';
 import Bullet from '../assets/global/left-bullet-point.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import EmailJS from '@emailjs/browser'
 import gsap from "gsap";
 
@@ -15,7 +15,6 @@ const ContactForm = () => {
         message: "",
     });
     const logoRef = useRef(null);
-
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
 
@@ -71,6 +70,28 @@ const ContactForm = () => {
         });
     };
 
+    // useEffect(() => {
+    //     // Détecte si l'utilisateur est sur un appareil tactile
+    //     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    //
+    //     // Vérifie l'URL
+    //     const isContactPage = window.location.pathname === '/contact';
+    //
+    //     // Applique les styles si l'URL est '/' et l'appareil est tactile
+    //     if (isTouchDevice && isContactPage) {
+    //         document.body.style.overflow = 'hidden';
+    //         document.body.style.position = 'relative';
+    //     }
+    //
+    //     // Nettoie les styles lorsque le composant est démonté
+    //     return () => {
+    //         if (isTouchDevice && isContactPage) {
+    //             document.body.style.overflow = '';
+    //             document.body.style.position = '';
+    //         }
+    //     };
+    // }, []);
+
     return (
         <div className="container">
             <Header />
@@ -89,7 +110,6 @@ const ContactForm = () => {
                         className="logo-img"
                         ref={logoRef}
                         onMouseEnter={handleMouseEnter}
-                        // onMouseLeave={handleMouseLeave}
                     />
                 </Link>
                 <div className="form-container">
@@ -102,6 +122,7 @@ const ContactForm = () => {
                             className="input"
                             value={formData.name}
                             onChange={handleChange}
+                            autoComplete={"name"}
                         />
                         <input
                             type="email"
@@ -110,6 +131,7 @@ const ContactForm = () => {
                             className="input"
                             value={formData.email}
                             onChange={handleChange}
+                            autoComplete={"email"}
                         />
                         <textarea
                             name="message"

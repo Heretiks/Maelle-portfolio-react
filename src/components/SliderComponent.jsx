@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import '../assets/styles/components/Slider.css';
+import '../assets/styles/components/Slider.scss';
 
 import LeftBullet from '../assets/global/left-bullet-point.svg';
 import RightBullet from '../assets/global/right-bullet-point.svg';

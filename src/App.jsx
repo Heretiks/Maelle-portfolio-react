@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
-import './assets/styles/App.css';
+import './assets/styles/App.scss';
 
 import PortfolioContainer from './pages/PortfolioContainer.jsx';
 import ListingProject from './pages/ListingProjects.jsx';

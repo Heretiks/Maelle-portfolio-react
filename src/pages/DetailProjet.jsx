@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import {useEffect, useRef, useState} from "react";
 import SliderComponent from "../components/SliderComponent.jsx";
-import '../assets/styles/pages/DetailProjet.css';
+import '../assets/styles/pages/DetailProjet.scss';
 
 import LeftBullet from '../assets/global/left-bullet-point.svg';
 import RightBullet from '../assets/global/right-bullet-point.svg';

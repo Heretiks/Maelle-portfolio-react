@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import projects from '../data/projets.js';
 import LogoMc from '../assets/global/logo.svg';
 import Motif from '../assets/global/motif-grand.png';
-import '../assets/styles/pages/PortfolioContainer.css';
+import '../assets/styles/pages/PortfolioContainer.scss';
 import {Link} from "react-router-dom";
 import Header from "../components/Header.jsx";
 
@@ -13,11 +13,60 @@ function PortfolioContainer() {
     const [isScrolling, setIsScrolling] = useState(false);
     const [isChanging, setIsChanging] = useState(false);
     const [animateCategory, setAnimateCategory] = useState(true);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
 
     const SCROLL_THRESHOLD = 100;
     const SCROLL_DELAY = 1000;
     const AUTO_SCROLL_INTERVAL = 5000;
 
+    // Fonction pour précharger les images
+    const preloadImages = (images) => {
+        const promises = images.map((src) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = resolve; // L'image est prête lorsque le onload est appelé
+            });
+        });
+        return Promise.all(promises); // Retourne une promesse résolue lorsque toutes les images sont chargées
+    };
+
+    // useEffect du préchargement des images
+    useEffect(() => {
+        // Récupérer toutes les URL d'image des projets
+        const imageUrls = projects.map((project) => project.image);
+
+        // Précharger toutes les images
+        preloadImages(imageUrls).then(() => {
+            setImagesLoaded(true); // Indiquer que les images sont prêtes
+        });
+
+    }, []);
+
+    // Si en mobile on désactive le scroll
+    useEffect(() => {
+        // Détecte si l'utilisateur est sur un appareil tactile
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        // Vérifie l'URL
+        const isHomePage = window.location.pathname === '/';
+
+        // Applique les styles si l'URL est '/' et l'appareil est tactile
+        if (isTouchDevice && isHomePage) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'relative';
+        }
+
+        // Nettoie les styles lorsque le composant est démonté
+        return () => {
+            if (isTouchDevice && isHomePage) {
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+            }
+        };
+    }, []);
+
+    // Gestion modif contenu lors du scroll
     useEffect(() => {
         const handleWheel = (event) => {
             if (isScrolling) return;
@@ -63,14 +112,16 @@ function PortfolioContainer() {
             const touchEndY = e.touches[0].clientY;
             const swipeDistance = touchStartY - touchEndY;
 
-            if (Math.abs(swipeDistance) >= (SCROLL_THRESHOLD * 2)) {
+            if (Math.abs(swipeDistance) >= (SCROLL_THRESHOLD * 1.5)) {
                 let nextProjectIndex = currentProject;
 
-                if (swipeDistance > 0) {
+                if (swipeDistance) {
                     nextProjectIndex = (currentProject + 1) % projects.length; // Swipe vers le bas
-                } else if (swipeDistance < 0) {
-                    nextProjectIndex = (currentProject - 1 + projects.length) % projects.length; // Swipe vers le haut
                 }
+                // swipeDistance > 0
+                // else if (swipeDistance < 0) {
+                //     nextProjectIndex = (currentProject - 1 + projects.length) % projects.length; // Swipe vers le haut
+                // }
 
                 if (nextProjectIndex !== currentProject) {
                     setIsChanging(true);
@@ -121,7 +172,7 @@ function PortfolioContainer() {
             <Link className="portfolio-container" to={`/projet/${projects[currentProject].id}`}>
                 <div
                     className="background-image"
-                    style={{ backgroundImage: `url(${projects[currentProject].image})` }}
+                    style={{ backgroundImage: `url(${imagesLoaded ? projects[currentProject].image : ''})` }}
                 ></div>
                 <div className="background-motif">
                     <img src={Motif} alt="Motif de Maëlle Camissogo"/>

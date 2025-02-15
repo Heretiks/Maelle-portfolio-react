@@ -1,0 +1,25 @@
+@import url('components/Header.scss');
+@import url('components/Footer.scss');
+@import url('components/CustomCursor.scss');
+
+
+html, body, * {
+  /*cursor: none;*/
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Suppression de la scrollbar (Chrome, Edge, Safari) */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFFF;
+  font-family: Be Vietnam Pro, sans-serif;
+}

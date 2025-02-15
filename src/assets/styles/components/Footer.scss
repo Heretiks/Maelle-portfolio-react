@@ -1,0 +1,44 @@
+/* Style composant Footer */
+
+.footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 94vw;
+    height: 8vh;
+    margin: 2vh 3vw 0 3vw;
+
+    .nom-maelle {
+        text-transform: uppercase;
+        color: black;
+        font-weight: 800;
+        font-size: 14px;
+    }
+
+    .contact-link {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black;
+        font-weight: 800;
+        font-size: 16px;
+        -webkit-transition: all 0.2s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+    }
+
+    /*.end-motif {
+        width: 18vw;
+    }*/
+}

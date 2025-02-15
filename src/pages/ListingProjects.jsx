@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import projects from "../data/projets.js";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import "../assets/styles/pages/ListingProjects.css";
+import "../assets/styles/pages/ListingProjects.scss";
 import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
