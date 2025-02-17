@@ -3,6 +3,9 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import './assets/styles/App.scss';
 
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
+
 import PortfolioContainer from './pages/PortfolioContainer.jsx';
 import ListingProject from './pages/ListingProjects.jsx';
 import Contact from './pages/Contact.jsx';
@@ -41,13 +44,16 @@ function App() {
     // Scroll to top lors de chaque changement de route
     useEffect(() => {
         // Assurez-vous que Lenis est bien initialisé avant de l'utiliser
-        if (lenisRef.current) {
+        if (lenisRef.current && location.pathname !== "/projets") {
             lenisRef.current.scrollTo(0, { immediate: false }); // Scroll to top sur chaque changement d'URL
         }
     }, [location.pathname]);  // Dépendance sur `location.pathname` pour détecter tout changement
 
     return (
         <>
+            <SpeedInsights />
+            <Analytics />
+
             <CustomCursor />
             <Routes>
                 <Route path="/" element={<PortfolioContainer />} />

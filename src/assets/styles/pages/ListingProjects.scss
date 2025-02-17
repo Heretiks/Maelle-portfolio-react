@@ -51,6 +51,7 @@
                 transform: translateY(100px); /* Décalage pour l'effet d'apparition */
                 will-change: opacity, transform;
                 z-index: 99999;
+                scale: 1;
                 -webkit-transition: scale 1s ease-in-out;
                 -o-transition: scale 1s ease-in-out;
                 transition: scale 1s ease-in-out;
@@ -58,8 +59,6 @@
 
             img:hover {
                 scale: 1.5 !important;
-                -webkit-transform: scale(1.5);
-                -moz-transform: scale(1.5);
             }
         }
     }
