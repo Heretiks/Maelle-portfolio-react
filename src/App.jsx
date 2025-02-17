@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import Lenis from 'lenis';
-import './assets/styles/App.scss';
-
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
+import Lenis from 'lenis';
+import './assets/styles/App.scss';
 
 import PortfolioContainer from './pages/PortfolioContainer.jsx';
 import ListingProject from './pages/ListingProjects.jsx';
@@ -43,6 +42,13 @@ function App() {
 
     // Scroll to top lors de chaque changement de route
     useEffect(() => {
+
+        // Test - Leger scroll sur l'accueil mobile
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        if (location.pathname !== "/" && !isTouchDevice) {
+            document.body.style.height = "auto";
+        }
+
         // Assurez-vous que Lenis est bien initialisé avant de l'utiliser
         if (lenisRef.current && location.pathname !== "/projets") {
             lenisRef.current.scrollTo(0, { immediate: false }); // Scroll to top sur chaque changement d'URL

@@ -53,6 +53,20 @@ function PortfolioContainer() {
 
         // Applique les styles si l'URL est '/' et l'appareil est tactile
         if (isTouchDevice && isHomePage) {
+
+            // Test - Leger scroll sur l'accueil mobile
+            window.addEventListener('load', () => {
+                document.body.style.height = '101vh'; // Ajoute une légère marge
+
+                setTimeout(() => {
+                    window.scrollTo(0, 1); // Scroll léger
+                    document.body.style.overflow = 'hidden'; // Bloque ensuite le scroll
+                }, 100);
+
+                console.log(scrollY);
+            });
+
+
             document.body.style.overflow = 'hidden';
             document.body.style.position = 'relative';
         }

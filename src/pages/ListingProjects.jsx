@@ -12,11 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 const ListingProjects = () => {
     const gridRef = useRef(null);
 
-    ScrollTrigger.config({
-        // Ignore les changements de taille liés au clavier virtuel ou aux rotations d'écran
-        ignoreMobileResize: true,
-    });
-
     useEffect(() => {
         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
@@ -35,14 +30,20 @@ const ListingProjects = () => {
                         duration: 1,
                         ease: "power2.out",
                         scrollTrigger: {
-                            trigger: item,
+                            trigger: item.parentElement,
                             start: "top 85%",
-                            end: "bottom 20%",
+                            end: "bottom 15%",
                             // markers: true,
                             toggleActions: "play reverse play reverse",
                         },
                     }
                 );
+
+                // Test - bon fonctionnement GSAP Listing
+                ScrollTrigger.config({
+                    // Ignore les changements de taille liés au clavier virtuel ou aux rotations d'écran
+                    ignoreMobileResize: true,
+                });
             };
         });
 

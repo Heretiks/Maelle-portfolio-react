@@ -467,7 +467,6 @@
     }
 }
 
-
 /* Styles pour les écrans type tablette */
 @media (max-width: 800px) {
     .detail-projet {
@@ -477,6 +476,13 @@
             position: fixed;
             top: 0;
             margin: 1.5vh 0 0 0;
+
+            .logo {
+
+                .logo-image {
+                    height: 5vh;
+                }
+            }
 
             .burger-icon {
                 -ms-flex-item-align: center;
@@ -593,8 +599,6 @@
     .detail-projet {
 
         .header {
-            position: fixed;
-            top: 0;
             margin: 2.5vh 0 0 0;
 
             .logo {
