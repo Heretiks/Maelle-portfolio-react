@@ -75,9 +75,6 @@ function DetailProjet() {
                                     <Link to={`/projet/${previousProjectId}`}>
                                         <img src={LeftBullet} alt="Left bullet" className="prev-text" />
                                     </Link>
-                                    <div className="listing">
-                                        <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
-                                    </div>
                                     <Link to={`/projet/${nextProjectId}`}>
                                         <img src={RightBullet} alt="Left bullet" className="next-text" />
                                     </Link>
@@ -121,17 +118,19 @@ function DetailProjet() {
                                     <SliderComponent images={block.images} />
                                 );
                             case "double-image":
+                                { const reverse = (project.id === 7) ? 'reverse' : '';
+
                                 return (
-                                    <div className="double-image" key={index}>
+                                    <div className={`double-image ${reverse}`} key={index}>
                                         {block.images.map((img, imgIndex) => {
                                             const taille80 = (project.id === 6 && img.includes('6694')) ? 'taille-80' : '';
                                             const taille20 = (project.id === 6 && img.includes('2')) ? 'taille-20' : '';
-                                            const taille40 = (project.id === 8) && (img.includes('TE2.webp') || img.includes('TE2.webp') || img.includes('TE2.webp') || img.includes('TE2.webp')) ? 'taille-40' : '';
-                                            const taille60 = (project.id === 8) && (img.includes('TE.webp') || img.includes('TE.webp') || img.includes('TE.webp') || img.includes('TE.webp')) ? 'taille-60' : '';
+                                            const taille40 = (project.id === 8) && img.includes('ANTE2-') ? 'taille-40' : '';
+                                            const taille60 = (project.id === 8) && img.includes('ANTE-') ? 'taille-60' : '';
 
                                             return (
                                                 <img
-                                                    className={`image-${imgIndex} ${taille20} ${taille40} ${taille60} ${taille80}`}
+                                                    className={`image-${imgIndex} ${taille20} ${taille40} ${taille60} ${taille80} ${reverse}`}
                                                     src={img}
                                                     alt=""
                                                     key={imgIndex}
@@ -139,7 +138,7 @@ function DetailProjet() {
                                             );
                                         })}
                                     </div>
-                                );
+                                ); }
                             case "quadruple-image":
                                 return (
                                     <div className="quadruple-image" key={index}>

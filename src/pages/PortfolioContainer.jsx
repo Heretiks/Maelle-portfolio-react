@@ -19,7 +19,7 @@ function PortfolioContainer() {
     const SCROLL_DELAY = 1000;
     const AUTO_SCROLL_INTERVAL = 5000;
 
-    // Fonction pour précharger les images
+    // Précharger les images
     const preloadImages = (images) => {
         const promises = images.map((src) => {
             return new Promise((resolve) => {

@@ -2,6 +2,14 @@
 
 .portfolio-home {
 
+    .header {
+        display: none;
+
+        .logo {
+            visibility: hidden;
+        }
+    }
+
     .portfolio-container {
         position: relative;
         height: 100vh;
@@ -72,7 +80,7 @@
             gap: 7vh;
             z-index: 10;
             width: 100vw;
-            height: 100vh;
+            height: 71vh;
             margin-left: 15vw;
             margin-bottom: 23vh;
 
@@ -288,14 +296,6 @@
                 -o-transition: all 0.3s ease-in-out;
                 transition: all 0.3s ease-in-out;
             }
-        }
-    }
-
-    .header {
-        display: none;
-
-        .logo {
-            visibility: hidden;
         }
     }
 }

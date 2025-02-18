@@ -29,7 +29,7 @@
                 -ms-flex-direction: column;
                 flex-direction: column;
                 text-align: center;
-                margin-top: 85vh;
+                //margin-top: 85vh;
 
                 .info {
                     display: -webkit-box;
@@ -184,9 +184,9 @@
 
                                 .next-text,
                                 .prev-text {
-                                    margin: 9px 0 0;
-                                    width: 18px;
-                                    height: 18px;
+                                    margin: 5px 0 0;
+                                    width: 22px;
+                                    height: 22px;
                                     -webkit-transition: all 0.1s ease;
                                     -o-transition: all 0.1s ease;
                                     transition: all 0.1s ease;
@@ -284,7 +284,7 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
-            margin-top: 15vh;
+            margin-top: 110vh;
             gap: 12px;
 
             .description-et-image,
@@ -480,6 +480,7 @@
             .logo {
 
                 .logo-image {
+                    width: 95px;
                     height: 5vh;
                 }
             }
@@ -506,7 +507,37 @@
                         justify-content: center;
 
                         .first-block {
-                            display: none;
+                            //display: none;
+                            position: absolute;
+                            flex-direction: column-reverse;
+                            gap: 0;
+
+                            .category, .title {
+                                width: 85%;
+                                align-items: center;
+                                justify-content: center;
+                            }
+
+                            .category {
+
+                                .category-title {
+                                    display: none;
+                                }
+                                .category-text {
+                                    font-size: 3vw;
+                                }
+                            }
+
+                            .title {
+
+                                .title-title {
+                                    display: none;
+                                }
+                                .title-text {
+                                    font-weight: 800;
+                                    font-size: 3vw;
+                                }
+                            }
                         }
 
                         .second-block {
@@ -546,14 +577,6 @@
                                     }
                                 }
 
-                                .listing {
-                                    display: block;
-
-                                    .listing-text {
-                                        font-size: 16px;
-                                    }
-                                }
-
                             }
                         }
                     }
@@ -562,7 +585,7 @@
 
             .info-projet {
                 gap: 8px;
-                margin-top: 25vh;
+                margin-top: 115vh;
 
                 .description-et-image {
                     gap: 8px;
@@ -604,8 +627,7 @@
             .logo {
 
                 .logo-image {
-                    width: 95px;
-                    height: 40px;
+                    padding-bottom: 1vw;
                 }
             }
 
@@ -638,9 +660,8 @@
 
                 .description-et-image {
                     -webkit-box-orient: vertical;
-                    -webkit-box-direction: reverse;
-                    -ms-flex-direction: column-reverse;
-                    flex-direction: column-reverse;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
                     -webkit-box-align: center;
                     -ms-flex-align: center;
                     align-items: center;
@@ -676,6 +697,12 @@
                     }
                 }
 
+                .reverse {
+                    -webkit-box-direction: reverse;
+                    -ms-flex-direction: column-reverse;
+                    flex-direction: column-reverse;
+                }
+
                 .image-large {
 
                 }
@@ -684,9 +711,11 @@
 
                 }
 
+                .taille-20 {
+                    display: none;
+                }
+
             }
-
         }
-
     }
 }

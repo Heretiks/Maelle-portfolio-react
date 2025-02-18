@@ -4,9 +4,9 @@ import Logo from '../assets/global/logo.svg';
 import Bullet from '../assets/global/left-bullet-point.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import {useEffect, useRef, useState} from "react";
+import {useRef, useState} from "react";
 import EmailJS from '@emailjs/browser'
-import gsap from "gsap";
+// import gsap from "gsap";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -60,15 +60,15 @@ const ContactForm = () => {
         setIsSubmitting(false);
     };
 
-    const handleMouseEnter = () => {
-        gsap.to(logoRef.current, {
-            scale: 1.2,
-            duration: 0.2,
-            ease: "power1.out",
-            repeat: 3,
-            yoyo: true,
-        });
-    };
+    // const handleMouseEnter = () => {
+    //     gsap.to(logoRef.current, {
+    //         scale: 1.2,
+    //         duration: 0.2,
+    //         ease: "power1.out",
+    //         repeat: 3,
+    //         yoyo: true,
+    //     });
+    // };
 
     // useEffect(() => {
     //     // Détecte si l'utilisateur est sur un appareil tactile
@@ -109,7 +109,7 @@ const ContactForm = () => {
                         alt="Logo MC"
                         className="logo-img"
                         ref={logoRef}
-                        onMouseEnter={handleMouseEnter}
+                        // onMouseEnter={handleMouseEnter}
                     />
                 </Link>
                 <div className="form-container">
