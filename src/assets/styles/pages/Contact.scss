@@ -37,11 +37,16 @@
     }
 
     .motif-bottom {
+        display: none;
         bottom: 0;
         //-webkit-transform: translate(-50%, 50%);
         //-ms-transform: translate(-50%, 50%);
         //transform: translate(-50%, 50%);
         clip-path: inset(50% 0 0 0);
+
+        &.big {
+            display: block;
+        }
     }
 
     .content {
@@ -121,13 +126,12 @@
                     padding: 10px 20px;
                     font-weight: 800;
                     border: none;
-                    border-radius: 10%;
                     background: none;
                     cursor: pointer;
                     -webkit-transition: all 0.3s ease-in-out;
                     -o-transition: all 0.3s ease-in-out;
                     transition: all 0.3s ease-in-out;
-                    margin-top: 30px;
+                    //margin-top: 30px;
 
                     &:hover {
                         scale: 1.2;
@@ -152,10 +156,12 @@
                 -ms-flex-pack: center;
                 justify-content: center;
                 color: green;
-                font-size: 20px;
                 margin: 8vh 0;
                 text-align: center;
                 text-transform: uppercase;
+                font-family: Be Vietnam Pro, sans-serif;
+                font-size: 18px;
+                font-weight: 800;
             }
         }
     }
@@ -245,6 +251,10 @@
             .logo {
                 visibility: hidden;
             }
+
+            .motif {
+                display: none;
+            }
         }
 
         .retour-listing {
@@ -311,8 +321,11 @@
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
-            gap: 5vh;
-            margin: 5vh 0;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            gap: 3vh;
+            margin: 0 0 5vh 0;
 
             .logo {
                 width: 25%;
@@ -320,8 +333,9 @@
 
             .form-container {
                 width: auto;
+
                 .title {
-                    margin-bottom: 7vh;
+                    margin-bottom: 5vh;
                 }
             }
         }

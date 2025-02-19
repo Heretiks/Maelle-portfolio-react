@@ -4,7 +4,7 @@ import Logo from '../assets/global/logo.svg';
 import Bullet from '../assets/global/left-bullet-point.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import EmailJS from '@emailjs/browser'
 // import gsap from "gsap";
 
@@ -17,6 +17,22 @@ const ContactForm = () => {
     const logoRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
+    const [bigHeight, setBigHeight] = useState(window.innerHeight > 700); // Utilisation de state
+
+    // Savoir si on affiche motif-bottom ou non (height > 700px)
+    useEffect(() => {
+        const handleResize = () => {
+            setBigHeight(window.innerHeight > 700);
+        };
+
+        // Ajouter un écouteur de redimensionnement
+        window.addEventListener("resize", handleResize);
+
+        // Nettoyage de l'écouteur au démontage
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -59,38 +75,6 @@ const ContactForm = () => {
 
         setIsSubmitting(false);
     };
-
-    // const handleMouseEnter = () => {
-    //     gsap.to(logoRef.current, {
-    //         scale: 1.2,
-    //         duration: 0.2,
-    //         ease: "power1.out",
-    //         repeat: 3,
-    //         yoyo: true,
-    //     });
-    // };
-
-    // useEffect(() => {
-    //     // Détecte si l'utilisateur est sur un appareil tactile
-    //     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    //
-    //     // Vérifie l'URL
-    //     const isContactPage = window.location.pathname === '/contact';
-    //
-    //     // Applique les styles si l'URL est '/' et l'appareil est tactile
-    //     if (isTouchDevice && isContactPage) {
-    //         document.body.style.overflow = 'hidden';
-    //         document.body.style.position = 'relative';
-    //     }
-    //
-    //     // Nettoie les styles lorsque le composant est démonté
-    //     return () => {
-    //         if (isTouchDevice && isContactPage) {
-    //             document.body.style.overflow = '';
-    //             document.body.style.position = '';
-    //         }
-    //     };
-    // }, []);
 
     return (
         <div className="container">
@@ -147,7 +131,7 @@ const ContactForm = () => {
                     {successMessage && <p className="success-message">{successMessage}</p>}
                 </div>
             </div>
-            <img src={Motif} alt="Motif bas" className="motif motif-bottom" />
+            <img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} />
         </div>
     );
 };

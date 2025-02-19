@@ -156,7 +156,7 @@
 
     .header-mobile {
         display: none;
-        position: absolute;
+        position: fixed;
         top: -5vh;
         right: 0;
         background-color: rgb(255, 255, 255, 0.8);
@@ -247,6 +247,10 @@
 
         .contact-link {
             display: none;
+        }
+
+        .header-mobile {
+            top: 0;
         }
     }
 }

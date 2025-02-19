@@ -18,42 +18,53 @@ const ListingProjects = () => {
         // Sélectionne tous les éléments de la grille
         const items = gridRef.current.querySelectorAll(".grid-item>img");
 
-        // ScrollTrigger individuellement à chaque image
-        items.forEach((item) => {
-            item.onload = () => {
+        // Fonction d'animation
+        const animateItems = () => {
+            items.forEach((item) => {
                 gsap.fromTo(
                     item,
-                    { opacity: 0, y: 100 },
+                    { opacity: 0, x: -100 },
                     {
                         opacity: 1,
-                        y: 0,
+                        x: 0,
                         duration: 1,
                         ease: "power2.out",
                         scrollTrigger: {
                             trigger: item.parentElement,
                             start: "top 85%",
                             end: "bottom 15%",
-                            // markers: true,
                             toggleActions: "play reverse play reverse",
                         },
                     }
                 );
+            });
+        };
 
-                // Test - bon fonctionnement GSAP Listing
-                ScrollTrigger.config({
-                    // Ignore les changements de taille liés au clavier virtuel ou aux rotations d'écran
-                    ignoreMobileResize: true,
-                });
-            };
+        // Attendre le chargement complet des images
+        const imagesLoaded = Array.from(items).map(
+            (item) =>
+                new Promise((resolve) => {
+                    if (item.complete) resolve();
+                    else item.onload = resolve;
+                })
+        );
+
+        Promise.all(imagesLoaded).then(() => {
+            animateItems();
+            ScrollTrigger.refresh();
         });
 
-        ScrollTrigger.refresh();
+        // Écoute les changements de taille pour rafraîchir le ScrollTrigger
+        const resizeHandler = () => {
+            ScrollTrigger.refresh();
+        };
+        window.addEventListener("resize", resizeHandler);
 
         // Nettoyage
         return () => {
+            window.removeEventListener("resize", resizeHandler);
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-
     }, []);
 
     return (

@@ -42,13 +42,6 @@ function App() {
 
     // Scroll to top lors de chaque changement de route
     useEffect(() => {
-
-        // Test - Leger scroll sur l'accueil mobile
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (location.pathname !== "/" && !isTouchDevice) {
-            document.body.style.height = "auto";
-        }
-
         // Assurez-vous que Lenis est bien initialisé avant de l'utiliser
         if (lenisRef.current && location.pathname !== "/projets") {
             lenisRef.current.scrollTo(0, { immediate: false }); // Scroll to top sur chaque changement d'URL
