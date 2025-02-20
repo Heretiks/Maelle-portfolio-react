@@ -325,7 +325,7 @@
                     .description-text {
                         margin: auto;
                         width: 75%;
-                        font-size: 1.6vw;
+                        font-size: 1.4vw;
                         text-transform: uppercase;
                     }
                 }
@@ -415,25 +415,7 @@
                 width: 80%;
             }
         }
-
-        .autre-projet {
-            font-size: 45px;
-            margin: auto;
-            height: 70vh;
-            text-align: center;
-            -ms-flex-line-pack: center;
-            align-content: center;
-            text-decoration: none;
-
-            .lien-liste-projets {
-                text-transform: uppercase;
-                text-decoration: none;
-                color: black;
-                font-weight: 900;
-            }
-        }
     }
-
 }
 
 /* Styles pour les écrans type ordinateur large */
@@ -522,7 +504,7 @@
                                     display: none;
                                 }
                                 .category-text {
-                                    font-size: 3vw;
+                                    font-size: 2.2vw;
                                 }
                             }
 
@@ -533,7 +515,7 @@
                                 }
                                 .title-text {
                                     font-weight: 800;
-                                    font-size: 3vw;
+                                    font-size: 2.2vw;
                                 }
                             }
                         }
@@ -566,8 +548,8 @@
                                 a {
 
                                     .next-text, .prev-text {
-                                        width: 3vh;
-                                        height: 3vh;
+                                        width: 2.5vh;
+                                        height: 2.5vh;
 
                                         &:hover{
                                             scale: 1;
@@ -595,7 +577,7 @@
                     .description {
 
                         .description-text {
-                            font-size: 2vw;
+                            font-size: 1.6vw;
                         }
                     }
                 }
@@ -645,6 +627,19 @@
             .presentation-projet {
                 .content-presentation {
                     .info {
+                        .first-block {
+                            .category {
+                                .category-text {
+                                    font-size: 3vw;
+                                }
+                            }
+                            .title {
+                                .title-text {
+                                    font-size: 3vw;
+                                }
+                            }
+                        }
+
                         .second-block {
                             .next-back {
                                 .listing {
