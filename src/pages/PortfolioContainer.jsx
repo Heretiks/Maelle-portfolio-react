@@ -113,7 +113,7 @@ function PortfolioContainer() {
             const touchEndY = e.touches[0].clientY;
             const swipeDistance = touchStartY - touchEndY;
 
-            if (Math.abs(swipeDistance) >= (SCROLL_THRESHOLD * 1.5)) {
+            if (Math.abs(swipeDistance) >= (SCROLL_THRESHOLD * 1.2)) {
                 let nextProjectIndex = currentProject;
                 if (swipeDistance) {
                     nextProjectIndex = (currentProject + 1) % projects.length;

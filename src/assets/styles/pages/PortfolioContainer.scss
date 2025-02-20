@@ -147,7 +147,7 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
-            margin: 0 0 2vh 15vw;
+            margin: 0 0 15vh 15vw;
             font-size: 14px;
 
             .first-block {
@@ -421,8 +421,9 @@
                     flex-direction: column;
 
                     .category,
-                    .title{
+                    .title {
                         width: 100%;
+                        line-height: 16px;
                     }
 
                     .category {
@@ -558,10 +559,12 @@
             .info {
 
                 .first-block {
+                    gap: 3px;
 
                     .category,
                     .title {
                         font-size: 12px;
+                        line-height: 12px;
                         -webkit-box-align: center;
                         -ms-flex-align: center;
                         align-items: center;
