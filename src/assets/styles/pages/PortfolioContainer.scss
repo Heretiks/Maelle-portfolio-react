@@ -90,9 +90,9 @@
             text-align: center;
             gap: 7vh;
             z-index: 10;
-            width: 100vw;
+            width: 93vw;
             height: 71vh;
-            margin-left: 15vw;
+            margin-left: 7vw;
             margin-bottom: 23vh;
 
             .logo {
@@ -132,7 +132,7 @@
         }
 
         .info {
-            width: 100%;
+            width: 93vw;
             height: 4vh;
             display: -webkit-box;
             display: -ms-flexbox;
@@ -147,7 +147,7 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
-            margin: 0 0 15vh 15vw;
+            margin: 0 0 2vh 7vw;
             font-size: 14px;
 
             .first-block {
@@ -317,7 +317,7 @@
 
 
 /* Styles pour les écrans type grande tablette et petit pc */
-@media (max-width: 1160px) {
+@media (max-width: 1260px) {
     .portfolio-home {
 
         .portfolio-container {
@@ -403,7 +403,7 @@
 }
 
 /* Styles pour les écrans type smartphone */
-@media (max-width: 740px) {
+@media (max-width: 770px) {
 
     .portfolio-home {
         overflow: hidden;
@@ -423,7 +423,7 @@
                     .category,
                     .title {
                         width: 100%;
-                        line-height: 16px;
+                        line-height: 19px;
                     }
 
                     .category {
@@ -438,6 +438,7 @@
                         }
                         .category-text {
                             width: 70%;
+                            line-height: 18px;
                         }
                     }
 
@@ -452,6 +453,7 @@
                             width: 30%;
                         }
                         .title-text {
+                            line-height: 18px;
                             width: 70%;
                         }
                     }
@@ -530,7 +532,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .portfolio-home {
 
         .portfolio-container {
@@ -570,6 +572,18 @@
                         align-items: center;
                     }
 
+                    .category {
+
+                        .category-text {
+                            line-height: 12px;
+                        }
+                    }
+                    .title {
+
+                        .title-text {
+                            line-height: 12px;
+                        }
+                    }
                 }
             }
 
