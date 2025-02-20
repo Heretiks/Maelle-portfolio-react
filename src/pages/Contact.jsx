@@ -1,7 +1,7 @@
 import "../assets/styles/pages/Contact.scss";
 import Motif from '../assets/global/motif-grand.png';
 import Logo from '../assets/global/logo.svg';
-import Bullet from '../assets/global/left-bullet-point.svg';
+import Bullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import {useEffect, useRef, useState} from "react";

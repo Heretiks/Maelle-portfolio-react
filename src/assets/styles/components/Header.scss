@@ -155,10 +155,21 @@
     }
 
     .header-mobile {
-        display: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+
         position: fixed;
         top: -5vh;
-        right: 0;
+        right: -100%;
         background-color: rgb(255, 255, 255, 0.8);
         width: 94vw;
         height: 100vh;
@@ -204,12 +215,15 @@
 
         .background-motif {
             position: absolute;
-            width: 28vh;
-            right: -14vh;
-            -webkit-transform: rotate(90deg); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            z-index: 1000000;
+            width: 25vh;
+
+            &.top {
+                top: -3.2vh;
+            }
+
+            &.bottom {
+                bottom: -0.8vh;
+            }
 
             img {
                 width: 100%;
@@ -218,28 +232,44 @@
     }
 
     .header-mobile.open {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        visibility: visible;
+        opacity: 1;
+        right: 0;
     }
 }
 
 /* Afficher le menu burger uniquement sur mobile/tablette */
 @media (max-width: 800px) {
     .header {
+
         .burger-icon {
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
+
+            img {
+                -webkit-transition: all 0.3s ease; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                background: none;
+                -webkit-filter: invert(0);
+                -ms-filter: invert(0);
+                filter: invert(0);
+
+                &:active {
+                    scale: 1.2;
+                }
+            }
         }
 
         .burger-icon.inverted {
+
+            img {
+                -webkit-filter: invert(1);
+                -ms-filter: invert(1);
+                filter: invert(1);
+            }
+
             span {
                 background-color: #FFFFFF;
             }
@@ -251,6 +281,14 @@
 
         .header-mobile {
             top: 0;
+
+            ul {
+                li {
+                    a {
+                        font-size: 16px;
+                    }
+                }
+            }
         }
     }
 }

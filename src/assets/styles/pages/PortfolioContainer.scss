@@ -43,9 +43,18 @@
             -webkit-filter : blur(6px);
             filter : blur(6px);
             scale: 1.06;
-            -webkit-transition: background-image 0.5s ease-in-out;
-            -o-transition: background-image 0.5s ease-in-out;
-            transition: background-image 0.5s ease-in-out;
+            -webkit-transition: all 0.5s ease-in-out;
+            -o-transition: all 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Garde les proportions correctes */
+                -webkit-transition: all 0.5s ease-in-out;
+                -o-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
+            }
         }
 
         .background-motif {
@@ -56,6 +65,8 @@
             -ms-transform: rotate(90deg);
             transform: rotate(90deg);
             z-index: 1000000;
+            filter: invert(1);
+            transition: filter 0.3s ease-in-out;
 
             img {
                 width: 100%;
@@ -297,6 +308,10 @@
                 transition: all 0.3s ease-in-out;
             }
         }
+
+        .invert-motif {
+            filter: invert(0);
+        }
     }
 }
 
@@ -448,9 +463,6 @@
 
             }
 
-            .background-motif {
-                display: none;
-            }
         }
 
         .black-menu {
@@ -462,6 +474,11 @@
 
                 .burger-icon {
 
+                    img {
+                        -webkit-filter: invert(0);
+                        -ms-filter: invert(0);
+                        filter: invert(0);
+                    }
                     span {
                         background-color: #000000;
                     }
@@ -485,6 +502,7 @@
                     height: 40px;
                 }
             }
+
             .burger-icon {
                 -ms-flex-item-align: center;
                 -ms-grid-row-align: center;
@@ -492,9 +510,10 @@
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
-                padding-top: 6px;
-                width: 40px;
-                height: 25px;
+                width: 30px;
+                position: fixed;
+                top: 3.5vh;
+                right: 0;
             }
 
             .burger-icon.open span:nth-child(3) {
@@ -504,7 +523,7 @@
             }
 
             .header-mobile {
-                top: -2vh;
+                //top: -2vh;
             }
         }
     }
@@ -549,6 +568,10 @@
                     }
 
                 }
+            }
+
+            .background-motif {
+                display: none;
             }
         }
 

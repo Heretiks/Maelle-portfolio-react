@@ -67,15 +67,15 @@
         background: transparent;
 
         &:hover {
-            -webkit-transform: translateY(-50%) scale(1.4); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -ms-transform: translateY(-50%) scale(1.4);
-            transform: translateY(-50%) scale(1.4);
+            -webkit-transform: translateY(-50%) scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: translateY(-50%) scale(1.2);
+            transform: translateY(-50%) scale(1.2);
         }
 
         &:active {
-            -webkit-transform: translateY(-50%) scale(2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -ms-transform: translateY(-50%) scale(2);
-            transform: translateY(-50%) scale(2);
+            -webkit-transform: translateY(-50%) scale(1.7); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: translateY(-50%) scale(1.7);
+            transform: translateY(-50%) scale(1.7);
         }
     }
 
@@ -98,11 +98,26 @@
 /* Styles pour les écrans type smartphone */
 @media (max-width: 500px) {
     .slider {
-        height: 30vh;
-    }
+        height: 34vh;
 
-    .slider .image-container {
-        height: 100%;
-        width: auto;
+        .image-container {
+            height: 100%;
+            width: auto;
+        }
+
+        .arrow {
+
+            &:active {
+                -webkit-transform: translateY(-50%) scale(1.5); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+                -ms-transform: translateY(-50%) scale(1.5);
+                transform: translateY(-50%) scale(1.5);
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .slider {
+        height: 28vh;
     }
 }

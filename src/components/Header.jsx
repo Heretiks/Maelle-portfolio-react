@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import {Link, useLocation} from "react-router-dom";
-import LogoMc from '../assets/global/logo.svg'
-import MotifMc from '../assets/global/motif.png'
+import LogoMc from '../assets/global/logo.svg';
+import MotifMc from '../assets/global/motif.png';
 import Motif from "../assets/global/motif-grand.png";
+
+import HeaderPoint from "../assets/global/SVG_MOTIF_POINT_BURGER.svg";
 
 const Header = () => {
     const location = useLocation();
@@ -67,27 +69,30 @@ const Header = () => {
                 className="contact-link"
                 to="/contact"
                 style={{ visibility: location.pathname.startsWith('/projets') ? "initial" : "hidden " }}
-            >Un projet ?</Link>
+            >
+                Un projet ?
+            </Link>
 
             {/* Bouton de menu burger */}
             <div
                 className={`burger-icon ${isMobileMenuOpen ? "open" : isInverted ? "inverted" : ""}`}
                 onClick={toggleMobileMenu}
             >
-                <span></span>
-                <span></span>
-                <span></span>
+                <img src={HeaderPoint} alt="Icon menu burger"/>
             </div>
             {/* Menu mobile */}
             <nav className={`header-mobile ${isMobileMenuOpen ? "open" : ""}`}>
+                <div className="background-motif top">
+                    <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+                </div>
                 <ul>
                     <li><Link to="/" onClick={toggleMobileMenu}>Accueil</Link></li>
                     <li><Link to="/projets" onClick={toggleMobileMenu}>Vue d&#39;ensemble</Link></li>
                     <li><Link to="/contact" onClick={toggleMobileMenu}>Un projet ?</Link></li>
                 </ul>
-                {/*<div className="background-motif">*/}
-                {/*    <img src={Motif} alt="Motif de Maëlle Camissogo"/>*/}
-                {/*</div>*/}
+                <div className="background-motif bottom">
+                    <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+                </div>
             </nav>
         </header>
     );

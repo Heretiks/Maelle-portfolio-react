@@ -279,6 +279,15 @@
 @media (max-width: 800px) {
     .container {
 
+        .header {
+
+            .burger-icon {
+                position: fixed;
+                top: 3.5vh;
+                right: 0;
+            }
+        }
+
         .retour-listing {
             visibility: hidden;
         }
@@ -305,7 +314,7 @@
         overflow: auto;
 
         .burger-icon {
-            padding-top: 10px;
+            //padding-top: 10px;
         }
 
         .retour-accueil {

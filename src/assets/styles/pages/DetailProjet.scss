@@ -114,8 +114,6 @@
                             -webkit-transition: -webkit-transform 0.4s ease-in-out;
                             transition: -webkit-transform 0.4s ease-in-out;
                             -o-transition: transform 0.4s ease-in-out;
-                            transition: transform 0.4s ease-in-out;
-                            transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
                             opacity: 1;
                             -webkit-transform: translateY(0);
                             -ms-transform: translateY(0);
@@ -193,11 +191,11 @@
                                     cursor: default;
 
                                     &:hover {
-                                        scale: 1.4;
+                                        scale: 1.3;
                                     }
 
                                     &:active {
-                                        scale: 2;
+                                        scale: 1.7;
                                     }
                                 }
                             }
@@ -568,11 +566,15 @@
                                 a {
 
                                     .next-text, .prev-text {
-                                        width: 25px;
-                                        height: 25px;
+                                        width: 3vh;
+                                        height: 3vh;
 
                                         &:hover{
                                             scale: 1;
+                                        }
+
+                                        &:active{
+                                            scale: 1.4;
                                         }
                                     }
                                 }

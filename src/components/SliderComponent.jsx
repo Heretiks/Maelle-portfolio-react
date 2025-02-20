@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import '../assets/styles/components/Slider.scss';
 
-import LeftBullet from '../assets/global/left-bullet-point.svg';
-import RightBullet from '../assets/global/right-bullet-point.svg';
+import LeftBullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
+import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 
 const Slider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);

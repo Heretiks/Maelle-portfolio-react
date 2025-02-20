@@ -3,9 +3,10 @@ import projects from '../data/projets.js';
 import LogoMc from '../assets/global/logo.svg';
 import Motif from '../assets/global/motif-grand.png';
 import '../assets/styles/pages/PortfolioContainer.scss';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Header from "../components/Header.jsx";
 
+const imageCache = new Map(); // Cache global des images
 
 function PortfolioContainer() {
     const [currentProject, setCurrentProject] = useState(() => Math.floor(Math.random() * projects.length));
@@ -21,14 +22,23 @@ function PortfolioContainer() {
 
     // Précharger les images
     const preloadImages = (images) => {
-        const promises = images.map((src) => {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.src = src;
-                img.onload = resolve; // L'image est prête lorsque le onload est appelé
-            });
-        });
-        return Promise.all(promises); // Retourne une promesse résolue lorsque toutes les images sont chargées
+        return Promise.all(
+            images.map((src) => {
+                return new Promise((resolve) => {
+                    if (imageCache.has(src)) {
+                        // Si l'image est déjà dans le cache, pas besoin de la recharger
+                        resolve();
+                    } else {
+                        const img = new Image();
+                        img.src = src;
+                        img.onload = () => {
+                            imageCache.set(src, img); // Stocker l'image dans le cache
+                            resolve();
+                        };
+                    }
+                });
+            })
+        );
     };
 
     // useEffect du préchargement des images
@@ -45,20 +55,14 @@ function PortfolioContainer() {
 
     // Si en mobile on désactive le scroll
     useEffect(() => {
-        // Détecte si l'utilisateur est sur un appareil tactile
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-        // Vérifie l'URL
         const isHomePage = window.location.pathname === '/';
 
-        // Applique les styles si l'URL est '/' et l'appareil est tactile
-        // Test -> ne sais même plus si c'est utile
         if (isTouchDevice && isHomePage) {
             document.body.style.overflow = 'hidden';
             document.body.style.position = 'relative';
         }
 
-        // Nettoie les styles lorsque le composant est démonté
         return () => {
             if (isTouchDevice && isHomePage) {
                 document.body.style.overflow = '';
@@ -85,9 +89,7 @@ function PortfolioContainer() {
                 if (nextProjectIndex !== currentProject) {
                     setIsChanging(true);
                     setTimeout(() => setIsChanging(false), 500);
-
                     setAnimateCategory(projects[nextProjectIndex].category !== projects[currentProject].category);
-
                     setCurrentProject(nextProjectIndex);
                     setIsScrolling(true);
                     setTimeout(() => setIsScrolling(false), SCROLL_DELAY);
@@ -98,10 +100,8 @@ function PortfolioContainer() {
             });
         };
 
-        // Événement pour la souris
         window.addEventListener('wheel', handleWheel);
 
-        // Gestion des événements touch (mobile)
         let touchStartY = 0;
         const handleTouchStart = (e) => {
             touchStartY = e.touches[0].clientY;
@@ -115,25 +115,18 @@ function PortfolioContainer() {
 
             if (Math.abs(swipeDistance) >= (SCROLL_THRESHOLD * 1.5)) {
                 let nextProjectIndex = currentProject;
-
                 if (swipeDistance) {
-                    nextProjectIndex = (currentProject + 1) % projects.length; // Swipe vers le bas
+                    nextProjectIndex = (currentProject + 1) % projects.length;
                 }
-                // swipeDistance > 0
-                // else if (swipeDistance < 0) {
-                //     nextProjectIndex = (currentProject - 1 + projects.length) % projects.length; // Swipe vers le haut
-                // }
 
                 if (nextProjectIndex !== currentProject) {
                     setIsChanging(true);
                     setTimeout(() => setIsChanging(false), 500);
-
                     setAnimateCategory(projects[nextProjectIndex].category !== projects[currentProject].category);
-
                     setCurrentProject(nextProjectIndex);
                     setIsScrolling(true);
                     setTimeout(() => setIsScrolling(false), SCROLL_DELAY);
-                    touchStartY = 0; // Réinitialiser pour éviter les faux déclenchements
+                    touchStartY = 0;
                 }
             }
         };
@@ -152,12 +145,9 @@ function PortfolioContainer() {
     useEffect(() => {
         const interval = setInterval(() => {
             const nextProjectIndex = (currentProject + 1) % projects.length;
-
             setIsChanging(true);
             setTimeout(() => setIsChanging(false), SCROLL_DELAY);
-
             setAnimateCategory(projects[nextProjectIndex].category !== projects[currentProject].category);
-
             setCurrentProject(nextProjectIndex);
         }, AUTO_SCROLL_INTERVAL);
 
@@ -167,16 +157,21 @@ function PortfolioContainer() {
     return (
         <div className="portfolio-home">
             <div className={`${currentProject === 4 ? 'black-menu' : ''}`}>
-                <Header/>
+                <Header />
             </div>
 
             <Link className="portfolio-container" to={`/projet/${projects[currentProject].id}`}>
-                <div
-                    className="background-image"
-                    style={{ backgroundImage: `url(${imagesLoaded ? projects[currentProject].image : ''})` }}
-                ></div>
-                <div className="background-motif">
-                    <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+                <div className="background-image">
+                    {imagesLoaded && imageCache.has(projects[currentProject].image) && (
+                        <img
+                            src={imageCache.get(projects[currentProject].image).src}
+                            alt={`Projet ${projects[currentProject].title}`}
+                        />
+                    )}
+                </div>
+
+                <div className={`background-motif ${currentProject === 4 ? 'invert-motif' : ''}`}>
+                    <img src={Motif} alt="Motif de Maëlle Camissogo" />
                 </div>
                 <div className={`content ${currentProject === 4 ? 'black-text' : ''}`}>
                     <div className="logo">
