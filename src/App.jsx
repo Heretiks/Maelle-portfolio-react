@@ -11,10 +11,11 @@ import Contact from './pages/Contact.jsx';
 import DetailProjet from './pages/DetailProjet.jsx';
 import CustomCursor from "./components/CustomCursor.jsx";
 import LegalPage from "./pages/LegalPage.jsx";
+import {AnimatePresence} from "framer-motion";
 
 function App() {
     const location = useLocation();
-    const lenisRef = useRef(null);  // Utilisation d'un ref pour garder l'instance de Lenis
+    const lenisRef = useRef(null);
 
     // Initialisation de Lenis
     useEffect(() => {
@@ -43,10 +44,11 @@ function App() {
     // Scroll to top lors de chaque changement de route
     useEffect(() => {
         // Assurez-vous que Lenis est bien initialisé avant de l'utiliser
-        if (lenisRef.current && location.pathname !== "/projets") {
+        // TEST : j'ai enlever (&& location.pathname !== "/projets") pour test si GSAP fonctionne encore bien malgres le scroll, normalement oui
+        if (lenisRef.current) {
             lenisRef.current.scrollTo(0, { immediate: false }); // Scroll to top sur chaque changement d'URL
         }
-    }, [location.pathname]);  // Dépendance sur `location.pathname` pour détecter tout changement
+    }, [location.pathname]);
 
     return (
         <>
@@ -54,15 +56,17 @@ function App() {
             <Analytics />
 
             <CustomCursor />
-            <Routes>
-                <Route path="/" element={<PortfolioContainer />} />
-                <Route path="/projets" element={<ListingProject />} />
-                <Route path="/projet/:projectId" element={<DetailProjet />} />
-                <Route path="/contact" element={<Contact />} />
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    <Route path="/" element={<PortfolioContainer />} />
+                    <Route path="/projets" element={<ListingProject />} />
+                    <Route path="/projet/:projectId" element={<DetailProjet />} />
+                    <Route path="/contact" element={<Contact />} />
 
-                <Route path="/mentions-legales" element={<LegalPage />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
+                    <Route path="/mentions-legales" element={<LegalPage />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            </AnimatePresence>
         </>
     );
 }

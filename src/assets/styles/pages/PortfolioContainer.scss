@@ -97,6 +97,7 @@
                 text-transform: uppercase;
 
                 .nom, .metier {
+                    text-align: justify;
                     margin: 0;
                 }
 
@@ -309,7 +310,7 @@
 
                     .category,
                     .title {
-                        gap: 1vw;
+                        gap: 1.5vw;
                     }
 
                     .category {
@@ -392,7 +393,7 @@
             .info {
 
                 .first-block {
-                    width: 90%;
+                    width: 95%;
                     gap: 0;
                     -webkit-box-orient: vertical;
                     -webkit-box-direction: normal;
@@ -413,10 +414,10 @@
                         }
 
                         .category-title {
-                            width: 30%;
+                            width: 32%;
                         }
                         .category-text {
-                            width: 70%;
+                            width: 68%;
                             line-height: 18px;
                         }
                     }
@@ -429,11 +430,11 @@
                         }
 
                         .title-title {
-                            width: 30%;
+                            width: 32%;
                         }
                         .title-text {
                             line-height: 18px;
-                            width: 70%;
+                            width: 68%;
                         }
                     }
 

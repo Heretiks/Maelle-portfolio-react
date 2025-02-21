@@ -9,6 +9,7 @@ import '../assets/styles/pages/DetailProjet.scss';
 import LeftBullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
 import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 
+import {motion} from "framer-motion";
 
 function DetailProjet() {
     const [isFixed, setIsFixed] = useState(false);
@@ -41,20 +42,52 @@ function DetailProjet() {
 
     let nextProjectId = project.id % projects.length + 1;
     let previousProjectId = project.id === 1 ? projects.length : project.id - 1;
+    const isBlackText = (project.id === 1 || project.id === 5);
 
     if (!project) {
         return <Navigate to="/" replace />;
     }
 
+    const projectNameTransition = {
+        initial: { x: '-1000px' },
+        animate: { x: 0 },
+        exit: { x: '-1000px' },
+        transition: { duration: 0.8 }
+    };
+
+    const infoTransition = {
+        initial: { y: '1000px' },
+        animate: { y: 0 },
+        exit: { y: '1000px' },
+        transition: { duration: 0.8 },
+        ease: 'easeInOut',
+    };
+
+    const blurTransition = {
+        initial: { filter: 'blur(6px)' },
+        animate: { filter: 'blur(0px)' },
+        exit: { filter: 'blur(6px)' },
+        transition: { duration: 0.8 },
+        ease: 'easeInOut',
+    };
+
     return (
         <div className="detail-projet">
-            <Header />
+            <div>
+                <Header />
+            </div>
 
             {/* Contenu du projet */}
             <main className="detail-container">
                 <div className="presentation-projet">
-                    <img className="image-presentaion" src={project.image} alt={project.title} />
-                    <div className="content-presentation">
+                    <motion.img className="image-presentaion" src={project.image} alt={project.title} {...blurTransition}/>
+
+                    <motion.div className={`project-name ${isBlackText ? 'black-text' : ''}`} {...projectNameTransition}>
+                        <p className="name">{project.title}</p>
+                        <p className="category">{project.category}</p>
+                    </motion.div>
+
+                    <motion.div className="content-presentation" {...infoTransition}>
                         <div className="info">
                             <div className="first-block">
                                 <div className="category">
@@ -87,7 +120,7 @@ function DetailProjet() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className="info-projet">
                     {project.blocks.map((block, index) => {

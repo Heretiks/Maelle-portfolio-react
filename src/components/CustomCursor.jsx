@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback, useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const CustomCursor = () => {
@@ -6,6 +6,20 @@ const CustomCursor = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const location = useLocation();
+
+    const handleMouseEnterLink = useCallback(() => {
+        setIsHovering(true);
+        const mouseX = localStorage.getItem("cursorX");
+        const mouseY = localStorage.getItem("cursorY");
+        if (mouseX && mouseY) {
+            localStorage.setItem("cursorX", mouseX);
+            localStorage.setItem("cursorY", mouseY);
+        }
+    }, []);
+
+    const handleMouseLeaveLink = useCallback(() => {
+        setIsHovering(false);
+    }, []);
 
     useEffect(() => {
         const checkIfMobile = () => {
@@ -26,8 +40,8 @@ const CustomCursor = () => {
         const cursor = cursorRef.current;
         let mouseX = 0;
         let mouseY = 0;
-        let currentX = parseInt(localStorage.getItem("cursorX") || 0);
-        let currentY = parseInt(localStorage.getItem("cursorY") || 0);
+        let currentX = parseInt(localStorage.getItem("cursorX") || "0");
+        let currentY = parseInt(localStorage.getItem("cursorY") || "0");
         const speed = 0.1;
 
         // Applique les coordonnées enregistrées si elles existent
@@ -51,47 +65,56 @@ const CustomCursor = () => {
             mouseY = event.clientY;
         };
 
-        // Sauvegarde la position actuelle uniquement au survol d'un lien
-        const handleMouseEnterLink = () => {
-            setIsHovering(true);
-            localStorage.setItem("cursorX", mouseX);
-            localStorage.setItem("cursorY", mouseY);
-        };
-
-        const handleMouseLeaveLink = () => {
-            setIsHovering(false);
-        };
-
         window.addEventListener("mousemove", handleMouseMove);
-
-        // Listener pour tous les liens
-        const links = document.querySelectorAll("a");
-        links.forEach((link) => {
-            link.addEventListener("mouseenter", handleMouseEnterLink);
-            link.addEventListener("mouseleave", handleMouseLeaveLink);
-        });
 
         followMouse();
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
-            links.forEach((link) => {
-                link.removeEventListener("mouseenter", handleMouseEnterLink);
-                link.removeEventListener("mouseleave", handleMouseLeaveLink);
-            });
             window.removeEventListener("resize", checkIfMobile);
         };
     }, []);
 
-    // Réinitialiser le hover lors du changement d'URL
-    useEffect(() => {
+    useLayoutEffect(() => {
         const linksAndButtons = [...document.querySelectorAll("a"), ...document.querySelectorAll("button")];
         setIsHovering(false);
-        linksAndButtons.forEach((link) => {
-            link.addEventListener("mouseenter", () => setIsHovering(true));
-            link.addEventListener("mouseleave", () => setIsHovering(false));
-        });
-    }, [location.pathname]);
+
+        const addHoverListeners = (element) => {
+            element.addEventListener("mouseenter", handleMouseEnterLink);
+            element.addEventListener("mouseleave", handleMouseLeaveLink);
+        };
+
+        linksAndButtons.forEach(addHoverListeners);
+
+        return () => {
+            linksAndButtons.forEach((element) => {
+                element.removeEventListener("mouseenter", handleMouseEnterLink);
+                element.removeEventListener("mouseleave", handleMouseLeaveLink);
+            });
+        };
+    }, [location.pathname, handleMouseEnterLink, handleMouseLeaveLink]);
+
+    useEffect(() => {
+        const handleMouseEnter = (e) => {
+            if (e.target.matches('a, button')) {
+                handleMouseEnterLink();
+            }
+        };
+
+        const handleMouseLeave = (e) => {
+            if (e.target.matches('a, button')) {
+                handleMouseLeaveLink();
+            }
+        };
+
+        document.addEventListener('mouseenter', handleMouseEnter, true);
+        document.addEventListener('mouseleave', handleMouseLeave, true);
+
+        return () => {
+            document.removeEventListener('mouseenter', handleMouseEnter, true);
+            document.removeEventListener('mouseleave', handleMouseLeave, true);
+        };
+    }, [handleMouseEnterLink, handleMouseLeaveLink]);
 
     return (
         <div

@@ -5,6 +5,7 @@ import MotifMc from '../assets/global/motif.png';
 import Motif from "../assets/global/motif-grand.png";
 
 import HeaderPoint from "../assets/global/SVG_MOTIF_POINT_BURGER.svg";
+import {motion} from "framer-motion";
 
 const Header = () => {
     const location = useLocation();
@@ -46,6 +47,17 @@ const Header = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    let headerTransition;
+    if (location.pathname.includes('/projet/')) {
+        headerTransition = {
+            initial: { x: '-300%' },
+            animate: { x: 0 },
+            exit: { x: '-300%' },
+            transition: { duration: 1 },
+            ease: 'easeInOut',
+        };
+    }
+
     return (
         <header className="header">
             <Link
@@ -53,7 +65,8 @@ const Header = () => {
                 className="logo"
                 style={{ position: (location.pathname.startsWith('/projet/') || location.pathname.startsWith('/projets')) ? "fixed" : "initial" }}
             >
-                <img
+                <motion.img
+                    {...headerTransition}
                     src={LogoMc}
                     alt="Logo de Maëlle Camissogo"
                     className={`logo-image ${isMobileMenuOpen ? "open" : isInverted ? "inverted" : ""}`}

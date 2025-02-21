@@ -76,6 +76,11 @@ const ListingProjects = () => {
                 {projects.map((project) => (
                     <Link to={"/projet/" + project.id} key={project.id} className="grid-item">
                         <img src={project.imageCarre} alt={`Project ${project.id}`} />
+
+                        <div className="more-info-hover">
+                            <p className="hover-name">{project.title}</p>
+                            <p className="hover-category">{project.category}</p>
+                        </div>
                     </Link>
                 ))}
             </main>

@@ -42,26 +42,71 @@
         .grid-item {
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            aspect-ratio: 1 / 1;
 
             img {
                 width: 100%;
                 height: 100%;
                 -o-object-fit: cover;
                 object-fit: cover;
-                opacity: 0; /* Les images sont invisibles au départ */
+                opacity: 0;
                 -webkit-transform: translateX(-100px);
                 -ms-transform: translateX(-100px);
-                transform: translateX(-100px); /* Décalage pour l'effet d'apparition */
+                transform: translateX(-100px);
                 will-change: opacity, transform;
-                z-index: 99999;
+                filter: blur(0);
+                z-index: 9999;
                 scale: 1;
-                -webkit-transition: scale 1s ease-in-out;
-                -o-transition: scale 1s ease-in-out;
-                transition: scale 1s ease-in-out;
+                -webkit-transition: scale 0.5s ease-in-out, filter 0.5s ease-in-out;
+                -o-transition: scale 0.5s ease-in-out, filter 0.5s ease-in-out;
+                transition: scale 0.5s ease-in-out, filter 0.5s ease-in-out;
             }
 
-            img:hover {
-                scale: 1.5 !important;
+            .more-info-hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 105%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 1%;
+                transform: translateX(-150%);
+                background-color: rgb(255, 255, 255, 0.3);
+                transition: all 0.3s ease-in-out;
+
+                .hover-name,
+                .hover-category {
+                    width: 75%;
+                    margin: 0;
+                    color: black;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-size: 25px;
+                    font-weight: 700;
+                }
+
+                .hover-category {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .grid-item:hover {
+
+            img {
+                scale: 1.3 !important;
+                filter: blur(4px);
+            }
+
+            .more-info-hover {
+                transform: translateX(0);
             }
         }
     }
@@ -72,6 +117,34 @@
     }
 }
 
+
+/* Styles pour les écrans type grande tablette */
+@media (max-width: 1200px) {
+    .listing-projects {
+
+        .grid {
+            gap: 8px;
+            //max-width: 90%;
+            margin-top: 5vh;
+
+            .grid-item {
+
+                .more-info-hover {
+
+                    .hover-category,
+                    .hover-name {
+                        font-size: 20px;
+                    }
+
+                    .hover-category {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+    }
+}
 
 /* Styles pour les écrans type tablette */
 @media (max-width: 900px) {
@@ -106,6 +179,21 @@
             gap: 8px;
             //max-width: 90%;
             margin-top: 5vh;
+
+            .grid-item {
+
+                .more-info-hover {
+
+                    .hover-category,
+                    .hover-name {
+                        font-size: 16px;
+                    }
+
+                    .hover-category {
+                        font-size: 12px;
+                    }
+                }
+            }
         }
 
         .footer {
@@ -140,6 +228,21 @@
         .grid {
             grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
             max-width: 100%;
+
+            .grid-item {
+
+                .more-info-hover {
+
+                    .hover-category,
+                    .hover-name {
+                        font-size: 20px;
+                    }
+
+                    .hover-category {
+                        font-size: 16px;
+                    }
+                }
+            }
         }
 
         .footer {
