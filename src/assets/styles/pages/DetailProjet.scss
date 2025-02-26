@@ -7,7 +7,7 @@
     }
 
     .detail-container {
-        margin: auto auto 20vh;
+        margin: auto auto 12vh;
         width: 80%;
 
         .presentation-projet {
@@ -248,23 +248,25 @@
                             text-transform: uppercase;
                             text-decoration: none;
 
-                            a {
-                                text-transform: uppercase;
-                                text-decoration: none;
-                                color: white;
+                            .contact-text {
+                                color: black;
+                                margin: 5px 0 0 0;
+                                -webkit-transition: scale 0.2s ease-in-out;
+                                -o-transition: scale 0.2s ease-in-out;
+                                transition: scale 0.2s ease-in-out;
 
-                                .contact-text {
-                                    color: black;
-                                    margin: 0;
-                                    -webkit-transition: scale 0.2s ease-in-out;
-                                    -o-transition: scale 0.2s ease-in-out;
-                                    transition: scale 0.2s ease-in-out;
-
-                                    &:hover {
-                                        scale: 1.1;
-                                    }
+                                &:hover {
+                                    scale: 1.1;
                                 }
+
+                                a {
+                                     text-transform: uppercase;
+                                     text-decoration: none;
+                                     color: black;
+                                 }
                             }
+
+
 
                         }
 
@@ -278,26 +280,24 @@
                             text-transform: uppercase;
                             text-decoration: none;
 
-                            a {
-                                text-transform: uppercase;
-                                text-decoration: none;
-                                color: white;
+                            .listing-text {
+                                color: black;
+                                margin: 5px 0 0 0;
+                                -webkit-transition: scale 0.2s ease-in-out;
+                                -o-transition: scale 0.2s ease-in-out;
+                                transition: scale 0.2s ease-in-out;
 
-                                .listing-text {
+                                &:hover {
+                                    scale: 1.1;
+                                }
+
+                                a {
+                                    text-transform: uppercase;
+                                    text-decoration: none;
                                     color: black;
-                                    margin: 0;
-                                    -webkit-transition: scale 0.2s ease-in-out;
-                                    -o-transition: scale 0.2s ease-in-out;
-                                    transition: scale 0.2s ease-in-out;
-
-                                    &:hover {
-                                        scale: 1.1;
-                                    }
                                 }
                             }
-
                         }
-
                     }
                 }
             }
@@ -316,6 +316,15 @@
             align-items: center;
             margin-top: 103vh;
             gap: 12px;
+
+            .description-et-image,
+            .double-image,
+            .image-large,
+            .quadruple-image {
+                z-index: -1;
+                position: relative;
+                flex-grow: 1;
+            }
 
             .description-et-image,
             .double-image,
@@ -387,6 +396,7 @@
                 flex-direction: row;
                 gap: 12px;
                 width: calc(100% - 12px);
+                max-height: 95vh;
             }
 
             .double-image > * {
@@ -395,6 +405,8 @@
                 flex: 1 1 0;
                 -o-object-fit: cover;
                 object-fit: cover;
+                -o-object-position: center;
+                object-position: center;
                 width: 50%;
             }
 
@@ -582,7 +594,7 @@
                                     display: none;
                                 }
                                 .category-text {
-                                    font-size: 2.2vw;
+                                    font-size: 1.5vw;
                                 }
                             }
 
@@ -593,7 +605,7 @@
                                 }
                                 .title-text {
                                     font-weight: 800;
-                                    font-size: 2.2vw;
+                                    font-size: 1.5vw;
                                 }
                             }
                         }
@@ -689,6 +701,7 @@
             .logo {
 
                 .logo-image {
+                    width: 75px;
                     padding-bottom: 1vw;
                 }
             }

@@ -11,21 +11,24 @@ import Contact from './pages/Contact.jsx';
 import DetailProjet from './pages/DetailProjet.jsx';
 import CustomCursor from "./components/CustomCursor.jsx";
 import LegalPage from "./pages/LegalPage.jsx";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence, useAnimate} from "framer-motion";
 
 function App() {
     const location = useLocation();
     const lenisRef = useRef(null);
 
+    // Pour data-jumble
+    const [scope, animate] = useAnimate();
+
     // Initialisation de Lenis
     useEffect(() => {
         lenisRef.current = new Lenis({
             smooth: true,
-            lerp: 0.15,
+            lerp: 0.1,
             duration: 0.8,
             touch: true,
             inverse: false,
-            smoothWheel: false,
+            smoothWheel: true,
             normalizeWheel: true
         });
 
@@ -41,17 +44,69 @@ function App() {
         };
     }, []);
 
-    // Scroll to top lors de chaque changement de route
+    // Scroll to top lors de chaque changement de route et refresh
     useEffect(() => {
-        // Assurez-vous que Lenis est bien initialisé avant de l'utiliser
-        // TEST : j'ai enlever (&& location.pathname !== "/projets") pour test si GSAP fonctionne encore bien malgres le scroll, normalement oui
-        if (lenisRef.current) {
-            lenisRef.current.scrollTo(0, { immediate: false }); // Scroll to top sur chaque changement d'URL
-        }
+        const handleScroll = () => {
+            if (lenisRef.current) {
+                lenisRef.current.scrollTo(-100, { immediate: false, force: true, duration: 0.4 });
+
+                setTimeout(() => {
+                    lenisRef.current.stop();
+                }, 500);
+
+                setTimeout(() => {
+                    lenisRef.current.start();
+                }, 2000);
+            }
+        };
+
+        handleScroll();
+        window.addEventListener('load', handleScroll);
+
+        return () => {
+            window.removeEventListener('load', handleScroll);
+        };
     }, [location.pathname]);
 
+    // Pour data-jumble
+    useEffect(() => {
+
+        const jumbleElements = document.querySelectorAll('[data-jumble]');
+        jumbleElements.forEach((element) => {
+            const originalText = element.textContent;
+
+            const scrambleText = () => {
+                return originalText
+                    .split('')
+                    .sort(() => Math.random() - 0.5)
+                    .join('');
+            };
+
+            element.addEventListener('mouseenter', () => {
+                let iterations = 0;
+                const interval = setInterval(() => {
+                    if (iterations < 3) {
+                        animate(element, { opacity: [1, 0, 1] }, { duration: 0.1 });
+                        element.textContent = scrambleText();
+                        iterations++;
+                    } else {
+                        clearInterval(interval);
+                        animate(element, { opacity: 1 }, { duration: 0.2 });
+                        element.textContent = originalText;
+                    }
+                }, 100);
+            });
+
+            element.addEventListener('mouseleave', () => {
+                animate(element, { opacity: 1 }, { duration: 0.2 });
+                element.textContent = originalText;
+            });
+
+        });
+    }, [animate, location.pathname]);
+
     return (
-        <>
+        <div ref={scope}>
             <SpeedInsights />
             <Analytics />
 
@@ -67,7 +122,7 @@ function App() {
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </AnimatePresence>
-        </>
+        </div>
     );
 }
 

@@ -6,6 +6,9 @@ import Motif from "../assets/global/motif-grand.png";
 
 import HeaderPoint from "../assets/global/SVG_MOTIF_POINT_BURGER.svg";
 import {motion} from "framer-motion";
+import FlipLink from "./FlipLink.jsx";
+
+import LogoMcTest from '../components/LogoMc.jsx';
 
 const Header = () => {
     const location = useLocation();
@@ -50,9 +53,18 @@ const Header = () => {
     let headerTransition;
     if (location.pathname.includes('/projet/')) {
         headerTransition = {
-            initial: { x: '-300%' },
+            initial: { x: '-100vw' },
             animate: { x: 0 },
-            exit: { x: '-300%' },
+            exit: { x: '-100vw' },
+            transition: { duration: 1 },
+            ease: 'easeInOut',
+        };
+    }
+    else if (location.pathname.includes('/projets')) {
+        headerTransition = {
+            initial: { y: '-100vh' },
+            animate: { y: 0 },
+            exit: { y: '-100vh' },
             transition: { duration: 1 },
             ease: 'easeInOut',
         };
@@ -65,12 +77,13 @@ const Header = () => {
                 className="logo"
                 style={{ position: (location.pathname.startsWith('/projet/') || location.pathname.startsWith('/projets')) ? "fixed" : "initial" }}
             >
-                <motion.img
-                    {...headerTransition}
-                    src={LogoMc}
-                    alt="Logo de Maëlle Camissogo"
-                    className={`logo-image ${isMobileMenuOpen ? "open" : isInverted ? "inverted" : ""}`}
-                />
+                {/*<motion.img*/}
+                {/*    {...headerTransition}*/}
+                {/*    src={LogoMc}*/}
+                {/*    alt="Logo de Maëlle Camissogo"*/}
+                {/*    className={`logo-image ${isMobileMenuOpen ? "open" : isInverted ? "inverted" : ""}`}*/}
+                {/*/>*/}
+                <LogoMcTest/>
             </Link>
             <img
                 src={MotifMc}
@@ -78,13 +91,13 @@ const Header = () => {
                 className="motif"
                 style={{ visibility: "hidden" }}
             />
-            <Link
+            <motion.div
+                {...headerTransition}
                 className="contact-link"
-                to="/contact"
                 style={{ visibility: location.pathname.startsWith('/projets') ? "initial" : "hidden " }}
             >
-                Un projet ?
-            </Link>
+                <FlipLink to={'/contact'}> Un projet ?</FlipLink>
+            </motion.div>
 
             {/* Bouton de menu burger */}
             <div
@@ -99,9 +112,12 @@ const Header = () => {
                     <img src={Motif} alt="Motif de Maëlle Camissogo"/>
                 </div>
                 <ul>
-                    <li><Link to="/" onClick={toggleMobileMenu}>Accueil</Link></li>
-                    <li><Link to="/projets" onClick={toggleMobileMenu}>Vue d&#39;ensemble</Link></li>
-                    <li><Link to="/contact" onClick={toggleMobileMenu}>Un projet ?</Link></li>
+
+                    <li><FlipLink onClick={toggleMobileMenu} to="/">Accueil</FlipLink></li>
+
+                    {/*<li><Link to="/" onClick={toggleMobileMenu}>Accueil</Link></li>*/}
+                    <li><Link to="/projets" onClick={toggleMobileMenu} data-jumble>Vue d&#39;ensemble</Link></li>
+                    <li><Link to="/contact" onClick={toggleMobileMenu} data-jumble>Un projet ?</Link></li>
                 </ul>
                 <div className="background-motif bottom">
                     <img src={Motif} alt="Motif de Maëlle Camissogo"/>

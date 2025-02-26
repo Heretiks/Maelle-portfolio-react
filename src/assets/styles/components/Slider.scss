@@ -1,5 +1,10 @@
 /* Style composant SliderComponent */
 
+.slider-container {
+    position: relative;
+    width: 100%;
+}
+
 .slider {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -14,6 +19,8 @@
     width: 100%;
     margin: auto;
     overflow: hidden;
+    z-index: -1;
+    //pointer-events: none;
 
     .image-container {
         width: 100%;
@@ -47,45 +54,46 @@
         }
     }
 
-    .arrow {
-        border: none;
-        padding: 0;
-        font-size: 0;
-        cursor: default;
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        z-index: 10;
-        -webkit-transition: all 0.1s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-        -o-transition: all 0.1s ease-in-out;
-        transition: all 0.1s ease-in-out;
+}
 
-        width: 25px;
-        height: 25px;
-        background: transparent;
+.arrow {
+    border: none;
+    padding: 0;
+    font-size: 0;
+    cursor: default;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 10;
+    -webkit-transition: all 0.1s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
-        &:hover {
-            -webkit-transform: translateY(-50%) scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -ms-transform: translateY(-50%) scale(1.2);
-            transform: translateY(-50%) scale(1.2);
-        }
+    width: 25px;
+    height: 25px;
+    background: transparent;
 
-        &:active {
-            -webkit-transform: translateY(-50%) scale(1.5); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -ms-transform: translateY(-50%) scale(1.5);
-            transform: translateY(-50%) scale(1.5);
-        }
+    &:hover {
+        -webkit-transform: translateY(-50%) scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -ms-transform: translateY(-50%) scale(1.2);
+        transform: translateY(-50%) scale(1.2);
     }
 
-    .left {
-        left: 20px;
+    &:active {
+        -webkit-transform: translateY(-50%) scale(1.5); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -ms-transform: translateY(-50%) scale(1.5);
+        transform: translateY(-50%) scale(1.5);
     }
+}
 
-    .right {
-        right: 20px;
-    }
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
 }
 
 /* Styles pour les écrans type tablette */

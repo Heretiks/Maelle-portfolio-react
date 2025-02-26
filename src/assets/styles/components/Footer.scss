@@ -31,6 +31,11 @@
         -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
 
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
         &:hover {
             -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
             -ms-transform: scale(1.2);

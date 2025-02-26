@@ -1,0 +1,25 @@
+// FlipLink.scss
+.flip-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  //color: #000; // Ajustez la couleur selon vos besoins
+  //font-size: 30px; // Équivalent à text-lg
+  //font-weight: 800; // Équivalent à font-bold
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.1;
+
+  .second-span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+}

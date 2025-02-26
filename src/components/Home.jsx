@@ -11,6 +11,7 @@ const Home = ({ onProjectChange }) => {
     const lastScrollTime = useRef(0);
     const accumulatedDelta = useRef(0);
     const touchStartY = useRef(null);
+    const [mobile, setMobile] = useState(false);
 
     useEffect(() => {
         onProjectChange(currentIndex);
@@ -113,6 +114,25 @@ const Home = ({ onProjectChange }) => {
         return () => clearInterval(interval);
     }, [handleScroll, transitioning]);
 
+    useEffect(() => {
+        // on a un ecran de largeur < a 800 on met la variable mobile true, sinon false
+        setMobile(window.innerWidth < 800);
+
+        //Ajouter un event listener de resize
+        const handleResize = () => {
+            setMobile(window.innerWidth < 800);
+        };
+
+        // Ajouter un écouteur de redimensionnement
+        window.addEventListener("resize", handleResize);
+
+        // Nettoyage de l'écouteur au démontage
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+
+    }, []);
+
     return (
         <div className="home-container">
             {projects.map((project, index) => (
@@ -130,7 +150,7 @@ const Home = ({ onProjectChange }) => {
                                     : "slide-in-top"
                     }`}
                     style={{
-                        backgroundImage: `url(${project.image})`,
+                        backgroundImage: `url(${mobile ? project.imageMobile : project.image})`,
                         transitionDelay: index === currentIndex ? "0s" : "0.6s",
                     }}
                 ></div>

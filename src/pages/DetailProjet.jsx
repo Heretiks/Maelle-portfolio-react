@@ -2,7 +2,6 @@ import {useParams, Navigate, Link} from 'react-router-dom';
 import projects from '../data/projets.js';
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
-import {useEffect, useRef, useState} from "react";
 import SliderComponent from "../components/SliderComponent.jsx";
 import '../assets/styles/pages/DetailProjet.scss';
 
@@ -10,35 +9,36 @@ import LeftBullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
 import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 
 import {motion} from "framer-motion";
+import {useEffect, useState} from "react";
+import FlipLink from "../components/FlipLink.jsx";
 
 function DetailProjet() {
-    const [isFixed, setIsFixed] = useState(false);
-    const infoRef = useRef(null);
+    const [mobile, setMobile] = useState(false);
+
+    useEffect(() => {
+        // on a un ecran de largeur < a 800 on met la variable mobile true, sinon false
+        setMobile(window.innerWidth < 800);
+
+        //Ajouter un event listener de resize
+        const handleResize = () => {
+            setMobile(window.innerWidth < 800);
+        };
+
+        // Ajouter un écouteur de redimensionnement
+        window.addEventListener("resize", handleResize);
+        window.addEventListener("load", handleResize);
+
+        // Nettoyage de l'écouteur au démontage
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            window.removeEventListener("load", handleResize);
+        };
+
+    }, []);
 
     // Récupérer l'id du projet depuis l'URL et Trouver le projet correspondant
     const { projectId } = useParams();
     const project = projects.find(p => p.id === parseInt(projectId, 10));
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (infoRef.current) {
-                const offsetTop = infoRef.current.offsetTop;
-                const scrollPosition = window.scrollY;
-
-                // Passe en `fixed` si on dépasse la position initiale de la div
-                if (scrollPosition > offsetTop) {
-                    setIsFixed(true);
-                } else {
-                    setIsFixed(false);
-                }
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     let nextProjectId = project.id % projects.length + 1;
     let previousProjectId = project.id === 1 ? projects.length : project.id - 1;
@@ -71,6 +71,20 @@ function DetailProjet() {
         ease: 'easeInOut',
     };
 
+    const fadeInUp = {
+        initial: { opacity: 0, x: -150 },
+        whileInView: { opacity: 1, x: 0 },
+        transition: { duration: 0.6 },
+        // viewport: { once: true },
+    };
+
+    const fadeInUpQuad = {
+        initial: { opacity: 0, x: -80 },
+        whileInView: { opacity: 1, x: 0 },
+        transition: { duration: 0.6 },
+        // viewport: { once: true },
+    };
+
     return (
         <div className="detail-projet">
             <div>
@@ -80,7 +94,7 @@ function DetailProjet() {
             {/* Contenu du projet */}
             <main className="detail-container">
                 <div className="presentation-projet">
-                    <motion.img className="image-presentaion" src={project.image} alt={project.title} {...blurTransition}/>
+                    <motion.img className="image-presentaion" src={`${mobile ? project.imageMobile : project.image}`} alt={project.title} {...blurTransition}/>
 
                     <motion.div className={`project-name ${isBlackText ? 'black-text' : ''}`} {...projectNameTransition}>
                         <p className="name">{project.title}</p>
@@ -113,10 +127,14 @@ function DetailProjet() {
                                     </Link>
                                 </div>
                                 <div className="listing">
-                                    <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
+                                    <p className="listing-text">
+                                        <FlipLink to={'/projets'}>VUE D&#39;ENSEMBLE</FlipLink>
+                                    </p>
                                 </div>
                                 <div className="contact">
-                                    <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>
+                                    <p className="contact-text">
+                                        <FlipLink to={'/contact'} >UN PROJET ?</FlipLink>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -127,56 +145,113 @@ function DetailProjet() {
                         switch (block.type) {
                             case "description-et-image":
                                 return (
-                                    <div className="description-et-image" key={index}>
-                                        <div
+                                    <div
+                                        className="description-et-image"
+                                        key={index}
+                                    >
+                                        <motion.div
                                             className="description"
                                             style={{
                                                 backgroundColor: project.couleurPrimaire,
                                                 color: project.couleurSecondaire,
                                             }}
+                                            {...fadeInUp}
                                         >
                                             <p className="description-text">{block.text}</p>
+                                        </motion.div>
+                                        <motion.img
+                                            src={block.image}
+                                            alt="Description"
+                                            {...fadeInUp}
+                                        />
+                                    </div>
+                                );
+                            case "image-large": {
+                                const isFaso = project.id === 10;
+                                const isMariage = project.id === 11;
+
+                                const shouldDisplayImage = (imageSrc) => {
+                                    if (isFaso) {
+                                        if (imageSrc.includes("mockup-affiche-mobile-x2.webp")) {
+                                            return window.innerWidth < 800;
+                                        } else {
+                                            return window.innerWidth >= 800;
+                                        }
+                                    }
+
+                                    if (isMariage) {
+                                        if (imageSrc.includes("tampon.webp") || imageSrc.includes("photo-nom-table.webp")) {
+                                            return true;
+                                        }
+
+                                        if (imageSrc.includes("mobile")) {
+                                            return window.innerWidth < 800;
+                                        } else {
+                                            return window.innerWidth >= 800;
+                                        }
+                                    }
+
+                                    return true;
+                                };
+
+                                if (shouldDisplayImage(block.image)) {
+                                    return (
+                                        <div className="image-large" key={index}>
+                                            <motion.img
+                                                src={block.image}
+                                                alt=""
+                                                {...fadeInUp}
+                                            />
                                         </div>
-                                        <img src={block.image} alt="Description" />
-                                    </div>
-                                );
-                            case "image-large":
-                                return (
-                                    <div className="image-large" key={index}>
-                                        <img src={block.image} alt="" />
-                                    </div>
-                                );
+                                    );
+                                }
+
+                                return null;
+                            }
                             case "slider":
                                 return (
-                                    <SliderComponent images={block.images} />
+                                    <SliderComponent images={block.images} length={block.images.length} />
                                 );
-                            case "double-image":
-                                { const reverse = (project.id === 7) ? 'reverse' : '';
-
+                            case "double-image": {
+                                const reverse = project.id === 7 ? "reverse" : "";
                                 return (
-                                    <div className={`double-image ${reverse}`} key={index}>
+                                    <div
+                                        className={`double-image ${reverse}`}
+                                        key={index}
+                                    >
                                         {block.images.map((img, imgIndex) => {
-                                            const taille80 = (project.id === 6 && img.includes('6694')) ? 'taille-80' : '';
-                                            const taille20 = (project.id === 6 && img.includes('2')) ? 'taille-20' : '';
-                                            const taille40 = (project.id === 8) && img.includes('ANTE2-') ? 'taille-40' : '';
-                                            const taille60 = (project.id === 8) && img.includes('ANTE-') ? 'taille-60' : '';
+                                            const taille80 = project.id === 6 && img.includes("6694") ? "taille-80" : "";
+                                            const taille20 = project.id === 6 && img.includes("2") ? "taille-20" : "";
+                                            const taille40 = project.id === 8 && img.includes("ANTE2-") ? "taille-40" : "";
+                                            const taille60 = project.id === 8 && img.includes("ANTE-") ? "taille-60" : "";
 
                                             return (
-                                                <img
+                                                <motion.img
                                                     className={`image-${imgIndex} ${taille20} ${taille40} ${taille60} ${taille80} ${reverse}`}
                                                     src={img}
                                                     alt=""
                                                     key={imgIndex}
+                                                    {...fadeInUp}
                                                 />
                                             );
                                         })}
                                     </div>
-                                ); }
+                                );
+                            }
                             case "quadruple-image":
                                 return (
-                                    <div className="quadruple-image" key={index}>
+                                    <div
+                                        className="quadruple-image"
+                                        key={index}
+                                    >
                                         {block.images.map((img, imgIndex) => (
-                                            <img className={`${"image-" + imgIndex}`} src={img} alt="" key={imgIndex} />
+                                            <motion.img
+                                                className={`image-${imgIndex}`}
+                                                src={img}
+                                                alt=""
+                                                key={imgIndex}
+                                                {...fadeInUpQuad}
+                                            />
                                         ))}
                                     </div>
                                 );

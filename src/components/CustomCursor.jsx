@@ -42,7 +42,7 @@ const CustomCursor = () => {
         let mouseY = 0;
         let currentX = parseInt(localStorage.getItem("cursorX") || "0");
         let currentY = parseInt(localStorage.getItem("cursorY") || "0");
-        const speed = 0.1;
+        const speed = 0.2;
 
         // Applique les coordonnées enregistrées si elles existent
         if (cursor && currentX && currentY) {
@@ -76,7 +76,7 @@ const CustomCursor = () => {
     }, []);
 
     useLayoutEffect(() => {
-        const linksAndButtons = [...document.querySelectorAll("a"), ...document.querySelectorAll("button")];
+        const linksAndButtons = [...document.querySelectorAll("a"), ...document.querySelectorAll("button"), ...document.querySelectorAll(".burger-icon")];
         setIsHovering(false);
 
         const addHoverListeners = (element) => {
@@ -96,12 +96,14 @@ const CustomCursor = () => {
 
     useEffect(() => {
         const handleMouseEnter = (e) => {
+            if (!e.target || !e.target.matches) return;
             if (e.target.matches('a, button')) {
                 handleMouseEnterLink();
             }
         };
 
         const handleMouseLeave = (e) => {
+            if (!e.target || !e.target.matches) return;
             if (e.target.matches('a, button')) {
                 handleMouseLeaveLink();
             }

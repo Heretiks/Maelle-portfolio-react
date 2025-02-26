@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import {useEffect, useRef, useState} from "react";
 import EmailJS from '@emailjs/browser'
-// import gsap from "gsap";
+import FlipLink from "../components/FlipLink.jsx";
+
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -17,7 +19,7 @@ const ContactForm = () => {
     const logoRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
-    const [bigHeight, setBigHeight] = useState(window.innerHeight > 700); // Utilisation de state
+    const [bigHeight, setBigHeight] = useState(window.innerHeight > 700);
 
     // Savoir si on affiche motif-bottom ou non (height > 700px)
     useEffect(() => {
@@ -76,28 +78,50 @@ const ContactForm = () => {
         setIsSubmitting(false);
     };
 
+    const fromLeftTransition = {
+        initial: { x: '-100vw' },
+        animate: { x: 0 },
+        exit: { x: '-100vw' },
+        transition: { duration: 0.8 }
+    };
+
+    const fromRightTransition = {
+        initial: { x: '100vw' },
+        animate: { x: 0 },
+        exit: { x: '100vw' },
+        transition: { duration: 0.8 }
+    };
+
+    const fromTopTransition = {
+        initial: { y: '-100vh' },
+        animate: { y: 0 },
+        exit: { y: '-100vh' },
+        transition: { duration: 0.8 }
+    };
+
     return (
         <div className="container">
             <Header />
             <Link to="/" className="retour-accueil">
-                <img src={Bullet} alt="Next" className="arrow-icon" />
+                <motion.img src={Bullet} alt="Next" className="arrow-icon" {...fromTopTransition}/>
             </Link>
-            <Link to="/projets" className="retour-listing">
-                <p className="lien-listing">Vue d&#39;ensemble</p>
-            </Link>
-            <img src={Motif} alt="Motif haut" className="motif motif-top" />
+            <motion.div className="retour-listing" {...fromTopTransition}>
+                <FlipLink to={'/projets'}> Vue d&#39;ensemble </FlipLink>
+            </motion.div>
+            <motion.img src={Motif} alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
             <div className="content">
                 <Link to="/" className="logo">
-                    <img
+                    <motion.img
                         src={Logo}
                         alt="Logo MC"
                         className="logo-img"
                         ref={logoRef}
                         // onMouseEnter={handleMouseEnter}
+                        {...fromLeftTransition}
                     />
                 </Link>
-                <div className="form-container">
-                    <h2 className="title">PARLONS DE VOTRE PROJET</h2>
+                <motion.div className="form-container" {...fromRightTransition}>
+                    <h2 className="title" data-jumble="">PARLONS DE VOTRE PROJET</h2>
                     <form className="form" onSubmit={handleSubmit}>
                         <input
                             type="text"
@@ -129,9 +153,9 @@ const ContactForm = () => {
                         </button>
                     </form>
                     {successMessage && <p className="success-message">{successMessage}</p>}
-                </div>
+                </motion.div>
             </div>
-            <img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} />
+            <motion.img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} {...fromLeftTransition}/>
         </div>
     );
 };

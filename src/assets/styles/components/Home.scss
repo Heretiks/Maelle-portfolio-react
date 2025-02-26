@@ -24,12 +24,12 @@
   }
 
   .slide-in-bottom {
-    transform: translateY(100vw);
+    transform: translateY(100vh);
     z-index: -2;
   }
 
   .slide-in-top {
-    transform: translateY(-100vw);
+    transform: translateY(-100vh);
     z-index: -2;
   }
 

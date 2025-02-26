@@ -1,18 +1,31 @@
 // Images Présentation
 import HandsUpImg from '../assets/projects/hands-up/format-paysage.webp';
-import MaisonMarieImg from '../assets/projects/maison-marie/format-paysage.webp'
-import NaturoPattesImg from '../assets/projects/naturopatte/format-paysage.webp'
-import CongresNimesImg from '../assets/projects/congres-nimes-tourisme/format-paysage.webp'
-import SATetSPLImg from '../assets/projects/plaquette-sat-et-spl/format-paysage.webp'
-import SplPlaqueteImg from '../assets/projects/plaquette-spl/format-paysage.webp'
-import DomaineAigladeImg from '../assets/projects/domaine-de-laiglade/format-paysage.webp'
-import BleuLibelluleImg from '../assets/projects/bleu-libellule/format-paysage.webp'
-import SeptiemeElementImg from '../assets/projects/7eme-element/format-paysage.webp'
-import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage.webp'
-import MariageImg from '../assets/projects/mariage-mathilde/format-paysage.webp'
+import MaisonMarieImg from '../assets/projects/maison-marie/format-paysage.webp';
+import NaturoPattesImg from '../assets/projects/naturopatte/format-paysage.webp';
+import CongresNimesImg from '../assets/projects/congres-nimes-tourisme/format-paysage.webp';
+import SATetSPLImg from '../assets/projects/plaquette-sat-et-spl/format-paysage.webp';
+import SplPlaqueteImg from '../assets/projects/plaquette-spl/format-paysage.webp';
+import DomaineAigladeImg from '../assets/projects/domaine-de-laiglade/format-paysage.webp';
+import BleuLibelluleImg from '../assets/projects/bleu-libellule/format-paysage.webp';
+import SeptiemeElementImg from '../assets/projects/7eme-element/format-paysage.webp';
+import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage.webp';
+import MariageImg from '../assets/projects/mariage-mathilde/format-paysage.webp';
+
+// Images Mobile
+import HandsUpImgMobile from '../assets/projects/hands-up/format-mobile-x2.webp';
+import MaisonMarieImgMobile from '../assets/projects/maison-marie/format-mobile-x2.webp';
+import NaturoPattesImgMobile from '../assets/projects/naturopatte/format-mobile-x2.webp';
+import CongresNimesImgMobile from '../assets/projects/congres-nimes-tourisme/format-mobile-x2.webp';
+import SATetSPLImgMobile from '../assets/projects/plaquette-sat-et-spl/format-mobile-x2.webp';
+import SplPlaqueteImgMobile from '../assets/projects/plaquette-spl/format-mobile-x2.webp';
+import DomaineAigladeImgMobile from '../assets/projects/domaine-de-laiglade/format-mobile-x2.webp';
+import BleuLibelluleImgMobile from '../assets/projects/bleu-libellule/format-mobile-x2.webp';
+import SeptiemeElementImgMobile from '../assets/projects/7eme-element/format-mobile-x2.webp';
+import ArtisanFasoImgMobile from '../assets/projects/artisan-du-faso/format-mobile-x2.webp';
+import MariageImgMobile from '../assets/projects/mariage-mathilde/format-mobile-x2.webp';
 
 // Images Carre
-import HandsUpCarre from '../assets/projects/hands-up/pexels-tiarrasorte-30048200.webp';
+import HandsUpCarre from '../assets/projects/hands-up/format-carre-x2.webp';
 import MaisonMarieCarre from '../assets/projects/maison-marie/pexels-ekrulila-2237211.webp'
 import NaturoPatteCarre from '../assets/projects/naturopatte/pexels-chevanon-1108099.webp'
 import CongresNimesCarre from '../assets/projects/congres-nimes-tourisme/mockup14.webp'
@@ -123,15 +136,25 @@ import ElementHydraRevive from '../assets/projects/7eme-element/tuto-hydra-reviv
 
 // Mariage Mathilde
 import MariageFairePart from '../assets/projects/mariage-mathilde/faire-part-large/faire-part-large.webp'
+import MariageFairePartMobile1 from '../assets/projects/mariage-mathilde/faire-part-large/faire-part-mobile-x2.webp'
+
 import MariagePhotoNomTable from '../assets/projects/mariage-mathilde/photo-nom-table/photo-nom-table.webp'
 import MariageFairePartComplet from '../assets/projects/mariage-mathilde/faire-part-complet/faire-part-complet.webp'
+import MariageFairePartCompletMobile1 from '../assets/projects/mariage-mathilde/faire-part-complet/faire-part-mobile1-x2.webp'
+import MariageFairePartCompletMobile2 from '../assets/projects/mariage-mathilde/faire-part-complet/faire-part-mobile2-x2.webp'
+import MariageFairePartCompletMobile3 from '../assets/projects/mariage-mathilde/faire-part-complet/faire-part-mobile3-x2.webp'
+import MariageFairePartCompletMobile4 from '../assets/projects/mariage-mathilde/faire-part-complet/faire-part-mobile4-x2.webp'
+
 import MariageRemerciement from '../assets/projects/mariage-mathilde/remerciement/remerciement.webp'
 import MariagePhotoMirroir from '../assets/projects/mariage-mathilde/photo-mirroir/photo-mirroir.webp'
 import MariageMockupNomTable from '../assets/projects/mariage-mathilde/mockup-nom-table/mockup-nom-table.webp'
+import MariageMockupNomTableMobile from '../assets/projects/mariage-mathilde/mockup-nom-table/mockup-nom-table-mobile-x2.webp'
+
 import MariageTampon from '../assets/projects/mariage-mathilde/tampon/tampon.webp'
 
 //Artisan du Faso
 import FasoAffiche from '../assets/projects/artisan-du-faso/mockup-affiche/mockup-affiche.webp'
+import FasoAfficheMobile from '../assets/projects/artisan-du-faso/mockup-affiche/mockup-affiche-mobile-x2.webp'
 import FasoCarre1 from '../assets/projects/artisan-du-faso/carre-1/carre-1.webp'
 import FasoCarre2 from '../assets/projects/artisan-du-faso/carre-2/carre-2.webp'
 import FasoCarre3 from '../assets/projects/artisan-du-faso/carre-3/carre-3.webp'
@@ -144,6 +167,7 @@ const projects = [
         category: 'Identité Visuelle',
         title: 'Hands Up',
         image: HandsUpImg,
+        imageMobile: HandsUpImgMobile,
         imageCarre: HandsUpCarre,
         link: '/projects/hands-up',
         couleurPrimaire: '#1E2B5C',
@@ -166,6 +190,7 @@ const projects = [
         category: 'Identité Visuelle',
         title: 'Maison Marie',
         image: MaisonMarieImg,
+        imageMobile: MaisonMarieImgMobile,
         imageCarre: MaisonMarieCarre,
         link: '/projects/maison-marie',
         couleurPrimaire: '#422F21',
@@ -190,6 +215,7 @@ const projects = [
         category: 'Identité Visuelle',
         title: 'NATURO’PATTES & SABOTS',
         image: NaturoPattesImg,
+        imageMobile: NaturoPattesImgMobile,
         imageCarre: NaturoPatteCarre,
         link: '/projects/naturopatte',
         couleurPrimaire: '#C3D898',
@@ -215,6 +241,7 @@ const projects = [
         category: 'Brochure',
         title: 'Congrès Nîmes Tourisme',
         image: CongresNimesImg,
+        imageMobile: CongresNimesImgMobile,
         imageCarre: CongresNimesCarre,
         link: '/projects/nimes-tourisme',
         couleurPrimaire: '#0A1D37',
@@ -239,6 +266,7 @@ const projects = [
         category: 'Brochure',
         title: 'SAT & SPL Agate',
         image: SATetSPLImg,
+        imageMobile: SATetSPLImgMobile,
         imageCarre: SATetSPLCarre,
         link: '/projects/plaquette-sat-spl',
         couleurPrimaire: '#000000',
@@ -262,6 +290,7 @@ const projects = [
         category: 'Brochure',
         title: 'SPL Agate',
         image: SplPlaqueteImg,
+        imageMobile: SplPlaqueteImgMobile,
         imageCarre: SplPlaqueteCarre,
         link: '/projects/plaquette-spl',
         couleurPrimaire: '#3C4037',
@@ -285,6 +314,7 @@ const projects = [
         category: 'Packaging',
         title: 'Domaine de l\'Aiglade',
         image: DomaineAigladeImg,
+        imageMobile: DomaineAigladeImgMobile,
         imageCarre: DomaineAigladeCarre,
         link: '/projects/domaine-de-laiglade',
         couleurPrimaire: '#000000',
@@ -300,6 +330,7 @@ const projects = [
         category: 'Packaging',
         title: 'Bleu Libellule',
         image: BleuLibelluleImg,
+        imageMobile: BleuLibelluleImgMobile,
         imageCarre: BleuLibelluleCarre,
         link: '/projects/bleu-libellule',
         couleurPrimaire: '#000000',
@@ -317,6 +348,7 @@ const projects = [
         category: 'Print & Web',
         title: '7ème Element',
         image: SeptiemeElementImg,
+        imageMobile: SeptiemeElementImgMobile,
         imageCarre: SeptiemeCarre,
         link: '/projects/7eme-element',
         couleurPrimaire: '#000000',
@@ -337,12 +369,14 @@ const projects = [
         category: 'Print',
         title: 'Artisan Du Faso',
         image: ArtisanFasoImg,
+        imageMobile: ArtisanFasoImgMobile,
         imageCarre: ArtisanFasoCarre,
         link: '/projects/artisan-du-faso',
         couleurPrimaire: '#000000',
         couleurSecondaire: '#FFFFFF',
         blocks: [
             {type: 'image-large',image: FasoAffiche},
+            {type: 'image-large',image: FasoAfficheMobile},
             {type: 'double-image',images: [FasoCarre1, FasoCarre2]},
             {type: 'double-image',images: [FasoCarre3, FasoCarre4]},
         ]
@@ -352,16 +386,26 @@ const projects = [
         category: 'Print',
         title: 'Mariage',
         image: MariageImg,
+        imageMobile: MariageImgMobile,
         imageCarre: MariageCarre,
         link: '/projects/mariage',
         couleurPrimaire: '#000000',
         couleurSecondaire: '#FFFFFF',
         blocks: [
             {type: 'image-large',image: MariageFairePart},
+            {type: 'image-large',image: MariageFairePartMobile1},
+
             {type: 'image-large',image: MariagePhotoNomTable},
             {type: 'image-large',image: MariageFairePartComplet},
+            {type: 'image-large',image: MariageFairePartCompletMobile1},
+            {type: 'image-large',image: MariageFairePartCompletMobile2},
+            {type: 'image-large',image: MariageFairePartCompletMobile3},
+            {type: 'image-large',image: MariageFairePartCompletMobile4},
+
             {type: 'double-image',images: [MariageRemerciement, MariagePhotoMirroir]},
             {type: 'image-large',image: MariageMockupNomTable},
+            {type: 'image-large',image: MariageMockupNomTableMobile},
+
             {type: 'image-large',image: MariageTampon},
         ]
     },

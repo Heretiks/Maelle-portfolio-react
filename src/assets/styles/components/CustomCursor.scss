@@ -2,10 +2,10 @@
 
 .custom-cursor {
     position: fixed;
-    top: -6px;
-    left: -6px;
-    width: 12px;
-    height: 12px;
+    top: -8px;
+    left: -8px;
+    width: 16px;
+    height: 16px;
     background-color: white;
     mix-blend-mode: difference;
     background-blend-mode: difference; /* Fallback si mix-blend-mode échoue */
@@ -14,18 +14,18 @@
     z-index: 99999;
     -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Fallback pour meilleure visibilité */
-    -webkit-transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease, -webkit-transform 0.1s ease-out;
-    -o-transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease;
-    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease, -webkit-transform 0.1s ease-out;
+    -webkit-transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease;
+    -o-transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease;
+    transition: width 0.2s ease, height 0.2s ease, top 0.2s ease, left 0.2s ease;
 }
 
 .custom-cursor.hover {
-    width: 24px;
-    height: 24px;
-    top: -12px;
-    left: -12px;
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: -15px;
 }
 
-.custom-cursor.mobile {
+.mobile {
     display: none;
 }

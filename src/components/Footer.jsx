@@ -1,6 +1,7 @@
 // src/components/Header.jsx
 // import MotifMc from "../assets/global/motif.png";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
+import FlipLink from "./FlipLink.jsx";
 
 const Footer = () => {
     return (
@@ -9,7 +10,9 @@ const Footer = () => {
             style={{ visibility: location.pathname.startsWith('/projets') ? "initial" : "hidden " }}
         >
             <p className="nom-maelle" >Maëlle Camissogo, Graphiste</p>
-            <Link className="contact-link" to="/contact">Un projet ?</Link>
+            <div className="contact-link" to="/contact">
+                <FlipLink to="/contact" >Un projet ?</FlipLink>
+            </div>
             {/*<img src={MotifMc} alt="Motif de Maëlle Camissogo" className="end-motif"/>*/}
         </footer>
     );

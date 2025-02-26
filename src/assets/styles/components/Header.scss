@@ -92,12 +92,16 @@
         color: black;
         font-weight: 800;
         font-size: 16px;
-        /*position: fixed;*/
         top: 40px;
         right: 40px;
         -webkit-transition: all 0.2s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
         -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
 
         &:hover {
             -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
@@ -172,7 +176,7 @@
         right: -100%;
         background-color: rgb(255, 255, 255, 0.8);
         width: 94vw;
-        height: 100vh;
+        height: 98vh;
         padding: 3vw;
         z-index: 100;
         -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
@@ -205,6 +209,9 @@
                     text-decoration: none;
                     color: #000;
                     font-size: 18px;
+                    line-height: 0.9;
+
+
                 }
             }
 
@@ -215,14 +222,14 @@
 
         .background-motif {
             position: absolute;
-            width: 25vh;
+            width: 28vh;
 
             &.top {
                 top: -3.2vh;
             }
 
             &.bottom {
-                bottom: -0.8vh;
+                bottom: 0;
             }
 
             img {
@@ -287,6 +294,45 @@
                     a {
                         font-size: 16px;
                     }
+                }
+            }
+
+            .background-motif {
+
+                &.bottom {
+                    bottom: -0.8vh;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .header {
+
+        .header-mobile {
+
+            .background-motif {
+                width: 25vh;
+
+                &.bottom {
+                    bottom: -0.9vh;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 500px) {
+    .header {
+
+        .header-mobile {
+
+            .background-motif {
+
+                &.bottom {
+                    bottom: -2.5vh;
                 }
             }
         }

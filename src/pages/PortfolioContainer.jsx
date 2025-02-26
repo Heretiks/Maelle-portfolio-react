@@ -8,6 +8,7 @@ import Header from "../components/Header.jsx";
 import Home from "../components/Home.jsx";
 
 import {motion} from "framer-motion";
+import FlipLink from "../components/FlipLink.jsx";
 
 function PortfolioContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -86,10 +87,10 @@ function PortfolioContainer() {
                     </div>
                     <div className={`second-block ${currentIndex === 4 ? 'black-text' : ''}`}>
                         <div className="listing">
-                            <Link to="/projets"><p className="listing-text">VUE D&#39;ENSEMBLE</p></Link>
+                            <FlipLink to="/projets" className="listing-text">VUE D&#39;ENSEMBLE</FlipLink>
                         </div>
                         <div className="contact">
-                            <Link to="/contact"><p className="contact-text">UN PROJET ?</p></Link>
+                            <FlipLink to="/contact" className="contact-text">UN PROJET ?</FlipLink>
                         </div>
                     </div>
                 </motion.div>
