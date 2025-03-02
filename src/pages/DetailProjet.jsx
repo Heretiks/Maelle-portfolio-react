@@ -11,7 +11,6 @@ import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import FlipLink from "../components/FlipLink.jsx";
-import FlipText from "../components/FlipText.jsx";
 
 function DetailProjet() {
     const [mobile, setMobile] = useState(false);
@@ -97,8 +96,8 @@ function DetailProjet() {
                     <motion.img className="image-presentaion" src={`${mobile ? project.imageMobile : project.image}`} alt={project.title} {...blurTransition}/>
 
                     <motion.div className="project-name" {...projectNameTransition}>
-                        <FlipText className="name">{project.title}</FlipText>
-                        <FlipText className="category">{project.category}</FlipText>
+                        <p className="name">{project.title}</p>
+                        <p className="category">{project.category}</p>
                     </motion.div>
 
                     <motion.div className="content-presentation" {...infoTransition}>
@@ -112,9 +111,7 @@ function DetailProjet() {
                                 </div>
                                 <div className="title">
                                     <p className="title-title">Projet</p>
-                                    <FlipText className="title-text">
-                                        {project.title}
-                                    </FlipText>
+                                    <p className="title-text">{project.title}</p>
                                 </div>
                             </div>
                             <div className="second-block">
