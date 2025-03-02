@@ -97,14 +97,14 @@ const CustomCursor = () => {
     useEffect(() => {
         const handleMouseEnter = (e) => {
             if (!e.target || !e.target.matches) return;
-            if (e.target.matches('a, button')) {
+            if (e.target.matches('a, button, .burger-icon')) {
                 handleMouseEnterLink();
             }
         };
 
         const handleMouseLeave = (e) => {
             if (!e.target || !e.target.matches) return;
-            if (e.target.matches('a, button')) {
+            if (e.target.matches('a, button, .burger-icon')) {
                 handleMouseLeaveLink();
             }
         };

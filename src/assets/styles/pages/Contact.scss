@@ -223,13 +223,30 @@
             color: black;
             text-decoration: none;
         }
+    }
 
-        //&:hover {
-        //    -ms-transform: scale(1.1);
-        //    -webkit-transform: scale(1.1);
-        //    -moz-transform: scale(1.1);
-        //    transform: scale(1.1);
-        //}
+    .reseaux {
+        position: fixed;
+        top: 95vh;
+        right: 75vw;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 99999;
+
+        img {
+            width: 40px;
+            height: auto;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                scale: 1.2;
+            }
+        }
     }
 }
 

@@ -36,11 +36,11 @@
             text-decoration: none;
         }
 
-        &:hover {
-            -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -ms-transform: scale(1.2);
-            transform: scale(1.2);
-        }
+        //&:hover {
+        //    -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        //    -ms-transform: scale(1.2);
+        //    transform: scale(1.2);
+        //}
     }
 
     /*.end-motif {

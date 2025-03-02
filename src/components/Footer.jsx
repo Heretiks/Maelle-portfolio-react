@@ -11,7 +11,7 @@ const Footer = () => {
         >
             <p className="nom-maelle" >Maëlle Camissogo, Graphiste</p>
             <div className="contact-link" to="/contact">
-                <FlipLink to="/contact" >Un projet ?</FlipLink>
+                <FlipLink to="/contact" >Contact</FlipLink>
             </div>
             {/*<img src={MotifMc} alt="Motif de Maëlle Camissogo" className="end-motif"/>*/}
         </footer>

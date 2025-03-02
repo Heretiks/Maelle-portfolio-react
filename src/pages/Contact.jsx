@@ -1,14 +1,17 @@
 import "../assets/styles/pages/Contact.scss";
 import Motif from '../assets/global/motif-grand.png';
-import Logo from '../assets/global/logo.svg';
 import Bullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import {useEffect, useRef, useState} from "react";
 import EmailJS from '@emailjs/browser'
 import FlipLink from "../components/FlipLink.jsx";
-
 import { motion } from "framer-motion";
+import LogoMc from "../components/LogoMc.jsx";
+
+import linkedInSvg from '../assets/global/logo.svg';
+import mailSvg from '../assets/global/logo.svg';
+import maltSvg from '../assets/global/logo.svg';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -99,6 +102,14 @@ const ContactForm = () => {
         transition: { duration: 0.8 }
     };
 
+    const logoTransition = {
+        initial: { x: '-100vw' },
+        animate: { x: 0 },
+        whileHover: { x: 0 },
+        exit: { x: '-100vw' },
+        transition: { duration: 0.5 }
+    };
+
     return (
         <div className="container">
             <Header />
@@ -110,18 +121,13 @@ const ContactForm = () => {
             </motion.div>
             <motion.img src={Motif} alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
             <div className="content">
-                <Link to="/" className="logo">
-                    <motion.img
-                        src={Logo}
-                        alt="Logo MC"
-                        className="logo-img"
-                        ref={logoRef}
-                        // onMouseEnter={handleMouseEnter}
-                        {...fromLeftTransition}
-                    />
+                <Link to="/" className="logo" {...logoTransition}>
+                    <motion.div {...fromLeftTransition}>
+                        <LogoMc ref={logoRef}/>
+                    </motion.div>
                 </Link>
                 <motion.div className="form-container" {...fromRightTransition}>
-                    <h2 className="title" data-jumble="">PARLONS DE VOTRE PROJET</h2>
+                    <h2 className="title">PARLONS DE VOTRE PROJET</h2>
                     <form className="form" onSubmit={handleSubmit}>
                         <input
                             type="text"
@@ -156,6 +162,13 @@ const ContactForm = () => {
                 </motion.div>
             </div>
             <motion.img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} {...fromLeftTransition}/>
+
+            <div className="reseaux">
+                <img src={linkedInSvg} alt="Linkedin" className="linkedin" onClick={() => window.open("https://www.linkedin.com/in/", "_blank")}/>
+                <img src={mailSvg} alt="Mail" className="mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
+                <img src={maltSvg} alt="Malt" className="malt" onClick={() => window.open("https://malt.io/", "_blank")}/>
+            </div>
+
         </div>
     );
 };

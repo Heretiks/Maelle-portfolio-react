@@ -119,9 +119,9 @@
                             -webkit-box-pack: start;
                             -ms-flex-pack: start;
                             justify-content: flex-start;
-                            -webkit-box-align: end;
-                            -ms-flex-align: end;
-                            align-items: flex-end;
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            align-items: center;
                             text-transform: uppercase;
                             font-weight: 800;
 
@@ -251,13 +251,6 @@
                             .contact-text {
                                 color: black;
                                 margin: 5px 0 0 0;
-                                -webkit-transition: scale 0.2s ease-in-out;
-                                -o-transition: scale 0.2s ease-in-out;
-                                transition: scale 0.2s ease-in-out;
-
-                                &:hover {
-                                    scale: 1.1;
-                                }
 
                                 a {
                                      text-transform: uppercase;
@@ -283,13 +276,6 @@
                             .listing-text {
                                 color: black;
                                 margin: 5px 0 0 0;
-                                -webkit-transition: scale 0.2s ease-in-out;
-                                -o-transition: scale 0.2s ease-in-out;
-                                transition: scale 0.2s ease-in-out;
-
-                                &:hover {
-                                    scale: 1.1;
-                                }
 
                                 a {
                                     text-transform: uppercase;
@@ -396,7 +382,7 @@
                 flex-direction: row;
                 gap: 12px;
                 width: calc(100% - 12px);
-                max-height: 95vh;
+                //max-height: 95vh;
             }
 
             .double-image > * {
@@ -501,14 +487,18 @@
                 .content-presentation {
 
                     .info {
-                        gap: 2vw;
+                        gap: 1vw;
 
                         .first-block {
-                            width: 67%;
+                            width: 74%;
+
+                            .category {
+                                width: 44%;
+                            }
                         }
 
                         .second-block {
-                            width: 27%;
+                            width: 20%;
 
                             .listing {
                                 display: none;

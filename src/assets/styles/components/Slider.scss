@@ -39,7 +39,7 @@
         .slider-image {
             position: absolute; /* Positionnement absolu pour empiler les images */
             width: 100%;
-            height: auto;
+            height: 100%;
             display: block;
             -webkit-transition: opacity 0.5s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
             -o-transition: opacity 0.5s ease-in-out;
@@ -98,13 +98,10 @@
 
 /* Styles pour les écrans type tablette */
 @media (max-width: 900px) {
-    .slider {
-
-        .arrow {
-            width: 20px;
-            height: 20px;
-        }
-    }
+    .arrow {
+         width: 20px;
+         height: 20px;
+     }
 }
 
 /* Styles pour les écrans type smartphone */
@@ -114,18 +111,18 @@
 
         .image-container {
             height: 100%;
-            width: auto;
+            width: 100%;
         }
+    }
 
-        .arrow {
-            width: 16px;
-            height: 16px;
+    .arrow {
+        width: 18px;
+        height: 18px;
 
-            &:active {
-                -webkit-transform: translateY(-50%) scale(1.5); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-                -ms-transform: translateY(-50%) scale(1.5);
-                transform: translateY(-50%) scale(1.5);
-            }
+        &:active {
+            -webkit-transform: translateY(-50%) scale(1.5); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+            -ms-transform: translateY(-50%) scale(1.5);
+            transform: translateY(-50%) scale(1.5);
         }
     }
 }

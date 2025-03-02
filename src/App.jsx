@@ -11,14 +11,13 @@ import Contact from './pages/Contact.jsx';
 import DetailProjet from './pages/DetailProjet.jsx';
 import CustomCursor from "./components/CustomCursor.jsx";
 import LegalPage from "./pages/LegalPage.jsx";
-import {AnimatePresence, useAnimate} from "framer-motion";
+import {AnimatePresence} from "framer-motion";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
     const location = useLocation();
     const lenisRef = useRef(null);
-
-    // Pour data-jumble
-    const [scope, animate] = useAnimate();
+    const actualRoute = useRef(location.pathname);
 
     // Initialisation de Lenis
     useEffect(() => {
@@ -44,11 +43,17 @@ function App() {
         };
     }, []);
 
-    // Scroll to top lors de chaque changement de route et refresh
+    // Scroll top lors de chaque changement de route et refresh (sauf quand on quitte Listing)
     useEffect(() => {
         const handleScroll = () => {
             if (lenisRef.current) {
-                lenisRef.current.scrollTo(-100, { immediate: false, force: true, duration: 0.4 });
+                if (actualRoute.current === '/projets') {
+                    setTimeout(() => {
+                        lenisRef.current.scrollTo(-100, { immediate: false, force: true, duration: 0.4 });
+                    }, 1000);
+                } else {
+                    lenisRef.current.scrollTo(-100, { immediate: false, force: true, duration: 0.4 });
+                }
 
                 setTimeout(() => {
                     lenisRef.current.stop();
@@ -62,57 +67,54 @@ function App() {
 
         handleScroll();
         window.addEventListener('load', handleScroll);
+        actualRoute.current = location.pathname;
 
         return () => {
             window.removeEventListener('load', handleScroll);
         };
     }, [location.pathname]);
 
-    // Pour data-jumble
+    // Stop scroll si menu mobile ouvert
+    const handleInteraction = () => {
+        let isMobileMenuOpen;
+
+        setTimeout(() => {
+            isMobileMenuOpen = document.querySelectorAll(".open");
+
+            if (isMobileMenuOpen.length > 0) {
+                console.log('stop')
+                lenisRef.current.stop();
+            } else {
+                console.log('start')
+                lenisRef.current.start();
+            }
+
+        }, 150)
+
+
+    };
+
+    // Stop scroll si menu mobile ouvert
     useEffect(() => {
+        document.addEventListener('mousedown', handleInteraction);
+        document.addEventListener('touchstart', handleInteraction);
 
-        const jumbleElements = document.querySelectorAll('[data-jumble]');
-        jumbleElements.forEach((element) => {
-            const originalText = element.textContent;
-
-            const scrambleText = () => {
-                return originalText
-                    .split('')
-                    .sort(() => Math.random() - 0.5)
-                    .join('');
-            };
-
-            element.addEventListener('mouseenter', () => {
-                let iterations = 0;
-                const interval = setInterval(() => {
-                    if (iterations < 3) {
-                        animate(element, { opacity: [1, 0, 1] }, { duration: 0.1 });
-                        element.textContent = scrambleText();
-                        iterations++;
-                    } else {
-                        clearInterval(interval);
-                        animate(element, { opacity: 1 }, { duration: 0.2 });
-                        element.textContent = originalText;
-                    }
-                }, 100);
-            });
-
-            element.addEventListener('mouseleave', () => {
-                animate(element, { opacity: 1 }, { duration: 0.2 });
-                element.textContent = originalText;
-            });
-
-        });
-    }, [animate, location.pathname]);
+        return () => {
+            document.removeEventListener('mousedown', handleInteraction);
+            document.removeEventListener('touchstart', handleInteraction);
+        };
+    }, []);
 
     return (
-        <div ref={scope}>
+        <>
             <SpeedInsights />
             <Analytics />
 
             <CustomCursor />
+            <ScrollToTop lenis={lenisRef} />
             <AnimatePresence mode="wait">
                 <Routes location={location} key={location.pathname}>
+
                     <Route path="/" element={<PortfolioContainer />} />
                     <Route path="/projets" element={<ListingProject />} />
                     <Route path="/projet/:projectId" element={<DetailProjet />} />
@@ -122,7 +124,7 @@ function App() {
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </AnimatePresence>
-        </div>
+        </>
     );
 }
 

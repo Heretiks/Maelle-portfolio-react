@@ -22,7 +22,7 @@
         -ms-flex-item-align: end;
         -ms-grid-row-align: end;
         align-self: end;
-        -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
         z-index: 9999;
@@ -30,28 +30,31 @@
         .logo-image {
             width: 80px;
             height: 50px;
-            -webkit-transition: filter 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -webkit-transition: -webkit-filter 0.3s ease-in-out;
-            transition: -webkit-filter 0.3s ease-in-out;
+            -webkit-transition: filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
             -o-transition: filter 0.3s ease-in-out;
             transition: filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
         }
 
-        .logo-image.inverted {
-            -webkit-filter: invert(1);
-            filter: invert(1);
-        }
-
-        .logo-image.open {
-            -webkit-filter: invert(0);
-            filter: invert(0);
-        }
+        //.logo-image.inverted {
+        //    -webkit-filter: invert(1);
+        //    filter: invert(1);
+        //}
+        //
+        //.logo-image.open {
+        //    -webkit-filter: invert(0);
+        //    filter: invert(0);
+        //}
 
         &:hover {
             -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
             -ms-transform: scale(1.2);
             transform: scale(1.2);
         }
+    }
+
+    .logo.inverted {
+        -webkit-filter: invert(1);
+        filter: invert(1);
     }
 
     .logo.open {
@@ -174,12 +177,12 @@
         position: fixed;
         top: -5vh;
         right: -100%;
-        background-color: rgb(255, 255, 255, 0.8);
+        background-color: rgb(0, 0, 0, 1);
         width: 94vw;
-        height: 98vh;
-        padding: 3vw;
+        height: 94vh;
+        padding: 3vh 3vw;
         z-index: 100;
-        -webkit-transition: all 0.3s ease-in-out; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        -webkit-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
         transition: all 0.3s ease-in-out;
 
@@ -190,39 +193,34 @@
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
-            gap: 5vh;
+            width: 75%;
+            gap: 1vh;
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            font-size: 30px;
-            font-weight: 800;
+            -webkit-box-align: start;
+            -ms-flex-align: start;
+            align-items: start;
 
             li {
-                margin-bottom: 15px;
                 text-transform: uppercase;
 
                 a {
                     text-decoration: none;
-                    color: #000;
-                    font-size: 18px;
-                    line-height: 0.9;
-
-
+                    color: #FFFFFF;
+                    font-size: 32px;
+                    font-weight: 700;
                 }
-            }
-
-            li:last-child {
-                margin-bottom: 0;
             }
         }
 
         .background-motif {
             position: absolute;
             width: 28vh;
+            -webkit-filter: invert(1);
+            -ms-filter: invert(1);
+            filter: invert(1);
 
             &.top {
                 top: -3.2vh;
@@ -259,9 +257,9 @@
                 -o-transition: all 0.3s ease;
                 transition: all 0.3s ease;
                 background: none;
-                -webkit-filter: invert(0);
-                -ms-filter: invert(0);
-                filter: invert(0);
+                -webkit-filter: invert(1);
+                -ms-filter: invert(1);
+                filter: invert(1);
 
                 &:active {
                     scale: 1.2;
@@ -272,9 +270,9 @@
         .burger-icon.inverted {
 
             img {
-                -webkit-filter: invert(1);
-                -ms-filter: invert(1);
-                filter: invert(1);
+                -webkit-filter: invert(0);
+                -ms-filter: invert(0);
+                filter: invert(0);
             }
 
             span {
@@ -292,7 +290,7 @@
             ul {
                 li {
                     a {
-                        font-size: 16px;
+                        font-size: 32px;
                     }
                 }
             }
@@ -300,7 +298,7 @@
             .background-motif {
 
                 &.bottom {
-                    bottom: -0.8vh;
+                    bottom: -4%;
                 }
             }
         }
@@ -315,9 +313,9 @@
             .background-motif {
                 width: 25vh;
 
-                &.bottom {
-                    bottom: -0.9vh;
-                }
+                //&.bottom {
+                //    bottom: -0.9vh;
+                //}
             }
         }
     }
@@ -329,10 +327,83 @@
 
         .header-mobile {
 
+            ul {
+                li {
+                    a {
+                        font-size: 7vw;
+                    }
+                }
+            }
+
+            .background-motif {
+                width: 21vh;
+
+                //&.bottom {
+                //    bottom: -2.5vh;
+                //}
+            }
+        }
+    }
+}
+
+@media (hover: none) and (pointer: coarse) and (min-width: 800px) {
+    .header {
+
+        .burger-icon {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            position: fixed;
+            top: 5vh;
+            right: 0;
+
+            img {
+                -webkit-transition: all 0.3s ease; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+                -o-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                background: none;
+                -webkit-filter: invert(1);
+                -ms-filter: invert(1);
+                filter: invert(1);
+
+                &:active {
+                    scale: 1.2;
+                }
+            }
+        }
+
+        .burger-icon.inverted {
+
+            img {
+                -webkit-filter: invert(0);
+                -ms-filter: invert(0);
+                filter: invert(0);
+            }
+
+            span {
+                background-color: #FFFFFF;
+            }
+        }
+
+        .contact-link {
+            display: none;
+        }
+
+        .header-mobile {
+            top: 0;
+
+            ul {
+                li {
+                    a {
+                        font-size: 32px;
+                    }
+                }
+            }
+
             .background-motif {
 
                 &.bottom {
-                    bottom: -2.5vh;
+                    bottom: -4%;
                 }
             }
         }

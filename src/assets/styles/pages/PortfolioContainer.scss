@@ -12,7 +12,8 @@
 
     .portfolio-container {
         position: relative;
-        height: 100vh;
+        height: 100vh; /* Fallback */
+        height: 100dvh;
         width: 100%;
         overflow: hidden;
         display: -webkit-box;
@@ -74,9 +75,14 @@
                 -webkit-filter: invert(1);
                 filter: invert(1);
                 transition: all 0.3s ease-in-out;
+                width: 180px;
 
-                img {
-                    width: 180px;
+                //img {
+                //    width: 180px;
+                //    height: auto;
+                //}
+                > * {
+                    width: 100%;
                     height: auto;
                 }
             }
@@ -95,6 +101,7 @@
                 font-size: 32px;
                 font-weight: 700;
                 text-transform: uppercase;
+                line-height: 1.1;
 
                 .nom, .metier {
                     text-align: justify;
@@ -216,9 +223,16 @@
                 -ms-flex-pack: distribute;
                 justify-content: space-around;
 
-                .contact {
+                .contact,
+                .listing {
+                    display: flex;
+                    align-items: center;
+                    height: 100%;
                     text-transform: uppercase;
                     text-decoration: none;
+                }
+
+                .contact {
 
                     a {
                         text-transform: uppercase;
@@ -242,8 +256,7 @@
                 }
 
                 .listing {
-                    text-transform: uppercase;
-                    text-decoration: none;
+
 
                     a {
                         text-transform: uppercase;
@@ -266,32 +279,6 @@
                 }
             }
         }
-
-        .black-text {
-            color: black !important;
-            -webkit-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-
-            .logo {
-                -webkit-filter: none !important;
-                filter: none !important;
-                -webkit-transition: all 0.3s ease-in-out;
-                -o-transition: all 0.3s ease-in-out;
-                transition: all 0.3s ease-in-out;
-            }
-
-            a {
-                color: black !important;
-                -webkit-transition: all 0.3s ease-in-out;
-                -o-transition: all 0.3s ease-in-out;
-                transition: all 0.3s ease-in-out;
-            }
-        }
-
-        .invert-motif {
-            filter: invert(0);
-        }
     }
 }
 
@@ -305,7 +292,7 @@
             .info {
 
                 .first-block {
-                    width: 70%;
+                    width: 75%;
                     gap: 0;
 
                     .category,
@@ -314,7 +301,7 @@
                     }
 
                     .category {
-                        width: 50%;
+                        width: 40%;
                     }
 
                     .title {
@@ -323,16 +310,12 @@
                 }
 
                 .second-block {
-                    width: 30%;
+                    width: 25%;
                     -webkit-box-pack: start;
                     -ms-flex-pack: start;
                     justify-content: flex-start;
 
                     .listing {
-
-                    }
-
-                    .contact {
                         display: none;
                     }
                 }
@@ -350,7 +333,7 @@
             .info {
 
                 .first-block {
-                    width: 70%;
+                    width: 78%;
                     gap: 0;
 
                     .category {
@@ -363,18 +346,10 @@
                 }
 
                 .second-block {
-                    width: 30%;
+                    width: 15%;
                     -webkit-box-pack: start;
                     -ms-flex-pack: start;
                     justify-content: flex-start;
-
-                    .listing {
-
-                    }
-
-                    .contact {
-                        display: none;
-                    }
                 }
             }
         }
@@ -383,7 +358,7 @@
 }
 
 /* Styles pour les écrans type smartphone */
-@media (max-width: 770px) {
+@media (max-width: 800px) {
 
     .portfolio-home {
         overflow: hidden;
@@ -448,27 +423,6 @@
 
         }
 
-        .black-menu {
-            -webkit-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-
-            .header {
-
-                .burger-icon {
-
-                    img {
-                        -webkit-filter: invert(0);
-                        -ms-filter: invert(0);
-                        filter: invert(0);
-                    }
-                    span {
-                        background-color: #000000;
-                    }
-                }
-            }
-        }
-
         .header {
             display: -webkit-box;
             display: -ms-flexbox;
@@ -529,11 +483,11 @@
                 .nom-metier {
 
                     .nom {
-                        font-size: 25px;
+                        font-size: 7vw;
                     }
 
                     .metier {
-                        font-size: 20px;
+                        font-size: 5vw;
                     }
                 }
             }

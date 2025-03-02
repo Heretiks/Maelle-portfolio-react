@@ -20,4 +20,142 @@ body {
   padding: 0;
   background-color: #FFFFFF;
   font-family: Be Vietnam Pro, sans-serif;
+
+  .scrollTop {
+    position: fixed;
+    bottom: 10vh;
+    right: 3vw;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease, scale 0.3s ease;
+    z-index: 9999999;
+
+    &:hover {
+      scale: 1.2;
+    }
+
+    &.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+  }
+
+
+}
+
+// Si appareil tactile faut afficher le menu burger
+@media (hover: none) and (pointer: coarse) and (min-width: 800px)  {
+  .body {
+
+
+
+    // Page Détail
+    .detail-projet {
+
+    }
+
+    // Page Listing
+    .listing-projects {
+
+    }
+
+    // Page contact
+    .container {
+
+      //.header {
+      //  display: flex;
+      //  height: 0;
+      //  margin: 0;
+      //
+      //  .logo {
+      //    visibility: hidden;
+      //    z-index: -1;
+      //  }
+      //
+      //  .burger-icon {
+      //    display: flex;
+      //    position: fixed;
+      //    top: 3.5vh;
+      //    right: 0;
+      //  }
+      //}
+
+    }
+
+  }
+
+  // Page Accueil
+  .portfolio-home {
+
+    .header {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      width: 100% !important;
+      position: absolute !important;
+      top: 0 !important;
+      margin: 1.5vh 0 0 0 !important;
+
+      .logo {
+
+        .logo-image {
+          width: 85px !important;
+          height: 40px !important;
+        }
+      }
+
+      .burger-icon {
+        -ms-flex-item-align: center !important;
+        -ms-grid-row-align: center !important;
+        align-self: center !important;
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        width: 30px !important;
+        position: fixed !important;
+        top: 3.5vh !important;
+        right: 0 !important;
+      }
+
+      .header-mobile {
+        height: 96vh !important;
+        top: 0 !important;
+      }
+
+    }
+
+    .black-menu {
+      .header {
+
+        .header-mobile {
+          img {
+            -webkit-filter: invert(0) !important;
+            -ms-filter: invert(0) !important;
+            filter: invert(0) !important;
+          }
+          span {
+            background-color: #000000 !important;
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  body {
+
+    .scrollTop {
+      display: none;
+    }
+
+  }
+
 }

@@ -11,6 +11,7 @@ import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import FlipLink from "../components/FlipLink.jsx";
+import FlipText from "../components/FlipText.jsx";
 
 function DetailProjet() {
     const [mobile, setMobile] = useState(false);
@@ -42,7 +43,6 @@ function DetailProjet() {
 
     let nextProjectId = project.id % projects.length + 1;
     let previousProjectId = project.id === 1 ? projects.length : project.id - 1;
-    const isBlackText = (project.id === 1 || project.id === 5);
 
     if (!project) {
         return <Navigate to="/" replace />;
@@ -96,9 +96,9 @@ function DetailProjet() {
                 <div className="presentation-projet">
                     <motion.img className="image-presentaion" src={`${mobile ? project.imageMobile : project.image}`} alt={project.title} {...blurTransition}/>
 
-                    <motion.div className={`project-name ${isBlackText ? 'black-text' : ''}`} {...projectNameTransition}>
-                        <p className="name">{project.title}</p>
-                        <p className="category">{project.category}</p>
+                    <motion.div className="project-name" {...projectNameTransition}>
+                        <FlipText className="name">{project.title}</FlipText>
+                        <FlipText className="category">{project.category}</FlipText>
                     </motion.div>
 
                     <motion.div className="content-presentation" {...infoTransition}>
@@ -112,9 +112,9 @@ function DetailProjet() {
                                 </div>
                                 <div className="title">
                                     <p className="title-title">Projet</p>
-                                    <p className="title-text">
+                                    <FlipText className="title-text">
                                         {project.title}
-                                    </p>
+                                    </FlipText>
                                 </div>
                             </div>
                             <div className="second-block">
@@ -133,7 +133,7 @@ function DetailProjet() {
                                 </div>
                                 <div className="contact">
                                     <p className="contact-text">
-                                        <FlipLink to={'/contact'} >UN PROJET ?</FlipLink>
+                                        <FlipLink to={'/contact'} >Contact</FlipLink>
                                     </p>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@ function DetailProjet() {
 
                                 const shouldDisplayImage = (imageSrc) => {
                                     if (isFaso) {
-                                        if (imageSrc.includes("mockup-affiche-mobile-x2.webp")) {
+                                        if (imageSrc.includes("mockup-affiche-mobile-x2")) {
                                             return window.innerWidth < 800;
                                         } else {
                                             return window.innerWidth >= 800;
@@ -180,7 +180,7 @@ function DetailProjet() {
                                     }
 
                                     if (isMariage) {
-                                        if (imageSrc.includes("tampon.webp") || imageSrc.includes("photo-nom-table.webp")) {
+                                        if (imageSrc.includes("tampon") || imageSrc.includes("photo-nom-table")) {
                                             return true;
                                         }
 
