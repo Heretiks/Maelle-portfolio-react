@@ -29,12 +29,12 @@ import HandsUpCarre from '../assets/projects/hands-up/format-carre-x2.webp';
 import MaisonMarieCarre from '../assets/projects/maison-marie/pexels-ekrulila-2237211.webp'
 import NaturoPatteCarre from '../assets/projects/naturopatte/pexels-chevanon-1108099.webp'
 import CongresNimesCarre from '../assets/projects/congres-nimes-tourisme/mockup14.webp'
-import SATetSPLCarre from '../assets/projects/plaquette-sat-et-spl/mockup21.webp'
-import SplPlaqueteCarre from '../assets/projects/plaquette-spl/Mockup2.webp'
+import SATetSPLCarre from '../assets/projects/plaquette-sat-et-spl/image-carre-x2.webp'
+import SplPlaqueteCarre from '../assets/projects/plaquette-spl/image-carre-x2.webp'
 import DomaineAigladeCarre from '../assets/projects/domaine-de-laiglade/3bouteilles.webp'
 import BleuLibelluleCarre from '../assets/projects/bleu-libellule/SCINTILLANTE2.webp'
 import SeptiemeCarre from '../assets/projects/7eme-element/FLYER1.webp'
-import ArtisanFasoCarre from '../assets/projects/artisan-du-faso/131206-2519.webp'
+import ArtisanFasoCarre from '../assets/projects/artisan-du-faso/image-carre-x2.webp'
 import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.webp'
 
 // HandsUp
@@ -43,6 +43,10 @@ import HandsUpCouleurs from '../assets/projects/hands-up/couleurs-identite/Group
 import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe161.webp';
 import HandsUpMenuLarge from '../assets/projects/hands-up/mockup-menu-large/Groupe163.webp';
 import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/Poster-MockUp-Vert-and-Horiz.webp';
+import HandsUpMenuBoisson from '../assets/projects/hands-up/mockup-menu-large/BOISSON.webp';
+import HandsUpMenuBoisson2 from '../assets/projects/hands-up/mockup-menu-large/BOISSON-DEUX.webp';
+import HandsUpMenuFormule from '../assets/projects/hands-up/mockup-menu-large/FORMULE.webp';
+import HandsUpMenuCarte from '../assets/projects/hands-up/mockup-menu-large/CARTE.webp';
 
 // Maison Marie
 import MaisonMarieDescription from '../assets/projects/maison-marie/image-description/pexels-rdne-7755524.webp';
@@ -100,7 +104,7 @@ import SplVue3D from '../assets/projects/plaquette-spl/vision-3d/2.webp'
 import SplDoublePageMaps from '../assets/projects/plaquette-spl/double-page-maps/Mockup5.webp'
 
 // Domaine de L'Aiglade
-import AigladeMockupLeo from '../assets/projects/domaine-de-laiglade/triple-etiquette-leo/mockup-petit-leo.webp'
+// import AigladeMockupLeo from '../assets/projects/domaine-de-laiglade/triple-etiquette-leo/mockup-petit-leo.webp'
 import AigladeBouteilleLeo from '../assets/projects/domaine-de-laiglade/petit-leo/petit-leo.webp'
 import AigladeMockupCevenrolle from '../assets/projects/domaine-de-laiglade/etiquette-cevenrolle/mockup-cevenreolle.webp'
 import AigladeBouteilleCevenrolle from '../assets/projects/domaine-de-laiglade/cevenrolle/cenvenrolle.webp'
@@ -119,7 +123,6 @@ import BLEclatantePack from '../assets/projects/bleu-libellule/eclatante/ECLATAN
 import BLEclatanteProduit from '../assets/projects/bleu-libellule/eclatante/ECLATANTE2.webp'
 
 //7ème Element
-import ElementMockup1 from '../assets/projects/7eme-element/mockup-1-carre/mockup-1-carre.webp'
 import ElementMockup2 from '../assets/projects/7eme-element/mockup-2-carre/mockup-2-carre.webp'
 import ElementMockup3 from '../assets/projects/7eme-element/mockup-3-carre/mockup-3-carre.webp'
 import ElementMockup4 from '../assets/projects/7eme-element/mockup-4-carre/mockup-4-carre.webp'
@@ -129,10 +132,11 @@ import ElementFlyerSimple from '../assets/projects/7eme-element/flyer-simple-lar
 import ElementFlyerComplet from '../assets/projects/7eme-element/flyer-complet/flyer-complet.webp'
 import ElementMagazine from '../assets/projects/7eme-element/magazine/magazine.webp'
 import ElementInstaTel from '../assets/projects/7eme-element/insta-telephone/insta-telephone.webp'
-import ElementColorSafe from '../assets/projects/7eme-element/tuto-color-safe/tuto-color-safe.webp'
-import ElementDeepRepair from '../assets/projects/7eme-element/tuto-deep-repair/tuto-deep-repair.webp'
-import ElementHighlightBlond from '../assets/projects/7eme-element/tuto-highlight-blond/tuto-highlight-blond.webp'
-import ElementHydraRevive from '../assets/projects/7eme-element/tuto-hydra-revive/tuto-hydra-revive.webp'
+// import ElementMockup1 from '../assets/projects/7eme-element/mockup-1-carre/mockup-1-carre.webp'
+// import ElementColorSafe from '../assets/projects/7eme-element/tuto-color-safe/tuto-color-safe.webp'
+// import ElementDeepRepair from '../assets/projects/7eme-element/tuto-deep-repair/tuto-deep-repair.webp'
+// import ElementHighlightBlond from '../assets/projects/7eme-element/tuto-highlight-blond/tuto-highlight-blond.webp'
+// import ElementHydraRevive from '../assets/projects/7eme-element/tuto-hydra-revive/tuto-hydra-revive.webp'
 
 // Mariage Mathilde
 import MariageFairePart from '../assets/projects/mariage-mathilde/faire-part-large/faire-part-large.webp'
@@ -175,14 +179,15 @@ const projects = [
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'HANDS UP EST UN RESTAURANT ÉPHÉMÈRE CRÉER PAR LES ÉTUDIANTS ' +
-                    'DE L’INSTITUT PAUL BAUCUSE. L’OBJECTIF EST DE CRÉER UN UNIVERS LÉGER ' +
-                    'ET ÉLÉGANT METTANT EN AVANT LES CODES DE LA GASTRONOMIE.',
+                text: 'Hands Up est un restaurant éphémère créé par les étudiants de l’Institut Paul Bocuse.\n\n ' +
+                    'L’objectif est de créer un univers léger et élégant mettant en avant les codes de la gastronomie française.',
                 image: HandsUpDescription
             },
             {type: 'image-large',image: HandsUpLogoLarge},
             {type: 'double-image',images: [HandsUpMenuCarre, HandsUpCouleurs]},
-            {type: 'image-large',image: HandsUpMenuLarge}
+            {type: 'double-image',images: [HandsUpMenuCarte, HandsUpMenuFormule]},
+            {type: 'double-image',images: [HandsUpMenuBoisson, HandsUpMenuBoisson2]},
+            // {type: 'image-large',image: HandsUpMenuLarge}
         ]
     },
     {
@@ -198,9 +203,8 @@ const projects = [
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'MAISON MARIE EST UN INSTITUT DE BEAUTÉ SPÉCIALISÉ DANS LES ' +
-                    'EXTENSIONS DE CILS. L’OBJECTIF EST DE DÉVELOPPER UNE IDENTITÉ CHALEUREUSE' +
-                    ' INTEMPORELLE ET ÉLÉGANTE À DESTINATION DES FEMMES.',
+                text: 'Maison Marie est un institut de beauté spécialisé dans les extensions de cils. \n\n' +
+                    'L’objectif est de développer une identité chaleureuse, intemporelle et élégante à destination des femmes.',
                 image: MaisonMarieDescription
             },
             {type: 'double-image',images: [MaisonMarieCouleurs, MaisonMarieMockupLogo]},
@@ -223,9 +227,9 @@ const projects = [
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'SOUCI EXPRESSIF DU BIEN ÊTRE D’AUTRUI, DÉCOURAGEMENT, PEUR, INCERTITUDE…' +
-                    'NATURO’PATTES & SABOTS APPORTE SOLUTIONS AUX PROBLÉMATIQUES DE VOS ANIMAUX À L’AIDE DE LA NATUROPATHIE. ' +
-                    'UN UNIVERS NATUREL, SAIN, LUMINEUX ET HUMAIN.',
+                text: 'Souci expressif du bien-être d’autrui, découragement, peur, incertitude…' +
+                    'Naturo’Pattes & Sabots apporte des solutions aux problématiques de vos animaux à l’aide de la naturopathie.' +
+                    'Un univers naturel, sain, lumineux et humain.',
                 image: NaturoDescription
             },
             {type: 'double-image',images: [NaturoCouleurs, NaturoLogo]},
@@ -249,10 +253,10 @@ const projects = [
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'RÉPUTÉE POUR SA SITUATION GÉOGRAPHIQUE ENTRE CÉVENNES, PROVENCE ET CAMARGUE, ' +
-                    'NÎMES ET SES LIEUX CHARGÉS D’HISTOIRE VOUS ACCUEILLENT POUR L’ORGANISATION DE VOTRE ÉVÈNEMENT. \n\n' +
-                    'MISE EN AVANT DES POINTS FORTS DE LA VILLE ET SES ALENTOURS AINSI QUE DES INFRASTRUCTURES ' +
-                    'ET DES OFFRES PROPOSÉS PAR LA BUREAU DES CONFESSIONS DE LA VILLE DE NÎMES.',
+                text: 'Réputée pour sa situation géographique entre Cévennes, Provence et Camargue, ' +
+                    'Nîmes et ses lieux chargés d’histoire vous accueillent pour l’organisation de votre événement. \n\n' +
+                    'Cette brochure met en avant les points forts de la ville et de ses alentours, ainsi que des infrastructures ' +
+                    'et des offres proposées par le bureau des congrès de la ville de Nîmes.',
                 image: CongresDescription
             },
             {type: 'image-large',image: CongresLarge1},
@@ -274,8 +278,10 @@ const projects = [
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'LES SOCIÉTÉ SAT & SPL AGATE APPORTE SOLUTIONS AUX PROBLÉMATIQUES EN URBANISME, ' +
-                    'AMÉNAGEMENT, CONSTRUCTION ET RÉHABILITATION DE LA VILLE DE NÎMES EST SON AGGLOMÉRATION.',
+                text: 'Les sociétés SAT et SPL Agate apportent des solutions aux problématiques d\'urbanisme, ' +
+                    'd\'aménagement, de construction et de réhabilitation de la ville de Nîmes et de son agglomération. \n\n' +
+                    'Cette brochure commerciale a pour but de présenter l’histoire de la société, les différents contrats et ' +
+                    'clients, ainsi que ses compétences pour la réalisation de divers projets.',
                 image: SatSplDescription
             },
             {type: 'double-image',images: [SatSplPlaquetteCarreFermee, SatSplBaseline]},
@@ -298,8 +304,9 @@ const projects = [
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'LES SOCIÉTÉ SAT & SPL AGATE APPORTE SOLUTIONS AUX PROBLÉMATIQUES EN URBANISME, ' +
-                    'AMÉNAGEMENT, CONSTRUCTION ET RÉHABILITATION DE LA VILLE DE NÎMES EST SON AGGLOMÉRATION.',
+                text: 'Mise en lumière du projet d’aménagement du Marché Gare de Nîmes. \n\n' +
+                    'Cette brochure est un outil permettant de comprendre le projet et ses étapes dans leur globalité. ' +
+                    'Elle constitue également un point d’avancement pour appréhender et imaginer le Marché Gare de demain.',
                 image: SplDescription
             },
             {type: 'double-image',images: [SplMockupMultipleCarre, SplPageSimple]},
@@ -320,7 +327,14 @@ const projects = [
         couleurPrimaire: '#000000',
         couleurSecondaire: '#FFFFFF',
         blocks: [
-            {type: 'double-image',images: [AigladeMockupLeo, AigladeBouteilleLeo]},
+            {
+                type: 'description-et-image',
+                text: 'Avec une exploitation de 16,5 ha, le Domaine de l’Aigalade est spécialisé dans la production de vin naturel. \n\n' +
+                    'Des références familiales, régionales et amicales sont intégrées dans chacune des étiquettes. ' +
+                    'L’idée est de proposer des cuvées uniques, à l’image des producteurs.',
+                image: AigladeBouteilleLeo
+            },
+            // {type: 'double-image',images: [AigladeMockupLeo, AigladeBouteilleLeo]},
             {type: 'double-image',images: [AigladeMockupCevenrolle, AigladeBouteilleCevenrolle]},
             {type: 'double-image',images: [AigladeMockupMerci, AigladeBouteilleMerci]},
         ]
@@ -351,17 +365,26 @@ const projects = [
         imageMobile: SeptiemeElementImgMobile,
         imageCarre: SeptiemeCarre,
         link: '/projects/7eme-element',
-        couleurPrimaire: '#000000',
+        couleurPrimaire: '#B33B61',
         couleurSecondaire: '#FFFFFF',
         blocks: [
-            {type: 'double-image',images: [ElementMockup1, ElementMockup2]},
+            {
+                type: 'description-et-image',
+                text: '7ème Élément présente Care7, la nouvelle gamme révolutionnaire de soins capillaires. \n\n' +
+                    'Entre skincare et haircare, Care7 allie des ingrédients naturels de haute qualité' +
+                    ' à des formules avancées pour offrir des solutions capillaires complètes et performantes. \n\n' +
+                    'Développement de différents supports de communication à destination de la presse ou des clients, ' +
+                    'présentant les avantages des gammes Hydra Revive, Color Safe, Deep Repair et Blond Highlight.',
+                image: ElementMockup2
+            },
+            // {type: 'double-image',images: [ElementMockup1, ElementMockup2]},
             {type: 'double-image',images: [ElementMockup3, ElementMockup4]},
             {type: 'double-image',images: [ElementMockup5, ElementMockup6]},
             {type: 'image-large',image: ElementFlyerSimple},
             {type: 'image-large',image: ElementFlyerComplet},
             {type: 'image-large',image: ElementMagazine},
             {type: 'image-large',image: ElementInstaTel},
-            {type: 'quadruple-image',images: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
+            // {type: 'quadruple-image',images: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
         ]
     },
     {

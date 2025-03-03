@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../assets/styles/components/Slider.scss';
 import { motion } from 'framer-motion';
 
-import LeftBullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
+import LeftBullet from '../assets/global/SVG_MOTIF_POINT_AVANT.svg';
 import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 
 const Slider = ({ images }) => {

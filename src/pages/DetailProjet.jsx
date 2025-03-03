@@ -5,7 +5,7 @@ import Footer from "../components/Footer.jsx";
 import SliderComponent from "../components/SliderComponent.jsx";
 import '../assets/styles/pages/DetailProjet.scss';
 
-import LeftBullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
+import LeftBullet from '../assets/global/SVG_MOTIF_POINT_AVANT.svg';
 import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 
 import {motion} from "framer-motion";
@@ -15,6 +15,7 @@ import {Helmet} from "react-helmet-async";
 
 function DetailProjet() {
     const [mobile, setMobile] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         // on a un ecran de largeur < a 800 on met la variable mobile true, sinon false
@@ -23,6 +24,7 @@ function DetailProjet() {
         //Ajouter un event listener de resize
         const handleResize = () => {
             setMobile(window.innerWidth < 800);
+            setWindowWidth(window.innerWidth);
         };
 
         // Ajouter un écouteur de redimensionnement
@@ -153,6 +155,8 @@ function DetailProjet() {
                     {project.blocks.map((block, index) => {
                         switch (block.type) {
                             case "description-et-image":
+                                { const noDisplay = project.id === 1 && block.image.includes("image-description") && windowWidth < 500;
+
                                 return (
                                     <div
                                         className="description-et-image"
@@ -168,13 +172,15 @@ function DetailProjet() {
                                         >
                                             <p className="description-text">{block.text}</p>
                                         </motion.div>
-                                        <motion.img
-                                            src={block.image}
-                                            alt="Description"
-                                            {...fadeInUp}
-                                        />
+                                        {!noDisplay && (
+                                            <motion.img
+                                                src={block.image}
+                                                alt="Description"
+                                                {...fadeInUp}
+                                            />
+                                        )}
                                     </div>
-                                );
+                                ); }
                             case "image-large": {
                                 const isFaso = project.id === 10;
                                 const isMariage = project.id === 11;

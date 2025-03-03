@@ -1,6 +1,6 @@
 import "../assets/styles/pages/Contact.scss";
 import Motif from '../assets/global/motif-grand.png';
-import Bullet from '../assets/global/SVG_MOTIF-POINT_AVANT.svg';
+import Bullet from '../assets/global/SVG_MOTIF_POINT_AVANT.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import {useEffect, useRef, useState} from "react";

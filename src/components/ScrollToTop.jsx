@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import img from "../assets/global/SVG_MOTIF-POINT_AVANT.svg";
+import img from "../assets/global/SVG_MOTIF_POINT_AVANT.svg";
 
 export default function ScrollToTop(lenis) {
     const [visible, setVisible] = useState(false);
