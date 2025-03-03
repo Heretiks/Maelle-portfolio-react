@@ -1,13 +1,51 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/global/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maëlle Camissogo</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./src/assets/global/logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Balise Title et Meta description -->
+<!--  <title>Maëlle Camissogo | Portfolio de Graphiste</title>-->
+<!--  <meta name="description" content="Portfolio de Maëlle Camissogo, graphiste professionnelle spécialisée en design créatif et innovant. Découvrez mes projets et réalisations graphiques.">-->
+
+  <!-- Open Graph tags -->
+<!--  <meta property="og:title" content="Maëlle Camissogo | Portfolio de Graphiste">-->
+<!--  <meta property="og:description" content="Découvrez les projets créatifs et innovants de Maëlle Camissogo, graphiste professionnelle.">-->
+<!--  <meta property="og:image" content="https://www.maellecamissogo.com/image-partage.jpg">-->
+<!--  <meta property="og:url" content="https://www.maellecamissogo.com">-->
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.maellecamissogo.com">
+
+  <!-- Robots meta tag -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Maëlle Camissogo",
+      "jobTitle": "Graphiste",
+      "url": "https://www.maellecamissogo.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/ma%C3%ABlle-camissogo/",
+        "https://www.malt.fr/profile/maellecamissogo"
+      ]
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Maëlle Camissogo"
+      },
+      "knowsAbout": ["Design graphique", "Illustration", "Branding", "Motion design"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Nom de l'école ou université"
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

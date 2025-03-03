@@ -11,6 +11,7 @@ import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import FlipLink from "../components/FlipLink.jsx";
+import {Helmet} from "react-helmet-async";
 
 function DetailProjet() {
     const [mobile, setMobile] = useState(false);
@@ -85,7 +86,18 @@ function DetailProjet() {
     };
 
     return (
-        <div className="detail-projet">
+        <>
+            <Helmet>
+                <title>{project.title} | Maëlle Camissogo</title>
+                <meta name="description" content={`Découvrez le projet "${project.title}" | ${project.category}, réalisé par Maëlle Camissogo, graphiste spécialisée en design créatif.`} />
+                <meta property="og:title" content={`${project.title} | Maëlle Camissogo`} />
+                <meta property="og:description" content={`Détails et présentation du projet "${project.title}". Découvrez mon travail de graphiste.`} />
+                <meta property="og:image" content={project.image} />
+                <meta property="og:url" content={`https://www.maellecamissogo.com/projet/${project.id}`} />
+            </Helmet>
+
+
+            <div className="detail-projet">
             <div>
                 <Header />
             </div>
@@ -261,6 +273,7 @@ function DetailProjet() {
 
             <Footer />
         </div>
+        </>
     );
 }
 

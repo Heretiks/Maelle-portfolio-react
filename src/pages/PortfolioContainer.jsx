@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import projects from '../data/projets.js';
-import LogoMc from '../assets/global/logo.svg';
 import Motif from '../assets/global/motif-grand.png';
 import '../assets/styles/pages/PortfolioContainer.scss';
 import { Link } from 'react-router-dom';
@@ -12,6 +11,7 @@ import FlipLink from "../components/FlipLink.jsx";
 
 
 import LogoMcMotion from "../components/LogoMc.jsx";
+import {Helmet} from "react-helmet-async";
 
 function PortfolioContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -52,16 +52,29 @@ function PortfolioContainer() {
     };
 
     return (
-        <div className="portfolio-home">
-            <div>
-                <Header />
-            </div>
+        <>
+            <Helmet>
+                <title>Maëlle Camissogo | Portfolio de Graphiste</title>
+                <meta name="description" content="Portfolio de Maëlle Camissogo, graphiste et directrice artistique professionnelle spécialisée en design créatif et innovant. Découvrez mes projets et réalisations graphiques."/>
+                <meta property="og:title" content="Maëlle Camissogo | Portfolio de Graphiste"/>
+                <meta property="og:description" content="Découvrez les projets créatifs et innovants de Maëlle Camissogo, graphiste professionnelle."/>
+                <meta property="og:image" content="https://www.maellecamissogo.com/image-partage.jpg"/>
 
-            <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
-                <Home onProjectChange={handleProjectChange} />
+                <meta property="og:image" content="/images/image-partage.jpg"/>
 
-                <div className="background-motif">
-                    <motion.img src={Motif} alt="Motif de Maëlle Camissogo" {...motifTransition}/>
+                <meta property="og:url" content="https://www.maellecamissogo.com"/>
+            </Helmet>
+
+            <div className="portfolio-home">
+                <div>
+                    <Header/>
+                </div>
+
+                <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
+                    <Home onProjectChange={handleProjectChange}/>
+
+                    <div className="background-motif">
+                        <motion.img src={Motif} alt="Motif de Maëlle Camissogo" {...motifTransition}/>
                 </div>
                 <motion.div {...logoAndNameTransition} className="content">
                     <div className="logo" >
@@ -99,6 +112,7 @@ function PortfolioContainer() {
                 </motion.div>
             </Link>
         </div>
+        </>
     );
 }
 

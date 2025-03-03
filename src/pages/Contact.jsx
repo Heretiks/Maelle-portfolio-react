@@ -9,9 +9,11 @@ import FlipLink from "../components/FlipLink.jsx";
 import { motion } from "framer-motion";
 import LogoMc from "../components/LogoMc.jsx";
 
-import linkedInSvg from '../assets/global/logo.svg';
-import mailSvg from '../assets/global/logo.svg';
-import maltSvg from '../assets/global/logo.svg';
+import linkedInSvg from '../assets/global/linkedin.svg';
+import mailSvg from '../assets/global/mail.svg';
+import maltSvg from '../assets/global/malt.svg';
+import { Helmet } from 'react-helmet-async';
+
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -111,65 +113,76 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="container">
-            <Header />
-            <Link to="/" className="retour-accueil">
-                <motion.img src={Bullet} alt="Next" className="arrow-icon" {...fromTopTransition}/>
-            </Link>
-            <motion.div className="retour-listing" {...fromTopTransition}>
-                <FlipLink to={'/projets'}> Vue d&#39;ensemble </FlipLink>
-            </motion.div>
-            <motion.img src={Motif} alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
-            <div className="content">
-                <Link to="/" className="logo" {...logoTransition}>
-                    <motion.div {...fromLeftTransition}>
-                        <LogoMc ref={logoRef}/>
-                    </motion.div>
+        <>
+            <Helmet>
+                <title>Contact | Maëlle Camissogo</title>
+                <meta name="description" content="Contactez-moi pour toute demande de projet graphique, collaboration ou toute question." />
+                <meta property="og:title" content="Contact | Maëlle Camissogo" />
+                <meta property="og:description" content="Besoin d'un projet graphique ? Contactez Maëlle Camissogo pour discuter de vos idées." />
+                <meta property="og:image" content="https://www.maellecamissogo.com/image-partage-contact.jpg" />
+                <meta property="og:url" content="https://www.maellecamissogo.com/contact" />
+            </Helmet>
+            <div className="container">
+                <Header />
+                <Link to="/" className="retour-accueil">
+                    <motion.img src={Bullet} alt="Next" className="arrow-icon" {...fromTopTransition}/>
                 </Link>
-                <motion.div className="form-container" {...fromRightTransition}>
-                    <h2 className="title">PARLONS DE VOTRE PROJET</h2>
-                    <form className="form" onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="NOM"
-                            className="input"
-                            value={formData.name}
-                            onChange={handleChange}
-                            autoComplete={"name"}
-                        />
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="MAIL"
-                            className="input"
-                            value={formData.email}
-                            onChange={handleChange}
-                            autoComplete={"email"}
-                        />
-                        <textarea
-                            name="message"
-                            placeholder="MESSAGE"
-                            className="textarea"
-                            value={formData.message}
-                            onChange={handleChange}
-                        ></textarea>
-                        <button type="submit" className={`button ${successMessage ? "hide" : ""}`}  disabled={isSubmitting}>
-                            {isSubmitting ? "ENVOI EN COURS..." : "ENVOYER"}
-                        </button>
-                    </form>
-                    {successMessage && <p className="success-message">{successMessage}</p>}
+                <div className="retour-listing" {...fromTopTransition}>
+                    <motion.div {...fromTopTransition}>
+                        <FlipLink to={'/projets'}> Vue d&#39;ensemble </FlipLink>
+                    </motion.div>
+                </div>
+                <motion.img src={Motif} alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
+                <div className="content">
+                    <Link to="/" className="logo" {...logoTransition}>
+                        <motion.div {...fromLeftTransition}>
+                            <LogoMc ref={logoRef}/>
+                        </motion.div>
+                    </Link>
+                    <motion.div className="form-container" {...fromRightTransition}>
+                        <h2 className="title">PARLONS DE VOTRE PROJET</h2>
+                        <form className="form" onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="NOM"
+                                className="input"
+                                value={formData.name}
+                                onChange={handleChange}
+                                autoComplete={"name"}
+                            />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="MAIL"
+                                className="input"
+                                value={formData.email}
+                                onChange={handleChange}
+                                autoComplete={"email"}
+                            />
+                            <textarea
+                                name="message"
+                                placeholder="MESSAGE"
+                                className="textarea"
+                                value={formData.message}
+                                onChange={handleChange}
+                            ></textarea>
+                            <button type="submit" className={`button ${successMessage ? "hide" : ""}`}  disabled={isSubmitting}>
+                                {isSubmitting ? "ENVOI EN COURS..." : "ENVOYER"}
+                            </button>
+                        </form>
+                        {successMessage && <p className="success-message">{successMessage}</p>}
+                    </motion.div>
+                </div>
+                <motion.img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} {...fromLeftTransition}/>
+
+                <motion.div className={`reseaux ${bigHeight ? "display" : ""}`} {...fromLeftTransition}>
+                    <img src={linkedInSvg} alt="Linkedin" className="linkedin" onClick={() => window.open("https://www.linkedin.com/in/ma%C3%ABlle-camissogo/", "_blank")}/>
+                    <img src={mailSvg} alt="Mail" className="mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
+                    <img src={maltSvg} alt="Malt" className="malt" onClick={() => window.open("https://www.malt.fr/profile/maellecamissogo", "_blank")}/>
                 </motion.div>
             </div>
-            <motion.img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} {...fromLeftTransition}/>
-
-            <div className="reseaux">
-                <img src={linkedInSvg} alt="Linkedin" className="linkedin" onClick={() => window.open("https://www.linkedin.com/in/", "_blank")}/>
-                <img src={mailSvg} alt="Mail" className="mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
-                <img src={maltSvg} alt="Malt" className="malt" onClick={() => window.open("https://malt.io/", "_blank")}/>
-            </div>
-
-        </div>
+        </>
     );
 };
 

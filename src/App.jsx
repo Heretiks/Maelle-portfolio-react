@@ -112,9 +112,9 @@ function App() {
 
             <CustomCursor />
             <ScrollToTop lenis={lenisRef} />
+
             <AnimatePresence mode="wait">
                 <Routes location={location} key={location.pathname}>
-
                     <Route path="/" element={<PortfolioContainer />} />
                     <Route path="/projets" element={<ListingProject />} />
                     <Route path="/projet/:projectId" element={<DetailProjet />} />

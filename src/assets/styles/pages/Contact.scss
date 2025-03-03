@@ -14,12 +14,16 @@
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    height: 100vh;
+    height: 100dvh;
     position: relative;
     //overflow: hidden;
 
     .header {
         display: none;
+
+        .burger-icon {
+            margin-right: 30px;
+        }
     }
 
     .motif {
@@ -227,16 +231,13 @@
 
     .reseaux {
         position: fixed;
-        top: 95vh;
-        right: 75vw;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
+        top: 90vh;
+        display: none;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
         gap: 20px;
-        z-index: 99999;
+        z-index: 999;
 
         img {
             width: 40px;
@@ -246,6 +247,12 @@
             &:hover {
                 scale: 1.2;
             }
+        }
+
+        &.display {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
         }
     }
 }
@@ -296,8 +303,8 @@
         .header {
 
             .burger-icon {
-                position: fixed;
-                top: 3.5vh;
+                position: absolute;
+                top: 20px;
                 right: 0;
             }
         }
@@ -327,8 +334,11 @@
     .container {
         overflow: auto;
 
-        .burger-icon {
-            //padding-top: 10px;
+        .header {
+
+            .burger-icon {
+                top: 3.5vh;
+            }
         }
 
         .retour-accueil {
@@ -360,6 +370,13 @@
                 .title {
                     margin-bottom: 5vh;
                 }
+            }
+        }
+
+        .reseaux {
+
+            img {
+                width: 35px;
             }
         }
     }

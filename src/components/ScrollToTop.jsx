@@ -15,11 +15,9 @@ export default function ScrollToTop(lenis) {
 
     const scrollToTop = () => {
         if (lenis) {
-            lenis.lenis.current.scrollTo(0, { duration: 0.8, easing: (t) => t });
+            lenis.lenis.current.scrollTo(-100, { immediate: false, force: true, duration: 0.6 });
+
         }
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
     };
 
     return (

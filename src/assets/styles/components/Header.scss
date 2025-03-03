@@ -123,22 +123,27 @@
         -ms-flex-pack: justify;
         justify-content: space-between;
         width: 30px;
-        height: 20px;
+        height: 30px;
         cursor: pointer;
-        margin-right: 3.5vw;
+        margin-right: 3vw;
         -ms-flex-item-align: start;
         align-self: flex-start;
         z-index: 9999;
 
-        span {
-            background-color: #000000;
-            height: 4px;
-            width: 100%;
-            border-radius: 2px;
-            -webkit-transition: all 0.3s ease; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-            -o-transition: all 0.3s ease;
-            transition: all 0.3s ease;
+        img {
+            width: 30px;
+            height: 30px;
         }
+
+        //img {
+        //    background-color: #000000;
+        //    height: 4px;
+        //    width: 100%;
+        //    border-radius: 2px;
+        //    -webkit-transition: all 0.3s ease; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
+        //    -o-transition: all 0.3s ease;
+        //    transition: all 0.3s ease;
+        //}
     }
 
     .burger-icon.open span {

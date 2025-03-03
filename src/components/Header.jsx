@@ -37,6 +37,7 @@ const Header = () => {
     };
 
     let headerTransition;
+    let contactTransition;
     if (location.pathname.includes('/projet/')) {
         headerTransition = {
             initial: { x: '-100vw' },
@@ -50,11 +51,28 @@ const Header = () => {
         headerTransition = {
             initial: { y: '-100vh' },
             animate: { y: 0 },
-            exit: { y: '-100vh' },
+            exit: { y: '-30vh' },
             transition: { duration: 1 },
             ease: 'easeInOut',
         };
+        contactTransition = {
+            initial: { y: '-100px' },
+            animate: { y: 0 },
+            exit: { y: '-80vh' },
+            transition: { duration: 0.8 },
+            ease: 'easeInOut',
+        };
     }
+
+    const mobileMenuTransition = {
+        initial: { y: '-100vh' },
+        animate: { y: 0 },
+        exit: { y: '-100vh' },
+        transition: { duration: 1 },
+        ease: 'easeInOut',
+    };
+
+
 
     return (
         <header className="header">
@@ -72,7 +90,7 @@ const Header = () => {
                 style={{ visibility: "hidden" }}
             />
             <motion.div
-                {...headerTransition}
+                {...contactTransition}
                 className="contact-link"
                 style={{ visibility: location.pathname.startsWith('/projets') ? "initial" : "hidden " }}
             >
@@ -80,12 +98,13 @@ const Header = () => {
             </motion.div>
 
             {/* Bouton de menu burger */}
-            <div
+            <motion.div
                 className={`burger-icon ${isMobileMenuOpen ? "open" : isInverted ? "" : "inverted"}`}
                 onClick={toggleMobileMenu}
+                {...mobileMenuTransition}
             >
                 <img src={HeaderPoint} alt="Icon menu burger"/>
-            </div>
+            </motion.div>
             {/* Menu mobile */}
             <nav className={`header-mobile ${isMobileMenuOpen ? "open" : ""}`}>
                 <div className="background-motif top">

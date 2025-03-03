@@ -213,7 +213,7 @@ const projects = [
     {
         id: 3,
         category: 'Identité Visuelle',
-        title: 'NATURO’PATTES & SABOTS',
+        title: 'Naturo’Pattes & Sabots',
         image: NaturoPattesImg,
         imageMobile: NaturoPattesImgMobile,
         imageCarre: NaturoPatteCarre,
