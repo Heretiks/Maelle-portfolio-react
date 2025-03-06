@@ -242,27 +242,32 @@ const projects = [
     },
     {
         id: 4,
-        category: 'Brochure',
-        title: 'Congrès Nîmes Tourisme',
-        image: CongresNimesImg,
-        imageMobile: CongresNimesImgMobile,
-        imageCarre: CongresNimesCarre,
-        link: '/projects/nimes-tourisme',
-        couleurPrimaire: '#0A1D37',
+        category: 'Print & Web',
+        title: '7ème Element',
+        image: SeptiemeElementImg,
+        imageMobile: SeptiemeElementImgMobile,
+        imageCarre: SeptiemeCarre,
+        link: '/projects/7eme-element',
+        couleurPrimaire: '#B33B61',
         couleurSecondaire: '#FFFFFF',
         blocks: [
             {
                 type: 'description-et-image',
-                text: 'Réputée pour sa situation géographique entre Cévennes, Provence et Camargue, ' +
-                    'Nîmes et ses lieux chargés d’histoire vous accueillent pour l’organisation de votre événement. \n\n' +
-                    'Cette brochure met en avant les points forts de la ville et de ses alentours, ainsi que des infrastructures ' +
-                    'et des offres proposées par le bureau des congrès de la ville de Nîmes.',
-                image: CongresDescription
+                text: '7ème Élément présente Care7, la nouvelle gamme révolutionnaire de soins capillaires. \n\n' +
+                    'Entre skincare et haircare, Care7 allie des ingrédients naturels de haute qualité' +
+                    ' à des formules avancées pour offrir des solutions capillaires complètes et performantes. \n\n' +
+                    'Développement de différents supports de communication à destination de la presse ou des clients, ' +
+                    'présentant les avantages des gammes Hydra Revive, Color Safe, Deep Repair et Blond Highlight.',
+                image: ElementMockup2
             },
-            {type: 'image-large',image: CongresLarge1},
-            {type: 'image-large',image: CongresLarge2},
-            {type: 'double-image',images: [CongresCarreFermee, CongresCarreOuvert]},
-            {type: 'image-large',image: CongresCouvertures},
+            // {type: 'double-image',images: [ElementMockup1, ElementMockup2]},
+            {type: 'double-image',images: [ElementMockup3, ElementMockup4]},
+            {type: 'double-image',images: [ElementMockup5, ElementMockup6]},
+            {type: 'image-large',image: ElementFlyerSimple},
+            {type: 'image-large',image: ElementFlyerComplet},
+            {type: 'image-large',image: ElementMagazine},
+            {type: 'image-large',image: ElementInstaTel},
+            // {type: 'quadruple-image',images: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
         ]
     },
     {
@@ -293,6 +298,54 @@ const projects = [
     },
     {
         id: 6,
+        category: 'Packaging',
+        title: 'Domaine de l\'Aiglade',
+        image: DomaineAigladeImg,
+        imageMobile: DomaineAigladeImgMobile,
+        imageCarre: DomaineAigladeCarre,
+        link: '/projects/domaine-de-laiglade',
+        couleurPrimaire: '#000000',
+        couleurSecondaire: '#FFFFFF',
+        blocks: [
+            {
+                type: 'description-et-image',
+                text: 'Avec une exploitation de 16,5 ha, le Domaine de l’Aigalade est spécialisé dans la production de vin naturel. \n\n' +
+                    'Des références familiales, régionales et amicales sont intégrées dans chacune des étiquettes. ' +
+                    'L’idée est de proposer des cuvées uniques, à l’image des producteurs.',
+                image: AigladeBouteilleLeo
+            },
+            // {type: 'double-image',images: [AigladeMockupLeo, AigladeBouteilleLeo]},
+            {type: 'double-image',images: [AigladeMockupCevenrolle, AigladeBouteilleCevenrolle]},
+            {type: 'double-image',images: [AigladeMockupMerci, AigladeBouteilleMerci]},
+        ]
+    },
+    {
+        id: 7,
+        category: 'Brochure',
+        title: 'Congrès Nîmes Tourisme',
+        image: CongresNimesImg,
+        imageMobile: CongresNimesImgMobile,
+        imageCarre: CongresNimesCarre,
+        link: '/projects/nimes-tourisme',
+        couleurPrimaire: '#0A1D37',
+        couleurSecondaire: '#FFFFFF',
+        blocks: [
+            {
+                type: 'description-et-image',
+                text: 'Réputée pour sa situation géographique entre Cévennes, Provence et Camargue, ' +
+                    'Nîmes et ses lieux chargés d’histoire vous accueillent pour l’organisation de votre événement. \n\n' +
+                    'Cette brochure met en avant les points forts de la ville et de ses alentours, ainsi que des infrastructures ' +
+                    'et des offres proposées par le bureau des congrès de la ville de Nîmes.',
+                image: CongresDescription
+            },
+            {type: 'image-large',image: CongresLarge1},
+            {type: 'image-large',image: CongresLarge2},
+            {type: 'double-image',images: [CongresCarreFermee, CongresCarreOuvert]},
+            {type: 'image-large',image: CongresCouvertures},
+        ]
+    },
+    {
+        id: 8,
         category: 'Brochure',
         title: 'SPL Agate',
         image: SplPlaqueteImg,
@@ -317,95 +370,7 @@ const projects = [
         ]
     },
     {
-        id: 7,
-        category: 'Packaging',
-        title: 'Domaine de l\'Aiglade',
-        image: DomaineAigladeImg,
-        imageMobile: DomaineAigladeImgMobile,
-        imageCarre: DomaineAigladeCarre,
-        link: '/projects/domaine-de-laiglade',
-        couleurPrimaire: '#000000',
-        couleurSecondaire: '#FFFFFF',
-        blocks: [
-            {
-                type: 'description-et-image',
-                text: 'Avec une exploitation de 16,5 ha, le Domaine de l’Aigalade est spécialisé dans la production de vin naturel. \n\n' +
-                    'Des références familiales, régionales et amicales sont intégrées dans chacune des étiquettes. ' +
-                    'L’idée est de proposer des cuvées uniques, à l’image des producteurs.',
-                image: AigladeBouteilleLeo
-            },
-            // {type: 'double-image',images: [AigladeMockupLeo, AigladeBouteilleLeo]},
-            {type: 'double-image',images: [AigladeMockupCevenrolle, AigladeBouteilleCevenrolle]},
-            {type: 'double-image',images: [AigladeMockupMerci, AigladeBouteilleMerci]},
-        ]
-    },
-    {
-        id: 8,
-        category: 'Packaging',
-        title: 'Bleu Libellule',
-        image: BleuLibelluleImg,
-        imageMobile: BleuLibelluleImgMobile,
-        imageCarre: BleuLibelluleCarre,
-        link: '/projects/bleu-libellule',
-        couleurPrimaire: '#000000',
-        couleurSecondaire: '#FFFFFF',
-        blocks: [
-            {type: 'image-large',image: BLMockupLarge},
-            {type: 'double-image',images: [BLScintillanteProduit, BLScintillantePack]},
-            {type: 'double-image',images: [BLRayonnanteProduit, BLRayonnantePack]},
-            {type: 'double-image',images: [BLEclatanteProduit, BLEclatantePack]},
-            {type: 'double-image',images: [BLBrillanteProduit, BLBrillantePack]},
-        ]
-    },
-    {
         id: 9,
-        category: 'Print & Web',
-        title: '7ème Element',
-        image: SeptiemeElementImg,
-        imageMobile: SeptiemeElementImgMobile,
-        imageCarre: SeptiemeCarre,
-        link: '/projects/7eme-element',
-        couleurPrimaire: '#B33B61',
-        couleurSecondaire: '#FFFFFF',
-        blocks: [
-            {
-                type: 'description-et-image',
-                text: '7ème Élément présente Care7, la nouvelle gamme révolutionnaire de soins capillaires. \n\n' +
-                    'Entre skincare et haircare, Care7 allie des ingrédients naturels de haute qualité' +
-                    ' à des formules avancées pour offrir des solutions capillaires complètes et performantes. \n\n' +
-                    'Développement de différents supports de communication à destination de la presse ou des clients, ' +
-                    'présentant les avantages des gammes Hydra Revive, Color Safe, Deep Repair et Blond Highlight.',
-                image: ElementMockup2
-            },
-            // {type: 'double-image',images: [ElementMockup1, ElementMockup2]},
-            {type: 'double-image',images: [ElementMockup3, ElementMockup4]},
-            {type: 'double-image',images: [ElementMockup5, ElementMockup6]},
-            {type: 'image-large',image: ElementFlyerSimple},
-            {type: 'image-large',image: ElementFlyerComplet},
-            {type: 'image-large',image: ElementMagazine},
-            {type: 'image-large',image: ElementInstaTel},
-            // {type: 'quadruple-image',images: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
-        ]
-    },
-    {
-        id: 10,
-        category: 'Print',
-        title: 'Artisan Du Faso',
-        image: ArtisanFasoImg,
-        imageMobile: ArtisanFasoImgMobile,
-        imageCarre: ArtisanFasoCarre,
-        link: '/projects/artisan-du-faso',
-        couleurPrimaire: '#000000',
-        couleurSecondaire: '#FFFFFF',
-        blocks: [
-            {type: 'image-large',image: FasoAffiche},
-            {type: 'image-large',image: FasoAfficheMobile},
-            {type: 'double-image',images: [FasoCarre1, FasoCarre2]},
-            {type: 'double-image',images: [FasoCarre3, FasoCarre4]},
-        ]
-    },
-    {
-        id: 11,
         category: 'Print',
         title: 'Mariage',
         image: MariageImg,
@@ -432,6 +397,42 @@ const projects = [
             {type: 'image-large',image: MariageTampon},
         ]
     },
+    {
+        id: 10,
+        category: 'Packaging',
+        title: 'Bleu Libellule',
+        image: BleuLibelluleImg,
+        imageMobile: BleuLibelluleImgMobile,
+        imageCarre: BleuLibelluleCarre,
+        link: '/projects/bleu-libellule',
+        couleurPrimaire: '#000000',
+        couleurSecondaire: '#FFFFFF',
+        blocks: [
+            {type: 'image-large',image: BLMockupLarge},
+            {type: 'double-image',images: [BLScintillanteProduit, BLScintillantePack]},
+            {type: 'double-image',images: [BLRayonnanteProduit, BLRayonnantePack]},
+            {type: 'double-image',images: [BLEclatanteProduit, BLEclatantePack]},
+            {type: 'double-image',images: [BLBrillanteProduit, BLBrillantePack]},
+        ]
+    },
+    {
+        id: 11,
+        category: 'Print',
+        title: 'Artisan Du Faso',
+        image: ArtisanFasoImg,
+        imageMobile: ArtisanFasoImgMobile,
+        imageCarre: ArtisanFasoCarre,
+        link: '/projects/artisan-du-faso',
+        couleurPrimaire: '#000000',
+        couleurSecondaire: '#FFFFFF',
+        blocks: [
+            {type: 'image-large',image: FasoAffiche},
+            {type: 'image-large',image: FasoAfficheMobile},
+            {type: 'double-image',images: [FasoCarre1, FasoCarre2]},
+            {type: 'double-image',images: [FasoCarre3, FasoCarre4]},
+        ]
+    },
+
 ];
 
 export default projects;

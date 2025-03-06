@@ -88,6 +88,17 @@
                     background-color: rgb(0, 0, 0, 0.5);
                     font-size: 14px;
 
+                    transform: translateY(7vh);
+                    transition: all 0.5s ease;
+                    -webkit-transition: all 0.5s ease;
+                    -moz-transition: all 0.5s ease;
+                    -ms-transition: all 0.5s ease;
+                    -o-transition: all 0.5s ease;
+
+                    &.display-fixed {
+                        transform: translateY(0);
+                    }
+
                     .first-block,
                     .second-block {
                         display: -webkit-box;
@@ -710,6 +721,11 @@
             margin: auto auto 6vh;
 
             .presentation-projet {
+
+                .project-name {
+                    bottom: 13%;
+                }
+
                 .content-presentation {
                     .info {
                         .first-block {
