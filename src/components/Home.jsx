@@ -1,6 +1,7 @@
 import {useState, useEffect, useCallback, useRef} from "react";
 import projects from "../data/projets.js";
 import "../assets/styles/components/Home.scss";
+import { useLoading} from "./LoadingProvider.jsx";
 
 const Home = ({ onProjectChange }) => {
     const [currentIndex, setCurrentIndex] = useState(() => Math.floor(Math.random() * projects.length));    const [direction, setDirection] = useState(null);
@@ -12,6 +13,38 @@ const Home = ({ onProjectChange }) => {
     const accumulatedDelta = useRef(0);
     const touchStartY = useRef(null);
     const [mobile, setMobile] = useState(false);
+
+
+
+
+
+    const {setImagesLoaded} = useLoading();
+
+    useEffect(() => {
+        const preloadImages = async () => {
+            const imagesToLoad = projects.flatMap(project => [project.image, project.imageMobile]);
+            try {
+                await Promise.all(imagesToLoad.map(src => {
+                    return new Promise((resolve, reject) => {
+                        const img = new Image();
+                        img.src = src;
+                        img.onload = resolve;
+                        img.onerror = reject;
+                    });
+                }));
+                setImagesLoaded(true); // Marquez les images comme chargées
+            } catch (error) {
+                console.error("Erreur lors du chargement des images:", error);
+                setImagesLoaded(true); // Marquez comme chargé même en cas d'erreur pour éviter un blocage
+            }
+        };
+
+        preloadImages();
+    }, [setImagesLoaded]);
+
+
+
+
 
     useEffect(() => {
         onProjectChange(currentIndex);

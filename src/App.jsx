@@ -1,18 +1,25 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 import Lenis from 'lenis';
 import './assets/styles/App.scss';
-
-import PortfolioContainer from './pages/PortfolioContainer.jsx';
-import ListingProject from './pages/ListingProjects.jsx';
-import Contact from './pages/Contact.jsx';
-import DetailProjet from './pages/DetailProjet.jsx';
-import CustomCursor from "./components/CustomCursor.jsx";
-import LegalPage from "./pages/LegalPage.jsx";
 import {AnimatePresence} from "framer-motion";
+
+import AppLoader from "./components/AppLoader.jsx";
+import CustomCursor from "./components/CustomCursor.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+// import PortfolioContainer from './pages/PortfolioContainer.jsx';
+// import ListingProject from './pages/ListingProjects.jsx';
+// import Contact from './pages/Contact.jsx';
+// import DetailProjet from './pages/DetailProjet.jsx';
+// import LegalPage from "./pages/LegalPage.jsx";
+
+const PortfolioContainer = React.lazy(() => import('./pages/PortfolioContainer.jsx'));
+const ListingProject = React.lazy(() => import('./pages/ListingProjects.jsx'));
+const Contact = React.lazy(() => import('./pages/Contact.jsx'));
+const DetailProjet = React.lazy(() => import('./pages/DetailProjet.jsx'));
+const LegalPage = React.lazy(() => import('./pages/LegalPage.jsx'));
 
 function App() {
     const location = useLocation();
@@ -82,10 +89,8 @@ function App() {
             isMobileMenuOpen = document.querySelectorAll(".open");
 
             if (isMobileMenuOpen.length > 0) {
-                console.log('stop')
                 lenisRef.current.stop();
             } else {
-                console.log('start')
                 lenisRef.current.start();
             }
 
@@ -107,23 +112,25 @@ function App() {
 
     return (
         <>
-            <SpeedInsights />
-            <Analytics />
-
             <CustomCursor />
-            <ScrollToTop lenis={lenisRef} />
+            <AppLoader>
+                <SpeedInsights />
+                <Analytics />
 
-            <AnimatePresence mode="wait">
-                <Routes location={location} key={location.pathname}>
-                    <Route path="/" element={<PortfolioContainer />} />
-                    <Route path="/projets" element={<ListingProject />} />
-                    <Route path="/projet/:projectId" element={<DetailProjet />} />
-                    <Route path="/contact" element={<Contact />} />
+                <ScrollToTop lenis={lenisRef} />
 
-                    <Route path="/mentions-legales" element={<LegalPage />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </AnimatePresence>
+                <AnimatePresence mode="wait">
+                    <Routes location={location} key={location.pathname}>
+                        <Route path="/" element={<PortfolioContainer />} />
+                        <Route path="/projets" element={<ListingProject />} />
+                        <Route path="/projet/:projectId" element={<DetailProjet />} />
+                        <Route path="/contact" element={<Contact />} />
+
+                        <Route path="/mentions-legales" element={<LegalPage />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
+                </AnimatePresence>
+            </AppLoader>
         </>
     );
 }

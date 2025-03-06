@@ -202,7 +202,7 @@
     .retour-listing {
         position: absolute;
         top: 28px;
-        left: 120px;
+        left: 10vw;
         color: black;
         font-size: 14px;
         font-weight: 800;
@@ -230,22 +230,29 @@
     }
 
     .reseaux {
-        position: fixed;
-        top: 90vh;
+        position: absolute;
+        //top: 90vh;
         display: none;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
+        //flex-direction: column;
+        //-webkit-box-pack: center;
+        //-ms-flex-pack: center;
+        //justify-content: center;
         gap: 20px;
         z-index: 999;
+        left: 30px;
+        bottom: 30px;
 
         img {
-            width: 40px;
+            width: 45px;
             height: auto;
             transition: all 0.3s ease-in-out;
 
             &:hover {
                 scale: 1.2;
+                cursor: pointer;
             }
         }
 
@@ -312,6 +319,17 @@
         .retour-listing {
             visibility: hidden;
         }
+
+        .reseaux {
+            top: 89vh;
+            bottom: auto;
+            flex-direction: row;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            right: auto;
+            left: auto;
+        }
     }
 }
 
@@ -325,6 +343,13 @@
         .retour-listing {
             right: 20px;
             left: auto;
+        }
+
+        .reseaux {
+
+            img {
+                width: 40px;
+            }
         }
     }
 }
@@ -374,7 +399,6 @@
         }
 
         .reseaux {
-            top: 87vh;
 
             img {
                 width: 35px;

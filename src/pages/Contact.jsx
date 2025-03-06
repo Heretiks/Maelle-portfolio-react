@@ -176,10 +176,10 @@ const ContactForm = () => {
                 </div>
                 <motion.img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} {...fromLeftTransition}/>
 
-                <motion.div className={`reseaux ${bigHeight ? "display" : ""}`} {...fromLeftTransition}>
-                    <img src={linkedInSvg} alt="Linkedin" className="linkedin" onClick={() => window.open("https://www.linkedin.com/in/ma%C3%ABlle-camissogo/", "_blank")}/>
-                    <img src={mailSvg} alt="Mail" className="mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
-                    <img src={maltSvg} alt="Malt" className="malt" onClick={() => window.open("https://www.malt.fr/profile/maellecamissogo", "_blank")}/>
+                <motion.div className={`reseaux ${bigHeight ? "display" : ""}`} {...fromRightTransition}>
+                    <img src={mailSvg} alt="Mail" className="rs mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
+                    <img src={maltSvg} alt="Malt" className="rs malt" onClick={() => window.open("https://www.malt.fr/profile/maellecamissogo", "_blank")}/>
+                    <img src={linkedInSvg} alt="rs Linkedin" className="linkedin" onClick={() => window.open("https://www.linkedin.com/in/ma%C3%ABlle-camissogo/", "_blank")}/>
                 </motion.div>
             </div>
         </>

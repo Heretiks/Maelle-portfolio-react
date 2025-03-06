@@ -12,6 +12,7 @@ import FlipLink from "../components/FlipLink.jsx";
 
 import LogoMcMotion from "../components/LogoMc.jsx";
 import {Helmet} from "react-helmet-async";
+import {LoadingProvider} from "../components/LoadingProvider.jsx";
 
 function PortfolioContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,7 +72,7 @@ function PortfolioContainer() {
                 </div>
 
                 <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
-                    <Home onProjectChange={handleProjectChange}/>
+                    <LoadingProvider><Home onProjectChange={handleProjectChange}/></LoadingProvider>
 
                     <div className="background-motif">
                         <motion.img src={Motif} alt="Motif de Maëlle Camissogo" {...motifTransition}/>

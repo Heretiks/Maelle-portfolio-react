@@ -76,7 +76,12 @@ const CustomCursor = () => {
     }, []);
 
     useLayoutEffect(() => {
-        const linksAndButtons = [...document.querySelectorAll("a"), ...document.querySelectorAll("button"), ...document.querySelectorAll(".burger-icon")];
+        const linksAndButtons = [
+            ...document.querySelectorAll("a"),
+            ...document.querySelectorAll("button"),
+            ...document.querySelectorAll(".burger-icon"),
+            ...document.querySelectorAll(".rs")
+        ];
         setIsHovering(false);
 
         const addHoverListeners = (element) => {
