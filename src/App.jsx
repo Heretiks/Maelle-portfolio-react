@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react";
 import Lenis from 'lenis';
 import './assets/styles/App.scss';
-import {AnimatePresence} from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 
-import AppLoader from "./components/AppLoader.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 // import PortfolioContainer from './pages/PortfolioContainer.jsx';
@@ -113,24 +112,21 @@ function App() {
     return (
         <>
             <CustomCursor />
-            <AppLoader>
-                <SpeedInsights />
-                <Analytics />
+            <SpeedInsights />
+            <Analytics />
+            <ScrollToTop lenis={lenisRef} />
 
-                <ScrollToTop lenis={lenisRef} />
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    <Route path="/" element={<PortfolioContainer />} />
+                    <Route path="/projets" element={<ListingProject />} />
+                    <Route path="/projet/:projectId" element={<DetailProjet />} />
+                    <Route path="/contact" element={<Contact />} />
 
-                <AnimatePresence mode="wait">
-                    <Routes location={location} key={location.pathname}>
-                        <Route path="/" element={<PortfolioContainer />} />
-                        <Route path="/projets" element={<ListingProject />} />
-                        <Route path="/projet/:projectId" element={<DetailProjet />} />
-                        <Route path="/contact" element={<Contact />} />
-
-                        <Route path="/mentions-legales" element={<LegalPage />} />
-                        <Route path="*" element={<Navigate to="/" replace />} />
-                    </Routes>
-                </AnimatePresence>
-            </AppLoader>
+                    <Route path="/mentions-legales" element={<LegalPage />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            </AnimatePresence>
         </>
     );
 }

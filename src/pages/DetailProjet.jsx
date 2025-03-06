@@ -43,12 +43,12 @@ function DetailProjet() {
     const { projectId } = useParams();
     const project = projects.find(p => p.id === parseInt(projectId, 10));
 
-    let nextProjectId = project.id % projects.length + 1;
-    let previousProjectId = project.id === 1 ? projects.length : project.id - 1;
-
     if (!project) {
         return <Navigate to="/" replace />;
     }
+
+    let nextProjectId = project.id % projects.length + 1;
+    let previousProjectId = project.id === 1 ? projects.length : project.id - 1;
 
     const projectNameTransition = {
         initial: { x: '-1000px' },

@@ -1,12 +1,17 @@
-import { createContext, useState, useContext } from 'react';
+// LoadingProvider.jsx
+import { createContext, useState, useContext } from "react";
 
 const LoadingContext = createContext();
 
 export const LoadingProvider = ({ children }) => {
-    const [imagesLoaded, setImagesLoaded] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const setImagesLoaded = (loaded) => {
+        setIsLoading(!loaded);
+    };
 
     return (
-        <LoadingContext.Provider value={{ imagesLoaded, setImagesLoaded }}>
+        <LoadingContext.Provider value={{ isLoading, setImagesLoaded }}>
             {children}
         </LoadingContext.Provider>
     );

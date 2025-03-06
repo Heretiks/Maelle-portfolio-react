@@ -1,4 +1,4 @@
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const KineticText = ({ text }) => {
     const letterVariants = {
@@ -14,8 +14,13 @@ const KineticText = ({ text }) => {
                     variants={letterVariants}
                     initial="initial"
                     animate="animate"
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    style={{color: '#FFFFFF'}}
+                    transition={{
+                        duration: 0.5,
+                        delay: index * 0.1,
+                        repeat: Infinity,  // Répète l'animation en boucle
+                        repeatType: "reverse" // Permet de faire un aller-retour fluide
+                    }}
+                    style={{ color: '#FFFFFF' }}
                 >
                     {char}
                 </motion.span>

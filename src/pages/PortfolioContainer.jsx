@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import projects from '../data/projets.js';
 import Motif from '../assets/global/motif-grand.png';
 import '../assets/styles/pages/PortfolioContainer.scss';
@@ -13,8 +13,9 @@ import FlipLink from "../components/FlipLink.jsx";
 import LogoMcMotion from "../components/LogoMc.jsx";
 import {Helmet} from "react-helmet-async";
 import {LoadingProvider} from "../components/LoadingProvider.jsx";
+import AppLoader from "../components/AppLoader.jsx";
 
-function PortfolioContainer() {
+const PortfolioContainer = React.memo(function PortfolioContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isChanging, setIsChanging] = useState(false);
     const [animateCategory, setAnimateCategory] = useState(false);
@@ -71,50 +72,54 @@ function PortfolioContainer() {
                     <Header/>
                 </div>
 
-                <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
-                    <LoadingProvider><Home onProjectChange={handleProjectChange}/></LoadingProvider>
+                <LoadingProvider>
+                    <AppLoader>
+                        <Home onProjectChange={handleProjectChange}/>
+                    </AppLoader>
+                </LoadingProvider>
 
+                <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
                     <div className="background-motif">
                         <motion.img src={Motif} alt="Motif de Maëlle Camissogo" {...motifTransition}/>
-                </div>
-                <motion.div {...logoAndNameTransition} className="content">
-                    <div className="logo" >
-                        {/*<img src={LogoMc} alt="Logo de Maëlle Camissogo" />*/}
-                        <LogoMcMotion/>
                     </div>
-                    <div className="nom-metier">
-                        <p className="nom">MAËLLE CAMISSOGO</p>
-                        <p className="metier">Graphiste</p>
-                    </div>
-                </motion.div>
-                <motion.div className="info" {...infoTransition}>
-                    <div className="first-block">
-                        <div className="category">
-                            <p className="category-title">Catégorie</p>
-                            <p className={`category-text ${isChanging && animateCategory ? 'is-changing' : ''}`}>
-                                {projects[currentIndex].category}
-                            </p>
+                    <motion.div {...logoAndNameTransition} className="content">
+                        <div className="logo" >
+                            {/*<img src={LogoMc} alt="Logo de Maëlle Camissogo" />*/}
+                            <LogoMcMotion/>
                         </div>
-                        <div className="title">
-                            <p className="title-title">Projet</p>
-                            <p className={`title-text ${isChanging ? 'is-changing' : ''}`}>
-                                {projects[currentIndex].title}
-                            </p>
+                        <div className="nom-metier">
+                            <p className="nom">MAËLLE CAMISSOGO</p>
+                            <p className="metier">Graphiste</p>
                         </div>
-                    </div>
-                    <div className="second-block">
-                        <div className="listing">
-                            <FlipLink to="/projets" className="listing-text">VUE D&#39;ENSEMBLE</FlipLink>
+                    </motion.div>
+                    <motion.div className="info" {...infoTransition}>
+                        <div className="first-block">
+                            <div className="category">
+                                <p className="category-title">Catégorie</p>
+                                <p className={`category-text ${isChanging && animateCategory ? 'is-changing' : ''}`}>
+                                    {projects[currentIndex].category}
+                                </p>
+                            </div>
+                            <div className="title">
+                                <p className="title-title">Projet</p>
+                                <p className={`title-text ${isChanging ? 'is-changing' : ''}`}>
+                                    {projects[currentIndex].title}
+                                </p>
+                            </div>
                         </div>
-                        <div className="contact">
-                            <FlipLink to="/contact" className="contact-text">Contact</FlipLink>
+                        <div className="second-block">
+                            <div className="listing">
+                                <FlipLink to="/projets" className="listing-text">VUE D&#39;ENSEMBLE</FlipLink>
+                            </div>
+                            <div className="contact">
+                                <FlipLink to="/contact" className="contact-text">Contact</FlipLink>
+                            </div>
                         </div>
-                    </div>
-                </motion.div>
-            </Link>
-        </div>
+                    </motion.div>
+                </Link>
+            </div>
         </>
     );
-}
+});
 
 export default PortfolioContainer;
