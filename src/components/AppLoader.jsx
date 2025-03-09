@@ -1,17 +1,47 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import KineticText from "./KineticText";
-import AnimatedLogo from "./AnimatedLogo";
 import { useLoading } from "./LoadingProvider";
+import Motif from "../assets/global/motif-grand.png";
+import LogoMc from "../assets/global/logo.svg";
 
 // Variable globale pour suivre si le chargement initial a eu lieu
 let initialLoadDone = false;
 
 const AppLoader = ({ children }) => {
-    const { isLoading, percentageLoaded } = useLoading();
+    const { isLoading } = useLoading();
     const [showPreloader, setShowPreloader] = useState(!initialLoadDone);
     const [showWhiteTransition, setShowWhiteTransition] = useState(false);
     const [removePreloader, setRemovePreloader] = useState(false);
+    const [gridConfig, setGridConfig] = useState({ columns: 0, rows: 0, cellWidth: 0, cellHeight: 0, gap: 10 });
+
+    const isMobileFormat = window.innerWidth < window.innerHeight;
+    const whiteTransitionDuration = isMobileFormat ? 0.6 : 0.9;
+
+    // code pour le mode puzzle
+    const [randomOrder, setRandomOrder] = useState([]);
+    useEffect(() => {
+        const totalCells = gridConfig.columns * gridConfig.rows;
+        const order = Array.from({ length: totalCells }, (_, i) => i);
+        for (let i = order.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [order[i], order[j]] = [order[j], order[i]];
+        }
+        setRandomOrder(order);
+    }, [gridConfig]);
+    // Fin code pour le mode puzzle
+
+    const delay = 2.5 / ( gridConfig.columns * gridConfig.rows);
+
+    const updateGridConfig = useCallback(() => {
+        const aspectRatio = 150 / 38.81;
+        const gap = 10; // Espacement entre les éléments
+        const availableWidth = window.innerWidth - (Math.floor(window.innerWidth / 150) - 1) * gap;
+        const cellWidth = Math.ceil(availableWidth / Math.floor(availableWidth / 150));
+        const cellHeight = cellWidth / aspectRatio;
+        const columns = Math.ceil(window.innerWidth / (cellWidth + gap));
+        const rows = Math.ceil(window.innerHeight / (cellHeight + gap));
+        setGridConfig({ columns, rows, cellWidth, cellHeight, gap });
+    }, []);
 
     useEffect(() => {
         if (!initialLoadDone) {
@@ -24,6 +54,13 @@ const AppLoader = ({ children }) => {
             return () => clearTimeout(timer);
         }
     }, [isLoading]);
+
+    useEffect(() => {
+        updateGridConfig();
+        const debouncedResize = debounce(updateGridConfig, 250);
+        window.addEventListener("resize", debouncedResize);
+        return () => window.removeEventListener("resize", debouncedResize);
+    }, [updateGridConfig]);
 
     const blackScreenVariants = {
         visible: { opacity: 1 },
@@ -46,7 +83,7 @@ const AppLoader = ({ children }) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2 }}
-                style={{width: '100%', height: '100%', position: 'absolute', top: 0, left: 0}}
+                style={{ width: "100%", height: "100%", position: "absolute", top: 0, left: 0 }}
             >
                 {children}
             </motion.div>
@@ -74,14 +111,41 @@ const AppLoader = ({ children }) => {
                                     zIndex: 999998,
                                 }}
                             >
-                                <div className="preloader-content">
-                                    <AnimatedLogo />
-                                    <div className="preloader-texts">
-                                        <KineticText text="Création" />
-                                        <KineticText text="&nbsp; ..." />
+                                <div className="preloader-content" style={{
+                                    gridTemplateColumns: `repeat(${gridConfig.columns}, ${gridConfig.cellWidth}px)`,
+                                    gridTemplateRows: `repeat(${gridConfig.rows}, ${gridConfig.cellHeight}px)`,
+                                    gap: `${gridConfig.gap}px`,
+                                    // gridAutoFlow: "column", // Disposition en colonnes (inutile en mode puzzle)
+                                }}>
 
-                                        {/*<p style={{ fontSize: "5em", color: "white" }}>{Math.round(loadingProgress)} </p>*/}
-                                    </div>
+                                    {/* Début de la version Puzzle */}
+
+                                    {randomOrder.map((index, orderIndex) => {
+                                        const colIndex = Math.floor(index / gridConfig.rows);
+                                        const rowIndex = index % gridConfig.rows;
+                                        return (
+                                            <motion.img
+                                                src={Motif}
+                                                alt="Motif de Maëlle Camissogo"
+                                                key={index}
+                                                initial={{ opacity: 0, scale: 0.2 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                transition={{
+                                                    delay: orderIndex * delay, // Délai basé sur l'ordre aléatoire
+                                                    duration: 0.5,
+                                                    ease: "easeOut"
+                                                }}
+                                                className="preloader-motif"
+                                                style={{
+                                                    gridColumn: colIndex + 1,
+                                                    gridRow: rowIndex + 1
+                                                }}
+                                            />
+                                        );
+                                    })}
+
+                                    {/* Fin du mode Puzzle */}
+
                                 </div>
                             </motion.div>
                         )}
@@ -90,7 +154,7 @@ const AppLoader = ({ children }) => {
                     <AnimatePresence
                         onExitComplete={() => {
                             setRemovePreloader(true);
-                            initialLoadDone = true; // Marquer le chargement initial comme terminé
+                            initialLoadDone = true;
                         }}
                     >
                         {showWhiteTransition && (
@@ -100,7 +164,7 @@ const AppLoader = ({ children }) => {
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                transition={{ duration: 0.8, ease: "easeInOut" }}
+                                transition={{ duration: whiteTransitionDuration, ease: "linear" }}
                                 onAnimationComplete={() => {
                                     setShowPreloader(false);
                                     setTimeout(() => {
@@ -109,15 +173,24 @@ const AppLoader = ({ children }) => {
                                 }}
                                 style={{
                                     position: "fixed",
-                                    top: "-25%",
-                                    left: "-25%",
-                                    right: "-25%",
-                                    height: "200%",
+                                    top: "-50%",
+                                    left: "-150vw",
+                                    right: "-150vw",
+                                    height: "400vw",
+                                    width: "400vw",
                                     backgroundColor: "white",
                                     borderRadius: "50% / 50%",
                                     zIndex: 999999,
+
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "flex-end"
                                 }}
-                            />
+                            >
+
+                                <img src={LogoMc} alt="Logo de Maëlle Camissogo" style={{filter: "invert(0)", width: '10%', height: '10%', marginBottom: '10vh'}}/>
+
+                            </motion.div>
                         )}
                     </AnimatePresence>
                 </>
@@ -125,5 +198,18 @@ const AppLoader = ({ children }) => {
         </>
     );
 };
+
+// Fonction utilitaire de debounce
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 
 export default AppLoader;

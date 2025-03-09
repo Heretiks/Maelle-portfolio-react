@@ -8,11 +8,6 @@ import { Analytics } from "@vercel/analytics/react";
 
 import CustomCursor from "./components/CustomCursor.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
-// import PortfolioContainer from './pages/PortfolioContainer.jsx';
-// import ListingProject from './pages/ListingProjects.jsx';
-// import Contact from './pages/Contact.jsx';
-// import DetailProjet from './pages/DetailProjet.jsx';
-// import LegalPage from "./pages/LegalPage.jsx";
 
 const PortfolioContainer = React.lazy(() => import('./pages/PortfolioContainer.jsx'));
 const ListingProject = React.lazy(() => import('./pages/ListingProjects.jsx'));
@@ -112,9 +107,9 @@ function App() {
     return (
         <>
             <CustomCursor />
+            <ScrollToTop lenis={lenisRef} />
             <SpeedInsights />
             <Analytics />
-            <ScrollToTop lenis={lenisRef} />
 
             <AnimatePresence mode="wait">
                 <Routes location={location} key={location.pathname}>
