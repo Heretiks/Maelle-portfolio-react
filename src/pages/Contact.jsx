@@ -167,7 +167,7 @@ const ContactForm = () => {
                                 value={formData.message}
                                 onChange={handleChange}
                             ></textarea>
-                            <button type="submit" className={`button ${successMessage ? "hide" : ""}`}  disabled={isSubmitting}>
+                            <button type="submit" className={`button btn-14 ${successMessage ? "hide" : ""}`}  disabled={isSubmitting}>
                                 {isSubmitting ? "ENVOI EN COURS..." : "ENVOYER"}
                             </button>
                         </form>
