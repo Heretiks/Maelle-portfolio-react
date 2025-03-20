@@ -49,30 +49,28 @@ const Header = () => {
     }
     else if (location.pathname.includes('/projets')) {
         headerTransition = {
-            initial: { y: '-100vh' },
-            animate: { y: 0 },
-            exit: { y: '-30vh' },
+            initial: { x: '-100vw' },
+            animate: { x: 0 },
+            exit: { x: '-100vw' },
             transition: { duration: 1 },
             ease: 'easeInOut',
         };
         contactTransition = {
-            initial: { y: '-100px' },
-            animate: { y: 0 },
-            exit: { y: '-80vh' },
+            initial: { x: '50vw' },
+            animate: { x: 0 },
+            exit: { x: '50vw' },
             transition: { duration: 0.8 },
             ease: 'easeInOut',
         };
     }
 
     const mobileMenuTransition = {
-        initial: { y: '-100vh' },
-        animate: { y: 0 },
-        exit: { y: '-100vh' },
+        initial: { x: '100vw' },
+        animate: { x: 0 },
+        exit: { x: '100vw' },
         transition: { duration: 1 },
         ease: 'easeInOut',
     };
-
-
 
     return (
         <header className="header">

@@ -14,7 +14,6 @@ import mailSvg from '../assets/global/mail.svg';
 import maltSvg from '../assets/global/malt.svg';
 import { Helmet } from 'react-helmet-async';
 
-
 const ContactForm = () => {
     const [formData, setFormData] = useState({
         name: "",
@@ -87,22 +86,17 @@ const ContactForm = () => {
         initial: { x: '-100vw' },
         animate: { x: 0 },
         exit: { x: '-100vw' },
-        transition: { duration: 0.8 }
+        transition: { duration: 1 }
     };
 
     const fromRightTransition = {
         initial: { x: '100vw' },
         animate: { x: 0 },
         exit: { x: '100vw' },
-        transition: { duration: 0.8 }
+        transition: { duration: 1 }
     };
 
-    const fromTopTransition = {
-        initial: { y: '-100vh' },
-        animate: { y: 0 },
-        exit: { y: '-100vh' },
-        transition: { duration: 0.8 }
-    };
+    let listingTransition = window.innerWidth < 900 && window.innerWidth > 800 ? fromRightTransition : fromLeftTransition;
 
     const logoTransition = {
         initial: { x: '-100vw' },
@@ -125,10 +119,10 @@ const ContactForm = () => {
             <div className="container">
                 <Header />
                 <Link to="/" className="retour-accueil">
-                    <motion.img src={Bullet} alt="Next" className="arrow-icon" {...fromTopTransition}/>
+                    <motion.img src={Bullet} alt="Next" className="arrow-icon" {...fromLeftTransition}/>
                 </Link>
-                <div className="retour-listing" {...fromTopTransition}>
-                    <motion.div {...fromTopTransition}>
+                <div className="retour-listing">
+                    <motion.div {...listingTransition}>
                         <FlipLink to={'/projets'}> Vue d&#39;ensemble </FlipLink>
                     </motion.div>
                 </div>
