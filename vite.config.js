@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     createSitemap({
-      hostname: 'https://www.maellecamissogo.com', // Ton URL
+      hostname: 'https://maellecamissogo.com', // Ton URL
       dynamicRoutes: [
         '/projets',
         '/contact',

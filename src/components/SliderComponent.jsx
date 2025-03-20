@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import '../assets/styles/components/Slider.scss';
 import { motion } from 'framer-motion';
 
-import LeftBullet from '../assets/global/SVG_MOTIF_POINT_AVANT.svg';
-import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
-
 const Slider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -49,10 +46,10 @@ const Slider = ({ images }) => {
             </div>
 
             <button className="arrow left" onClick={prevImage}>
-                <img src={LeftBullet} alt="Previous" className="arrow-icon" />
+                <img src="/images/SVG_MOTIF_POINT_AVANT.svg" alt="Previous" className="arrow-icon" />
             </button>
             <button className="arrow right" onClick={nextImage}>
-                <img src={RightBullet} alt="Next" className="arrow-icon" />
+                <img src="/images/SVG_MOTIF_POINT_SUIVANT.svg" alt="Next" className="arrow-icon" />
             </button>
         </motion.div>
 

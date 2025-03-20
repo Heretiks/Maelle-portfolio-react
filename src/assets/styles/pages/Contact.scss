@@ -272,21 +272,16 @@
 
     .reseaux {
         position: absolute;
-        //top: 90vh;
-        display: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
-        //flex-direction: column;
-        //-webkit-box-pack: center;
-        //-ms-flex-pack: center;
-        //justify-content: center;
         gap: 20px;
         z-index: 999;
-        left: 30px;
-        bottom: 30px;
 
-        img {
+        .rs {
             width: 45px;
             height: auto;
             transition: all 0.3s ease-in-out;
@@ -297,10 +292,19 @@
             }
         }
 
-        &.display {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
+        &.grand-format {
+            bottom: 2vh;
+            left: 30px;
+        }
+
+        &.mobile-haut {
+            left: auto;
+            bottom: 4vh;
+        }
+
+        &.mobile {
+            left: auto;
+            top: 5vh;
         }
     }
 }
@@ -362,14 +366,10 @@
         }
 
         .reseaux {
-            top: 89vh;
-            bottom: auto;
             flex-direction: row;
             -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
             -ms-flex-direction: row;
-            right: auto;
-            left: auto;
         }
     }
 }
@@ -384,35 +384,6 @@
         .retour-listing {
             right: 20px;
             left: auto;
-        }
-
-        .reseaux {
-
-            img {
-                width: 40px;
-            }
-        }
-    }
-}
-
-/* Styles pour les écrans type smartphone */
-@media (max-width: 500px) {
-    .container {
-        overflow: auto;
-
-        .header {
-
-            .burger-icon {
-                top: 3.5vh;
-            }
-        }
-
-        .retour-accueil {
-            top: 3.5vh;
-        }
-
-        .retour-listing {
-            visibility: hidden;
         }
 
         .content {
@@ -441,7 +412,36 @@
 
         .reseaux {
 
-            img {
+            .rs {
+                width: 40px;
+            }
+        }
+    }
+}
+
+/* Styles pour les écrans type smartphone */
+@media (max-width: 500px) {
+    .container {
+        overflow: auto;
+
+        .header {
+
+            .burger-icon {
+                top: 3.5vh;
+            }
+        }
+
+        .retour-accueil {
+            top: 3.5vh;
+        }
+
+        .retour-listing {
+            visibility: hidden;
+        }
+
+        .reseaux {
+
+            .rs {
                 width: 35px;
             }
         }

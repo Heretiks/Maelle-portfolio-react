@@ -10,7 +10,7 @@ const LegalPage = () => {
             <section>
                 <h2>Éditeur du site</h2>
                 <p>
-                    Le site www.maellecamissogo.com est édité par :
+                    Le site maellecamissogo.com est édité par :
                     <strong> Julien Larguier</strong><br />
                     Adresse : 3 allée du Savoir<br />
                     Téléphone : 06 06 06 06 06<br />

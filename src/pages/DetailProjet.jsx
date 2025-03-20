@@ -4,10 +4,6 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import SliderComponent from "../components/SliderComponent.jsx";
 import '../assets/styles/pages/DetailProjet.scss';
-
-import LeftBullet from '../assets/global/SVG_MOTIF_POINT_AVANT.svg';
-import RightBullet from '../assets/global/SVG_MOTIF_POINT_SUIVANT.svg';
-
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
 import FlipLink from "../components/FlipLink.jsx";
@@ -95,7 +91,7 @@ function DetailProjet() {
                 <meta property="og:title" content={`${project.title} | Maëlle Camissogo`} />
                 <meta property="og:description" content={`Détails et présentation du projet "${project.title}". Découvrez mon travail de graphiste.`} />
                 <meta property="og:image" content={project.image} />
-                <meta property="og:url" content={`https://www.maellecamissogo.com/projet/${project.id}`} />
+                <meta property="og:url" content={`https://maellecamissogo.com/projet/${project.id}`} />
             </Helmet>
 
 
@@ -129,10 +125,10 @@ function DetailProjet() {
                                 <div className="second-block">
                                     <div className="next-back">
                                         <Link to={`/projet/${previousProjectId}`}>
-                                            <img src={LeftBullet} alt="Left bullet" className="prev-text" />
+                                            <img src="/images/SVG_MOTIF_POINT_AVANT.svg" alt="Left bullet" className="prev-text" />
                                         </Link>
                                         <Link to={`/projet/${nextProjectId}`}>
-                                            <img src={RightBullet} alt="Left bullet" className="next-text" />
+                                            <img src="/images/SVG_MOTIF_POINT_SUIVANT.svg" alt="Left bullet" className="next-text" />
                                         </Link>
                                     </div>
                                     <div className="listing">

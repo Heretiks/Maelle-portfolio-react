@@ -1,10 +1,8 @@
 // FlipLink.jsx
-
 import { motion } from 'framer-motion';
 import '../assets/styles/components/FlipLink.scss';
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
 const MotionLink = motion.create(Link);
 
 const FlipLink = ({ children, to, onClick }) => {

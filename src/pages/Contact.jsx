@@ -1,6 +1,4 @@
 import "../assets/styles/pages/Contact.scss";
-import Motif from '../assets/global/motif-grand.png';
-import Bullet from '../assets/global/SVG_MOTIF_POINT_AVANT.svg';
 import { Link } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import {useEffect, useRef, useState} from "react";
@@ -8,10 +6,6 @@ import EmailJS from '@emailjs/browser'
 import FlipLink from "../components/FlipLink.jsx";
 import { motion } from "framer-motion";
 import LogoMc from "../components/LogoMc.jsx";
-
-import linkedInSvg from '../assets/global/linkedin.svg';
-import mailSvg from '../assets/global/mail.svg';
-import maltSvg from '../assets/global/malt.svg';
 import { Helmet } from 'react-helmet-async';
 
 const ContactForm = () => {
@@ -23,12 +17,14 @@ const ContactForm = () => {
     const logoRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
-    const [bigHeight, setBigHeight] = useState(window.innerHeight > 700);
+    const [isBigHeight, setIsBigHeight] = useState(window.innerHeight > 700);
+    const [isBigWidth, setIsBigWidth] = useState(window.innerWidth > 650);
 
     // Savoir si on affiche motif-bottom ou non (height > 700px)
     useEffect(() => {
         const handleResize = () => {
-            setBigHeight(window.innerHeight > 700);
+            setIsBigHeight(window.innerHeight > 700);
+            setIsBigWidth(window.innerWidth > 650);
         };
 
         // Ajouter un écouteur de redimensionnement
@@ -113,20 +109,20 @@ const ContactForm = () => {
                 <meta name="description" content="Contactez-moi pour toute demande de projet graphique, collaboration ou toute question." />
                 <meta property="og:title" content="Contact | Maëlle Camissogo" />
                 <meta property="og:description" content="Besoin d'un projet graphique ? Contactez Maëlle Camissogo pour discuter de vos idées." />
-                <meta property="og:image" content="https://www.maellecamissogo.com/image-partage-contact.jpg" />
-                <meta property="og:url" content="https://www.maellecamissogo.com/contact" />
+                <meta property="og:image" content="https://maellecamissogo.com/image-partage-contact.jpg" />
+                <meta property="og:url" content="https://maellecamissogo.com/contact" />
             </Helmet>
             <div className="container">
                 <Header />
                 <Link to="/" className="retour-accueil">
-                    <motion.img src={Bullet} alt="Next" className="arrow-icon" {...fromLeftTransition}/>
+                    <motion.img src="/images/SVG_MOTIF_POINT_AVANT.svg" alt="Next" className="arrow-icon" {...fromLeftTransition}/>
                 </Link>
                 <div className="retour-listing">
                     <motion.div {...listingTransition}>
                         <FlipLink to={'/projets'}> Vue d&#39;ensemble </FlipLink>
                     </motion.div>
                 </div>
-                <motion.img src={Motif} alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
+                <motion.img src="/images/motif-grand.svg" alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
                 <div className="content">
                     <Link to="/" className="logo" {...logoTransition}>
                         <motion.div {...fromLeftTransition}>
@@ -168,12 +164,13 @@ const ContactForm = () => {
                         {successMessage && <p className="success-message">{successMessage}</p>}
                     </motion.div>
                 </div>
-                <motion.img src={Motif} alt="Motif bas" className={`motif motif-bottom ${bigHeight ? "big" : ""}`} {...fromLeftTransition}/>
+                <motion.img src="/images/motif-gra" alt="Motif bas" className={`motif motif-bottom ${isBigHeight ? "big" : ""}`} {...fromLeftTransition}/>
 
-                <motion.div className={`reseaux ${bigHeight ? "display" : ""}`} {...fromRightTransition}>
-                    <img src={mailSvg} alt="Mail" className="rs mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
-                    <img src={maltSvg} alt="Malt" className="rs malt" onClick={() => window.open("https://www.malt.fr/profile/maellecamissogo", "_blank")}/>
-                    <img src={linkedInSvg} alt="rs Linkedin" className="linkedin" onClick={() => window.open("https://www.linkedin.com/in/ma%C3%ABlle-camissogo/", "_blank")}/>
+                <motion.div className={`reseaux ${!isBigWidth && !isBigHeight ? "mobile" :
+                                                    !isBigWidth && isBigHeight ? "mobile-haut" : "grand-format"}`} {...fromRightTransition}>
+                    <img src="/images/mail.svg" alt="Mail" className="rs mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
+                    <img src="/images/malt.svg" alt="Malt" className="rs malt" onClick={() => window.open("https://www.malt.fr/profile/maellecamissogo", "_blank")}/>
+                    <img src="/images/linkedin.svg" alt="Linkedin" className="rs linkedin" onClick={() => window.open("https://www.linkedin.com/in/ma%C3%ABlle-camissogo/", "_blank")}/>
                 </motion.div>
             </div>
         </>

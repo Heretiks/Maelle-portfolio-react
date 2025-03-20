@@ -35,8 +35,8 @@ const ListingProjects = () => {
                 <meta name="description" content="Découvrez les projets de Maëlle Camissogo, graphiste et directrice artistique professionnelle spécialisée en design créatif et innovant." />
                 <meta property="og:title" content="Mes Projets | Maëlle Camissogo" />
                 <meta property="og:description" content="Découvrez mes réalisations graphiques et projets de design." />
-                <meta property="og:image" content="https://www.maellecamissogo.com/image-partage-projets.jpg" />
-                <meta property="og:url" content="https://www.maellecamissogo.com/projets" />
+                <meta property="og:image" content="https://maellecamissogo.com/image-partage-projets.jpg" />
+                <meta property="og:url" content="https://maellecamissogo.com/projets" />
             </Helmet>
 
             <div className="listing-projects">

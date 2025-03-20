@@ -1,8 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLoading } from "./LoadingProvider";
-import Motif from "../assets/global/motif-grand.png";
-import LogoMc from "../assets/global/logo.svg";
 
 // Variable globale pour suivre si le chargement initial a eu lieu
 let initialLoadDone = false;
@@ -125,7 +123,7 @@ const AppLoader = ({ children }) => {
                                         const rowIndex = index % gridConfig.rows;
                                         return (
                                             <motion.img
-                                                src={Motif}
+                                                src="/images/motif-grand.png"
                                                 alt="Motif de Maëlle Camissogo"
                                                 key={index}
                                                 initial={{ opacity: 0, scale: 0.2 }}
@@ -188,7 +186,7 @@ const AppLoader = ({ children }) => {
                                 }}
                             >
 
-                                <img src={LogoMc} alt="Logo de Maëlle Camissogo" style={{filter: "invert(0)", width: '10%', height: '10%', marginBottom: '10vh'}}/>
+                                <img src="/images/logo.svg" alt="Logo de Maëlle Camissogo" style={{filter: "invert(0)", width: '10%', height: '10%', marginBottom: '10vh'}}/>
 
                             </motion.div>
                         )}

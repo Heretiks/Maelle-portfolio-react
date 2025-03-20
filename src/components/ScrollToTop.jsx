@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import img from "../assets/global/SVG_MOTIF_POINT_AVANT.svg";
 
 export default function ScrollToTop(lenis) {
     const [visible, setVisible] = useState(false);
@@ -24,7 +23,7 @@ export default function ScrollToTop(lenis) {
         <img
             onClick={scrollToTop}
             className={`scrollTop ${visible ? "visible" : ""}`}
-            src={img} alt="Back to top"
+            src="/images/SVG_MOTIF_POINT_AVANT.svg" alt="Back to top"
         />
     );
 }

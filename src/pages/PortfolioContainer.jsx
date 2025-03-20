@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import projects from '../data/projets.js';
-import Motif from '../assets/global/motif-grand.png';
 import '../assets/styles/pages/PortfolioContainer.scss';
 import { Link } from 'react-router-dom';
+import {motion} from "framer-motion";
+import {Helmet} from "react-helmet-async";
 import Header from "../components/Header.jsx";
 import Home from "../components/Home.jsx";
-
-import {motion} from "framer-motion";
 import FlipLink from "../components/FlipLink.jsx";
-
-
 import LogoMcMotion from "../components/LogoMc.jsx";
-import {Helmet} from "react-helmet-async";
 import {LoadingProvider} from "../components/LoadingProvider.jsx";
 import AppLoader from "../components/AppLoader.jsx";
 
@@ -60,11 +56,11 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
                 <meta name="description" content="Portfolio de Maëlle Camissogo, graphiste et directrice artistique professionnelle spécialisée en design créatif et innovant. Découvrez mes projets et réalisations graphiques."/>
                 <meta property="og:title" content="Maëlle Camissogo | Portfolio de Graphiste"/>
                 <meta property="og:description" content="Découvrez les projets créatifs et innovants de Maëlle Camissogo, graphiste professionnelle."/>
-                <meta property="og:image" content="https://www.maellecamissogo.com/image-partage.jpg"/>
+                <meta property="og:image" content="https://maellecamissogo.com/image-partage.jpg"/>
 
                 <meta property="og:image" content="/images/image-partage.jpg"/>
 
-                <meta property="og:url" content="https://www.maellecamissogo.com"/>
+                <meta property="og:url" content="https://maellecamissogo.com"/>
             </Helmet>
 
             <div className="portfolio-home">
@@ -80,11 +76,10 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
 
                 <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
                     <div className="background-motif">
-                        <motion.img src={Motif} alt="Motif de Maëlle Camissogo" {...motifTransition}/>
+                        <motion.img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo" {...motifTransition}/>
                     </div>
                     <motion.div {...logoAndNameTransition} className="content">
                         <div className="logo" >
-                            {/*<img src={LogoMc} alt="Logo de Maëlle Camissogo" />*/}
                             <LogoMcMotion/>
                         </div>
                         <div className="nom-metier">

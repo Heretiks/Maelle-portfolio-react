@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 import {Link, useLocation} from "react-router-dom";
-import MotifMc from '../assets/global/motif.png';
-import Motif from "../assets/global/motif-grand.png";
-
-import HeaderPoint from "../assets/global/SVG_MOTIF_POINT_BURGER.svg";
 import {motion} from "framer-motion";
 import FlipLink from "./FlipLink.jsx";
 import LogoMc from '../components/LogoMc.jsx';
@@ -82,7 +78,7 @@ const Header = () => {
                 <motion.div {...headerTransition}><LogoMc/></motion.div>
             </Link>
             <img
-                src={MotifMc}
+                src="/images/motif-grand.png"
                 alt="Motif de Maëlle Camissogo"
                 className="motif"
                 style={{ visibility: "hidden" }}
@@ -101,12 +97,12 @@ const Header = () => {
                 onClick={toggleMobileMenu}
                 {...mobileMenuTransition}
             >
-                <img src={HeaderPoint} alt="Icon menu burger"/>
+                <img src="/images/SVG_MOTIF_POINT_BURGER.svg" alt="Icon menu burger"/>
             </motion.div>
             {/* Menu mobile */}
             <nav className={`header-mobile ${isMobileMenuOpen ? "open" : ""}`}>
                 <div className="background-motif top">
-                    <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+                    <img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo"/>
                 </div>
                 <ul>
                     <li><Link to="/" onClick={toggleMobileMenu} >Accueil</Link></li>
@@ -114,7 +110,7 @@ const Header = () => {
                     <li><Link to="/contact" onClick={toggleMobileMenu} >Contact</Link></li>
                 </ul>
                 <div className="background-motif bottom">
-                    <img src={Motif} alt="Motif de Maëlle Camissogo"/>
+                    <img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo"/>
                 </div>
             </nav>
         </header>
