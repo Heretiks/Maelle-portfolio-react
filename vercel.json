@@ -2,12 +2,12 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "!/assets/*",
-      "destination": "/:path*"
+      "source": "/assets/:path*",
+      "destination": "/assets/:path*"
     },
     {
-      "source": "!/images/*",
-      "destination": "/:path*"
+      "source": "/images/:path*",
+      "destination": "/images/:path*"
     },
     {
       "source": "/:path*",
