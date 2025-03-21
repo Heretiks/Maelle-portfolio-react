@@ -41,7 +41,6 @@ import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.webp'
 import HandsUpDescription from '../assets/projects/hands-up/image-description/image-description.webp';
 import HandsUpCouleurs from '../assets/projects/hands-up/couleurs-identite/Groupe162.webp';
 import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe161.webp';
-import HandsUpMenuLarge from '../assets/projects/hands-up/mockup-menu-large/Groupe163.webp';
 import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/Poster-MockUp-Vert-and-Horiz.webp';
 import HandsUpMenuBoisson from '../assets/projects/hands-up/mockup-menu-large/BOISSON.webp';
 import HandsUpMenuBoisson2 from '../assets/projects/hands-up/mockup-menu-large/BOISSON-DEUX.webp';
@@ -104,7 +103,6 @@ import SplVue3D from '../assets/projects/plaquette-spl/vision-3d/2.webp'
 import SplDoublePageMaps from '../assets/projects/plaquette-spl/double-page-maps/Mockup5.webp'
 
 // Domaine de L'Aiglade
-// import AigladeMockupLeo from '../assets/projects/domaine-de-laiglade/triple-etiquette-leo/mockup-petit-leo.webp'
 import AigladeBouteilleLeo from '../assets/projects/domaine-de-laiglade/petit-leo/petit-leo.webp'
 import AigladeMockupCevenrolle from '../assets/projects/domaine-de-laiglade/etiquette-cevenrolle/mockup-cevenreolle.webp'
 import AigladeBouteilleCevenrolle from '../assets/projects/domaine-de-laiglade/cevenrolle/cenvenrolle.webp'
@@ -132,11 +130,6 @@ import ElementFlyerSimple from '../assets/projects/7eme-element/flyer-simple-lar
 import ElementFlyerComplet from '../assets/projects/7eme-element/flyer-complet/flyer-complet.webp'
 import ElementMagazine from '../assets/projects/7eme-element/magazine/magazine.webp'
 import ElementInstaTel from '../assets/projects/7eme-element/insta-telephone/insta-telephone.webp'
-// import ElementMockup1 from '../assets/projects/7eme-element/mockup-1-carre/mockup-1-carre.webp'
-// import ElementColorSafe from '../assets/projects/7eme-element/tuto-color-safe/tuto-color-safe.webp'
-// import ElementDeepRepair from '../assets/projects/7eme-element/tuto-deep-repair/tuto-deep-repair.webp'
-// import ElementHighlightBlond from '../assets/projects/7eme-element/tuto-highlight-blond/tuto-highlight-blond.webp'
-// import ElementHydraRevive from '../assets/projects/7eme-element/tuto-hydra-revive/tuto-hydra-revive.webp'
 
 // Mariage Mathilde
 import MariageFairePart from '../assets/projects/mariage-mathilde/faire-part-large/faire-part-large.webp'
@@ -164,7 +157,6 @@ import FasoCarre2 from '../assets/projects/artisan-du-faso/carre-2/carre-2.webp'
 import FasoCarre3 from '../assets/projects/artisan-du-faso/carre-3/carre-3.webp'
 import FasoCarre4 from '../assets/projects/artisan-du-faso/carre-4/carre-4.webp'
 
-
 const projects = [
     {
         id: 1,
@@ -186,8 +178,7 @@ const projects = [
             {type: 'image-large',image: HandsUpLogoLarge},
             {type: 'double-image',images: [HandsUpMenuCarre, HandsUpCouleurs]},
             {type: 'double-image',images: [HandsUpMenuCarte, HandsUpMenuFormule]},
-            {type: 'double-image',images: [HandsUpMenuBoisson, HandsUpMenuBoisson2]},
-            // {type: 'image-large',image: HandsUpMenuLarge}
+            {type: 'double-image',images: [HandsUpMenuBoisson, HandsUpMenuBoisson2]}
         ]
     },
     {
@@ -260,14 +251,12 @@ const projects = [
                     'présentant les avantages des gammes Hydra Revive, Color Safe, Deep Repair et Blond Highlight.',
                 image: ElementMockup2
             },
-            // {type: 'double-image',images: [ElementMockup1, ElementMockup2]},
             {type: 'double-image',images: [ElementMockup3, ElementMockup4]},
             {type: 'double-image',images: [ElementMockup5, ElementMockup6]},
             {type: 'image-large',image: ElementFlyerSimple},
             {type: 'image-large',image: ElementFlyerComplet},
             {type: 'image-large',image: ElementMagazine},
-            {type: 'image-large',image: ElementInstaTel},
-            // {type: 'quadruple-image',images: [ElementDeepRepair, ElementHighlightBlond, ElementColorSafe, ElementHydraRevive]},
+            {type: 'image-large',image: ElementInstaTel}
         ]
     },
     {
@@ -314,7 +303,6 @@ const projects = [
                     'L’idée est de proposer des cuvées uniques, à l’image des producteurs.',
                 image: AigladeBouteilleLeo
             },
-            // {type: 'double-image',images: [AigladeMockupLeo, AigladeBouteilleLeo]},
             {type: 'double-image',images: [AigladeMockupCevenrolle, AigladeBouteilleCevenrolle]},
             {type: 'double-image',images: [AigladeMockupMerci, AigladeBouteilleMerci]},
         ]
@@ -382,18 +370,15 @@ const projects = [
         blocks: [
             {type: 'image-large',image: MariageFairePart},
             {type: 'image-large',image: MariageFairePartMobile1},
-
             {type: 'image-large',image: MariagePhotoNomTable},
             {type: 'image-large',image: MariageFairePartComplet},
             {type: 'image-large',image: MariageFairePartCompletMobile1},
             {type: 'image-large',image: MariageFairePartCompletMobile2},
             {type: 'image-large',image: MariageFairePartCompletMobile3},
             {type: 'image-large',image: MariageFairePartCompletMobile4},
-
             {type: 'double-image',images: [MariageRemerciement, MariagePhotoMirroir]},
             {type: 'image-large',image: MariageMockupNomTable},
             {type: 'image-large',image: MariageMockupNomTableMobile},
-
             {type: 'image-large',image: MariageTampon},
         ]
     },

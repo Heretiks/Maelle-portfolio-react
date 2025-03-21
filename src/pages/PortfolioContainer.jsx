@@ -8,8 +8,6 @@ import Header from "../components/Header.jsx";
 import Home from "../components/Home.jsx";
 import FlipLink from "../components/FlipLink.jsx";
 import LogoMcMotion from "../components/LogoMc.jsx";
-import {LoadingProvider} from "../components/LoadingProvider.jsx";
-import AppLoader from "../components/AppLoader.jsx";
 
 const PortfolioContainer = React.memo(function PortfolioContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -68,11 +66,7 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
                     <Header/>
                 </div>
 
-                <LoadingProvider>
-                    <AppLoader>
-                        <Home onProjectChange={handleProjectChange}/>
-                    </AppLoader>
-                </LoadingProvider>
+                <Home onProjectChange={handleProjectChange}/>
 
                 <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
                     <div className="background-motif">

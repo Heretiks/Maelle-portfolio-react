@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import './assets/styles/App.scss';
@@ -8,6 +8,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import CustomCursor from "./components/CustomCursor.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import Preloader from "./components/Preloader.jsx";
 
 const PortfolioContainer = React.lazy(() => import('./pages/PortfolioContainer.jsx'));
 const ListingProject = React.lazy(() => import('./pages/ListingProjects.jsx'));
@@ -19,6 +20,8 @@ function App() {
     const location = useLocation();
     const lenisRef = useRef(null);
     const actualRoute = useRef(location.pathname);
+
+    const [isLoading, setIsLoading] = useState(true);
 
     // Initialisation de Lenis
     useEffect(() => {
@@ -104,24 +107,54 @@ function App() {
         };
     }, []);
 
+    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+    useEffect(() => {
+        const assets = document.querySelectorAll("img, video");
+        const assetLoadPromises = Array.from(assets).map((asset) => {
+            return new Promise((resolve) => {
+                if (asset.complete) {
+                    resolve();
+                } else {
+                    asset.addEventListener("load", resolve);
+                    asset.addEventListener("error", resolve);
+                }
+            });
+        });
+
+        Promise.all([
+            Promise.all(assetLoadPromises),
+            delay(2000) // Délai minimum de 2 secondes
+        ]).then(() => {
+            setIsLoading(false);
+        });
+    }, []);
+
+
     return (
         <>
-            <CustomCursor />
-            <ScrollToTop lenis={lenisRef} />
-            <SpeedInsights />
-            <Analytics />
+            {isLoading ? (
+                <Preloader />
+            ) : (
+                <>
+                    <CustomCursor />
+                    <ScrollToTop lenis={lenisRef} />
+                    <SpeedInsights />
+                    <Analytics />
 
-            <AnimatePresence mode="wait">
-                <Routes location={location} key={location.pathname}>
-                    <Route path="/" element={<PortfolioContainer />} />
-                    <Route path="/projets" element={<ListingProject />} />
-                    <Route path="/projet/:projectId" element={<DetailProjet />} />
-                    <Route path="/contact" element={<Contact />} />
+                    <AnimatePresence mode="wait">
+                        <Routes location={location} key={location.pathname}>
+                            <Route path="/" element={<PortfolioContainer />} />
+                            <Route path="/projets" element={<ListingProject />} />
+                            <Route path="/projet/:projectId" element={<DetailProjet />} />
+                            <Route path="/contact" element={<Contact />} />
 
-                    <Route path="/mentions-legales" element={<LegalPage />} />
-                    <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
-            </AnimatePresence>
+                            <Route path="/mentions-legales" element={<LegalPage />} />
+                            <Route path="*" element={<Navigate to="/" replace />} />
+                        </Routes>
+                    </AnimatePresence>
+                </>
+            )}
         </>
     );
 }
