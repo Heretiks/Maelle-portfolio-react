@@ -122,7 +122,7 @@ const ContactForm = () => {
                         <FlipLink to={'/projets'}> Vue d&#39;ensemble </FlipLink>
                     </motion.div>
                 </div>
-                <motion.img src="/images/motif-grand.svg" alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
+                <motion.img src="/images/motif-grand.png" alt="Motif haut" className="motif motif-top" {...fromRightTransition}/>
                 <div className="content">
                     <Link to="/" className="logo" {...logoTransition}>
                         <motion.div {...fromLeftTransition}>
@@ -164,7 +164,7 @@ const ContactForm = () => {
                         {successMessage && <p className="success-message">{successMessage}</p>}
                     </motion.div>
                 </div>
-                <motion.img src="/images/motif-gra" alt="Motif bas" className={`motif motif-bottom ${isBigHeight ? "big" : ""}`} {...fromLeftTransition}/>
+                <motion.img src="/images/motif-grand.png" alt="Motif bas" className={`motif motif-bottom ${isBigHeight ? "big" : ""}`} {...fromLeftTransition}/>
 
                 <motion.div className={`reseaux ${!isBigWidth && !isBigHeight ? "mobile" :
                                                     !isBigWidth && isBigHeight ? "mobile-haut" : "grand-format"}`} {...fromRightTransition}>
