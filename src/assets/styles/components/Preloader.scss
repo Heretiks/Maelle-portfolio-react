@@ -19,8 +19,8 @@
 
   .black-hide {
     position: absolute;
-    top: calc(50vh - 43px);
-    left: calc(50vw - 150px);
+    top: calc(50dvh - 43px);
+    left: calc(50dvw - 150px);
     width: 350px;
     height: 80px;
     background-color: black;
@@ -37,8 +37,8 @@
     }
 
     .black-hide {
-      top: calc(50vh - 28px);
-      left: calc(50vw - 80px);
+      top: calc(50dvh - 28px);
+      left: calc(50dvw - 80px);
       width: 180px;
       height: 50px;
     }

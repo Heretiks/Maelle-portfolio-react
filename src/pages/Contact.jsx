@@ -1,12 +1,12 @@
 import "../assets/styles/pages/Contact.scss";
 import { Link } from "react-router-dom";
-import Header from "../components/Header.jsx";
 import {useEffect, useRef, useState} from "react";
 import EmailJS from '@emailjs/browser'
-import FlipLink from "../components/FlipLink.jsx";
 import { motion } from "framer-motion";
-import LogoMc from "../components/LogoMc.jsx";
 import { Helmet } from 'react-helmet-async';
+import Header from "../components/Header.jsx";
+import FlipLink from "../components/FlipLink.jsx";
+import LogoMc from "../components/LogoMc.jsx";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
