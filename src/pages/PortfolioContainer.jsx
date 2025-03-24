@@ -50,9 +50,9 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
     return (
         <>
             <Helmet>
-                <title>Maëlle Camissogo | Portfolio de Graphiste</title>
-                <meta name="description" content="Portfolio de Maëlle Camissogo, graphiste et directrice artistique professionnelle spécialisée en design créatif et innovant. Découvrez mes projets et réalisations graphiques."/>
-                <meta property="og:title" content="Maëlle Camissogo | Portfolio de Graphiste"/>
+                <title>Maëlle Camissogo | Graphiste Freelance à Montpellier</title>
+                <meta name="description" content="Portfolio de Maëlle Camissogo, graphiste et directrice artistique professionnelle spécialisée dans la création de logo, le branding et les supports print et digitaux. Découvrez mes projets et réalisations."/>
+                <meta property="og:title" content="Maëlle Camissogo | Graphiste Freelance à Montpellier"/>
                 <meta property="og:description" content="Découvrez les projets créatifs et innovants de Maëlle Camissogo, graphiste professionnelle."/>
                 <meta property="og:image" content="https://maellecamissogo.com/image-partage.jpg"/>
 
@@ -70,7 +70,7 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
 
                 <Link className="portfolio-container" to={`/projet/${projects[currentIndex].id}`}>
                     <div className="background-motif">
-                        <motion.img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo" {...motifTransition}/>
+                        <motion.img src="/images/motif-grand.webp" alt="Motif de Maëlle Camissogo" {...motifTransition}/>
                     </div>
                     <motion.div {...logoAndNameTransition} className="content">
                         <div className="logo" >

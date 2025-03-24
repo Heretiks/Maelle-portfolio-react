@@ -38,7 +38,7 @@ const Preloader = () => {
     return (
         <div className="preloader">
             <div>
-                <img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo" className="motif"/>
+                <img src="/images/motif-grand.webp" alt="Motif de Maëlle Camissogo" className="motif"/>
                 <motion.div
                     className="black-hide"
                     variants={blackHideVariants}

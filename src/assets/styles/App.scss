@@ -1,11 +1,14 @@
+@import 'lenis/dist/lenis.css';
 @import url('components/Header.scss');
 @import url('components/Footer.scss');
 @import url('components/CustomCursor.scss');
-@import 'lenis/dist/lenis.css';
 
 html, body, * {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
+
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Suppression de la scrollbar (Chrome, Edge, Safari) */

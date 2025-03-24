@@ -78,7 +78,7 @@ const Header = () => {
                 <motion.div {...headerTransition}><LogoMc/></motion.div>
             </Link>
             <img
-                src="/images/motif-grand.png"
+                src="/images/motif-grand.webp"
                 alt="Motif de Maëlle Camissogo"
                 className="motif"
                 style={{ visibility: "hidden" }}
@@ -102,7 +102,7 @@ const Header = () => {
             {/* Menu mobile */}
             <nav className={`header-mobile ${isMobileMenuOpen ? "open" : ""}`}>
                 <div className="background-motif top">
-                    <img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo"/>
+                    <img src="/images/motif-grand.webp" alt="Motif de Maëlle Camissogo"/>
                 </div>
                 <ul>
                     <li><Link to="/" onClick={toggleMobileMenu} >Accueil</Link></li>
@@ -110,7 +110,7 @@ const Header = () => {
                     <li><Link to="/contact" onClick={toggleMobileMenu} >Contact</Link></li>
                 </ul>
                 <div className="background-motif bottom">
-                    <img src="/images/motif-grand.png" alt="Motif de Maëlle Camissogo"/>
+                    <img src="/images/motif-grand.webp" alt="Motif de Maëlle Camissogo"/>
                 </div>
             </nav>
         </header>
