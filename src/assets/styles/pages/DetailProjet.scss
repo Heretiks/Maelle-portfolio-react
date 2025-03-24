@@ -34,12 +34,12 @@
                 position: absolute;
                 bottom: 29%;
                 left: 7%;
-                font-size: 32px;
-                font-weight: 700;
                 text-transform: uppercase;
                 color: white;
 
                 .name {
+                    font-size: 32px;
+                    font-weight: 700;
                     margin: 0;
                 }
 
@@ -843,8 +843,10 @@
             .presentation-projet {
 
                 .project-name {
-                    font-size: 25px;
 
+                    .name {
+                        font-size: 25px;
+                    }
                     .category {
                         font-size: 20px;
                     }

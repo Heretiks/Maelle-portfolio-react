@@ -130,7 +130,7 @@ const ContactForm = () => {
                         </motion.div>
                     </Link>
                     <motion.div className="form-container" {...fromRightTransition}>
-                        <h2 className="title">PARLONS DE VOTRE PROJET</h2>
+                        <h1 className="title">PARLONS DE VOTRE PROJET</h1>
                         <form className="form" onSubmit={handleSubmit}>
                             <input
                                 type="text"

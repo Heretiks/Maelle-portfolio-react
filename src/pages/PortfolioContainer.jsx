@@ -77,8 +77,8 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
                             <LogoMcMotion/>
                         </div>
                         <div className="nom-metier">
-                            <p className="nom">MAËLLE CAMISSOGO</p>
-                            <p className="metier">Graphiste</p>
+                            <h1 className="nom">MAËLLE CAMISSOGO</h1>
+                            <h2 className="metier">Graphiste</h2>
                         </div>
                     </motion.div>
                     <motion.div className="info" {...infoTransition}>

@@ -1,13 +1,13 @@
 import {useParams, Navigate, Link} from 'react-router-dom';
+import '../assets/styles/pages/DetailProjet.scss';
 import projects from '../data/projets.js';
+import {motion} from "framer-motion";
+import {useEffect, useState} from "react";
+import {Helmet} from "react-helmet-async";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import SliderComponent from "../components/SliderComponent.jsx";
-import '../assets/styles/pages/DetailProjet.scss';
-import {motion} from "framer-motion";
-import {useEffect, useState} from "react";
 import FlipLink from "../components/FlipLink.jsx";
-import {Helmet} from "react-helmet-async";
 
 function DetailProjet() {
     const [mobile, setMobile] = useState(false);
@@ -104,8 +104,8 @@ function DetailProjet() {
                         <motion.img className="image-presentaion" src={`${mobile ? project.imageMobile : project.image}`} alt={project.title} {...blurTransition}/>
 
                         <motion.div className="project-name" {...projectNameTransition}>
-                            <p className="name">{project.title}</p>
-                            <p className="category">{project.category}</p>
+                            <h1 className="name">{project.title}</h1>
+                            <h2 className="category">{project.category}</h2>
                         </motion.div>
 
                         <div className="content-presentation">

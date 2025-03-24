@@ -77,10 +77,6 @@
                 transition: all 0.3s ease-in-out;
                 width: 180px;
 
-                //img {
-                //    width: 180px;
-                //    height: auto;
-                //}
                 > * {
                     width: 100%;
                     height: auto;
@@ -98,14 +94,17 @@
                 -webkit-box-align: start;
                 -ms-flex-align: start;
                 align-items: flex-start;
-                font-size: 32px;
-                font-weight: 700;
                 text-transform: uppercase;
                 line-height: 1.1;
 
                 .nom, .metier {
                     text-align: justify;
                     margin: 0;
+                }
+
+                .nom {
+                    font-size: 32px;
+                    font-weight: 700;
                 }
 
                 .metier {
@@ -525,6 +524,5 @@
                 display: none;
             }
         }
-
     }
 }
