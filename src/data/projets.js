@@ -12,17 +12,17 @@ import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage.we
 import MariageImg from '../assets/projects/mariage-mathilde/format-paysage.webp';
 
 // Images Mobile
-import HandsUpImgMobile from '../assets/projects/hands-up/format-mobile-x2.webp';
+import HandsUpImgMobile from '../assets/projects/hands-up/format-mobile.webp';
 import MaisonMarieImgMobile from '../assets/projects/maison-marie/format-mobile-x2.webp';
-import NaturoPattesImgMobile from '../assets/projects/naturopatte/format-mobile-x2.webp';
-import CongresNimesImgMobile from '../assets/projects/congres-nimes-tourisme/format-mobile-x2.webp';
-import SATetSPLImgMobile from '../assets/projects/plaquette-sat-et-spl/format-mobile-x2.webp';
-import SplPlaqueteImgMobile from '../assets/projects/plaquette-spl/format-mobile-x2.webp';
-import DomaineAigladeImgMobile from '../assets/projects/domaine-de-laiglade/format-mobile-x2.webp';
-import BleuLibelluleImgMobile from '../assets/projects/bleu-libellule/format-mobile-x2.webp';
-import SeptiemeElementImgMobile from '../assets/projects/7eme-element/format-mobile-x2.webp';
+import NaturoPattesImgMobile from '../assets/projects/naturopatte/format-mobile.webp';
+import CongresNimesImgMobile from '../assets/projects/congres-nimes-tourisme/format-mobile.webp';
+import SATetSPLImgMobile from '../assets/projects/plaquette-sat-et-spl/format-mobile.webp';
+import SplPlaqueteImgMobile from '../assets/projects/plaquette-spl/format-mobile.webp';
+import DomaineAigladeImgMobile from '../assets/projects/domaine-de-laiglade/format-mobile.webp';
+import BleuLibelluleImgMobile from '../assets/projects/bleu-libellule/format-mobile.webp';
+import SeptiemeElementImgMobile from '../assets/projects/7eme-element/format-mobile.webp';
 import ArtisanFasoImgMobile from '../assets/projects/artisan-du-faso/format-mobile-x2.webp';
-import MariageImgMobile from '../assets/projects/mariage-mathilde/format-mobile-x2.webp';
+import MariageImgMobile from '../assets/projects/mariage-mathilde/format-mobile.webp';
 
 // Images Carre
 import HandsUpCarre from '../assets/projects/hands-up/format-carre-x2.webp';
