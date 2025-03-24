@@ -29,8 +29,8 @@ import HandsUpCarre from '../assets/projects/hands-up/format-carre-x2.webp';
 import MaisonMarieCarre from '../assets/projects/maison-marie/pexels-ekrulila-2237211.webp'
 import NaturoPatteCarre from '../assets/projects/naturopatte/pexels-chevanon-1108099.webp'
 import CongresNimesCarre from '../assets/projects/congres-nimes-tourisme/mockup14.webp'
-import SATetSPLCarre from '../assets/projects/plaquette-sat-et-spl/image-carre-x2.webp'
-import SplPlaqueteCarre from '../assets/projects/plaquette-spl/image-carre-x2.webp'
+import SATetSPLCarre from '../assets/projects/plaquette-sat-et-spl/image-carre.webp'
+import SplPlaqueteCarre from '../assets/projects/plaquette-spl/image-carre.webp'
 import DomaineAigladeCarre from '../assets/projects/domaine-de-laiglade/3bouteilles.webp'
 import BleuLibelluleCarre from '../assets/projects/bleu-libellule/SCINTILLANTE2.webp'
 import SeptiemeCarre from '../assets/projects/7eme-element/FLYER1.webp'
@@ -41,11 +41,11 @@ import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.webp'
 import HandsUpDescription from '../assets/projects/hands-up/image-description/image-description.webp';
 import HandsUpCouleurs from '../assets/projects/hands-up/couleurs-identite/Groupe162.webp';
 import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe161.webp';
-import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/Poster-MockUp-Vert-and-Horiz.webp';
-import HandsUpMenuBoisson from '../assets/projects/hands-up/mockup-menu-large/BOISSON.webp';
-import HandsUpMenuBoisson2 from '../assets/projects/hands-up/mockup-menu-large/BOISSON-DEUX.webp';
-import HandsUpMenuFormule from '../assets/projects/hands-up/mockup-menu-large/FORMULE.webp';
-import HandsUpMenuCarte from '../assets/projects/hands-up/mockup-menu-large/CARTE.webp';
+import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/premiere-de-couverture.webp';
+import HandsUpMenuBoisson from '../assets/projects/hands-up/mockup-menu-large/BOISSON-2.webp';
+import HandsUpMenuBoisson2 from '../assets/projects/hands-up/mockup-menu-large/BOISSON-DEUX-2.webp';
+import HandsUpMenuFormule from '../assets/projects/hands-up/mockup-menu-large/FORMULE-2.webp';
+import HandsUpMenuCarte from '../assets/projects/hands-up/mockup-menu-large/CARTE-2.webp';
 
 // Maison Marie
 import MaisonMarieDescription from '../assets/projects/maison-marie/image-description/pexels-rdne-7755524.webp';
@@ -83,7 +83,7 @@ import CongresCouvertures from '../assets/projects/congres-nimes-tourisme/mockup
 import SatSplDescription from '../assets/projects/plaquette-sat-et-spl/image-description/pexels-tara-winstead-6694198-2.webp'
 import SatSplPlaquetteCarreFermee from '../assets/projects/plaquette-sat-et-spl/plaquette-carre-fermee/pexels-tara-winstead-6694198.webp'
 import SatSplBaseline from '../assets/projects/plaquette-sat-et-spl/baseline/baseline.webp'
-import SatSplDoublePageLarge from '../assets/projects/plaquette-sat-et-spl/double-page-large/Groupe179.webp'
+import SatSplDoublePageLarge from '../assets/projects/plaquette-sat-et-spl/double-page-large/Groupe179-redim-50.webp'
 import SatSplImage from '../assets/projects/plaquette-sat-et-spl/image/pexels-tara-winstead-6694198-1.webp'
 import SatSplPlaquetteCarreOuverte from '../assets/projects/plaquette-sat-et-spl/plaquette-carre-ouverte/mockup16.webp'
 import SatSplSlider1 from '../assets/projects/plaquette-sat-et-spl/slider/mockup19.webp'
@@ -417,7 +417,6 @@ const projects = [
             {type: 'double-image',images: [FasoCarre3, FasoCarre4]},
         ]
     },
-
 ];
 
 export default projects;
