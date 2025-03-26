@@ -149,8 +149,6 @@ function DetailProjet() {
                         {project.blocks.map((block, index) => {
                             switch (block.type) {
                                 case "description-et-image":
-                                    { const noDisplay = project.id === 1 && block.image.includes("image-description") && windowWidth < 500;
-
                                     return (
                                         <div
                                             className="description-et-image"
@@ -166,15 +164,13 @@ function DetailProjet() {
                                             >
                                                 <p className="description-text">{block.text}</p>
                                             </motion.div>
-                                            {!noDisplay && (
-                                                <motion.img
-                                                    src={block.image}
-                                                    alt="Description"
-                                                    {...fadeInUp}
-                                                />
-                                            )}
+                                            <motion.img
+                                                src={block.image}
+                                                alt="Description"
+                                                {...fadeInUp}
+                                            />
                                         </div>
-                                    ); }
+                                    );
                                 case "image-large": {
                                     const isFaso = project.title === "Artisan Du Faso";
                                     const isMariage = project.title === "Mariage";
