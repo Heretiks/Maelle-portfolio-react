@@ -1,5 +1,5 @@
 // Images Présentation
-import HandsUpImg from '../assets/projects/hands-up/format-paysage.webp';
+import HandsUpImg from '../assets/projects/hands-up/format-paysage-redim.webp';
 import MaisonMarieImg from '../assets/projects/maison-marie/format-paysage.webp';
 import NaturoPattesImg from '../assets/projects/naturopatte/format-paysage.webp';
 import CongresNimesImg from '../assets/projects/congres-nimes-tourisme/format-paysage.webp';
@@ -12,7 +12,7 @@ import ArtisanFasoImg from '../assets/projects/artisan-du-faso/format-paysage.we
 import MariageImg from '../assets/projects/mariage-mathilde/format-paysage.webp';
 
 // Images Mobile
-import HandsUpImgMobile from '../assets/projects/hands-up/format-mobile.webp';
+import HandsUpImgMobile from '../assets/projects/hands-up/format-mobile-redim.webp';
 import MaisonMarieImgMobile from '../assets/projects/maison-marie/format-mobile-x2.webp';
 import NaturoPattesImgMobile from '../assets/projects/naturopatte/format-mobile.webp';
 import CongresNimesImgMobile from '../assets/projects/congres-nimes-tourisme/format-mobile.webp';
@@ -25,7 +25,7 @@ import ArtisanFasoImgMobile from '../assets/projects/artisan-du-faso/format-mobi
 import MariageImgMobile from '../assets/projects/mariage-mathilde/format-mobile.webp';
 
 // Images Carre
-import HandsUpCarre from '../assets/projects/hands-up/format-carre-x2.webp';
+import HandsUpCarre from '../assets/projects/hands-up/format-carre-redim.webp';
 import MaisonMarieCarre from '../assets/projects/maison-marie/pexels-ekrulila-2237211.webp'
 import NaturoPatteCarre from '../assets/projects/naturopatte/pexels-chevanon-1108099.webp'
 import CongresNimesCarre from '../assets/projects/congres-nimes-tourisme/mockup14.webp'
@@ -38,9 +38,9 @@ import ArtisanFasoCarre from '../assets/projects/artisan-du-faso/image-carre-x2.
 import MariageCarre from '../assets/projects/mariage-mathilde/IMG_5978.webp'
 
 // HandsUp
-import HandsUpDescription from '../assets/projects/hands-up/image-description/image-description.webp';
+import HandsUpDescription from '../assets/projects/hands-up/image-description/image-description-new.webp';
 import HandsUpCouleurs from '../assets/projects/hands-up/couleurs-identite/Groupe162.webp';
-import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe161.webp';
+import HandsUpLogoLarge from '../assets/projects/hands-up/mockup-logo-large/Groupe242-redim.webp';
 import HandsUpMenuCarre from '../assets/projects/hands-up/mockup-menu/premiere-de-couverture.webp';
 import HandsUpMenuBoisson from '../assets/projects/hands-up/mockup-menu-large/BOISSON-2.webp';
 import HandsUpMenuBoisson2 from '../assets/projects/hands-up/mockup-menu-large/BOISSON-DEUX-2.webp';
