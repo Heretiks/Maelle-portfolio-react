@@ -19,6 +19,7 @@ const ContactForm = () => {
     const [successMessage, setSuccessMessage] = useState("");
     const [isBigHeight, setIsBigHeight] = useState(window.innerHeight > 700);
     const [isBigWidth, setIsBigWidth] = useState(window.innerWidth > 650);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Savoir si on affiche motif-bottom ou non (height > 700px)
     useEffect(() => {
@@ -34,6 +35,27 @@ const ContactForm = () => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
+    }, []);
+
+    // Est-ce que le header-mobile est open
+    useEffect(() => {
+        const checkMenuState = () => {
+            const headerMobile = document.querySelector('.burger-icon');
+            setIsMenuOpen(headerMobile?.classList.contains('open') || false);
+        };
+
+        // Vérifier au montage
+        checkMenuState();
+
+        // Observer les changements sur la classe "open"
+        const observer = new MutationObserver(checkMenuState);
+        const headerMobile = document.querySelector('.burger-icon');
+
+        if (headerMobile) {
+            observer.observe(headerMobile, { attributes: true, attributeFilter: ['class'] });
+        }
+
+        return () => observer.disconnect();
     }, []);
 
     const handleChange = (e) => {
@@ -97,7 +119,7 @@ const ContactForm = () => {
     const logoTransition = {
         initial: { x: '-100vw' },
         animate: { x: 0 },
-        whileHover: { x: 0 },
+        whilehover: { x: 0 },
         exit: { x: '-100vw' },
         transition: { duration: 0.5 }
     };
@@ -114,7 +136,7 @@ const ContactForm = () => {
             </Helmet>
             <div className="container">
                 <Header />
-                <Link to="/" className="retour-accueil">
+                <Link to="/" className={`retour-accueil ${isMenuOpen ? "open" : ""}`}>
                     <motion.img src="/images/SVG_MOTIF_POINT_AVANT.svg" alt="Next" className="arrow-icon" {...fromLeftTransition}/>
                 </Link>
                 <div className="retour-listing">
@@ -126,7 +148,7 @@ const ContactForm = () => {
                 <div className="content">
                     <Link to="/" className="logo" {...logoTransition}>
                         <motion.div {...fromLeftTransition}>
-                            <LogoMc ref={logoRef}/>
+                            <LogoMc />
                         </motion.div>
                     </Link>
                     <motion.div className="form-container" {...fromRightTransition}>
