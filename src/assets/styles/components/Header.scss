@@ -35,16 +35,6 @@
             transition: filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
         }
 
-        //.logo-image.inverted {
-        //    -webkit-filter: invert(1);
-        //    filter: invert(1);
-        //}
-        //
-        //.logo-image.open {
-        //    -webkit-filter: invert(0);
-        //    filter: invert(0);
-        //}
-
         &:hover {
             -webkit-transform: scale(1.2); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
             -ms-transform: scale(1.2);
@@ -134,36 +124,6 @@
             width: 30px;
             height: 30px;
         }
-
-        //img {
-        //    background-color: #000000;
-        //    height: 4px;
-        //    width: 100%;
-        //    border-radius: 2px;
-        //    -webkit-transition: all 0.3s ease; /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-        //    -o-transition: all 0.3s ease;
-        //    transition: all 0.3s ease;
-        //}
-    }
-
-    .burger-icon.open span {
-        background-color: #000;
-    }
-
-    .burger-icon.open span:nth-child(1) {
-        -webkit-transform: rotate(45deg) translate(5px, 5px); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-        -ms-transform: rotate(45deg) translate(5px, 5px);
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .burger-icon.open span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .burger-icon.open span:nth-child(3) {
-        -webkit-transform: rotate(-45deg) translate(6px, -6px); /* Préfixe Webkit pour Safari */    /* Préfixe pour Firefox */
-        -ms-transform: rotate(-45deg) translate(6px, -6px);
-        transform: rotate(-45deg) translate(6px, -6px);
     }
 
     .header-mobile {
@@ -180,7 +140,7 @@
         opacity: 0;
 
         position: fixed;
-        top: -5vh;
+        top: 0; // -5vh
         right: -100%;
         background-color: rgb(0, 0, 0, 1);
         width: 94vw;
@@ -220,6 +180,22 @@
             }
         }
 
+        .link-mentions-legales {
+            position: absolute;
+            bottom: 8%;
+            color: white;
+            height: 24px;
+            font-size: 14px;
+        }
+
+        .link-politique-confidentialite {
+            position: absolute;
+            bottom: 5%;
+            color: white;
+            height: 24px;
+            font-size: 14px;
+        }
+
         .background-motif {
             position: absolute;
             width: 28vh;
@@ -232,7 +208,7 @@
             }
 
             &.bottom {
-                bottom: 0;
+                bottom: -4%;
             }
 
             img {
@@ -317,10 +293,6 @@
 
             .background-motif {
                 width: 25vh;
-
-                //&.bottom {
-                //    bottom: -0.9vh;
-                //}
             }
         }
     }
@@ -340,12 +312,21 @@
                 }
             }
 
+            .link-mentions-legales,
+            .link-politique-confidentialite {
+                font-size: 12px;
+            }
+
+            .link-mentions-legales {
+                bottom: 7%;
+            }
+
+            .link-politique-confidentialite {
+                bottom: 3%;
+            }
+
             .background-motif {
                 width: 21vh;
-
-                //&.bottom {
-                //    bottom: -2.5vh;
-                //}
             }
         }
     }
@@ -403,6 +384,15 @@
                         font-size: 32px;
                     }
                 }
+            }
+
+            .link-mentions-legales {
+                right: 4%;
+                bottom: 5%;
+            }
+
+            .link-politique-confidentialite {
+                left: 4%
             }
 
             .background-motif {

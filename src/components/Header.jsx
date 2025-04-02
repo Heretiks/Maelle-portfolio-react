@@ -99,6 +99,7 @@ const Header = () => {
             >
                 <img src="/images/SVG_MOTIF_POINT_BURGER.svg" alt="Icon menu burger"/>
             </motion.div>
+
             {/* Menu mobile */}
             <nav className={`header-mobile ${isMobileMenuOpen ? "open" : ""}`}>
                 <div className="background-motif top">
@@ -109,6 +110,10 @@ const Header = () => {
                     <li><Link to="/projets" onClick={toggleMobileMenu} >Vue d&#39;ensemble</Link></li>
                     <li><Link to="/contact" onClick={toggleMobileMenu} >Contact</Link></li>
                 </ul>
+
+                <Link to="/mentions-legales" className="link-mentions-legales" onClick={toggleMobileMenu}>Mentions Légales</Link>
+                <Link to="/politique-de-confidentialite" className="link-politique-confidentialite" onClick={toggleMobileMenu}>Politique de Confidentialité</Link>
+
                 <div className="background-motif bottom">
                     <img src="/images/motif-grand.webp" alt="Motif de Maëlle Camissogo"/>
                 </div>

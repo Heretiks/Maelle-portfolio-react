@@ -54,11 +54,10 @@ const PortfolioContainer = React.memo(function PortfolioContainer() {
                 <meta name="description" content="Portfolio de Maëlle Camissogo, graphiste et directrice artistique professionnelle spécialisée dans la création de logo, le branding et les supports print et digitaux. Découvrez mes projets et réalisations."/>
                 <meta property="og:title" content="Maëlle Camissogo | Graphiste Freelance à Montpellier"/>
                 <meta property="og:description" content="Découvrez les projets créatifs et innovants de Maëlle Camissogo, graphiste professionnelle."/>
-                <meta property="og:image" content="https://maellecamissogo.com/image-partage.jpg"/>
-
-                <meta property="og:image" content="/images/image-partage.jpg"/>
-
+                <meta property="og:image" content="https://maellecamissogo.com/image-partage.png"/>
                 <meta property="og:url" content="https://maellecamissogo.com"/>
+
+                <link rel="canonical" href="https://maellecamissogo.com" />
             </Helmet>
 
             <div className="portfolio-home">

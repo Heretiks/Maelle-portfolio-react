@@ -1,6 +1,6 @@
 import "../assets/styles/pages/Contact.scss";
 import { Link } from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import EmailJS from '@emailjs/browser'
 import { motion } from "framer-motion";
 import { Helmet } from 'react-helmet-async';
@@ -14,7 +14,6 @@ const ContactForm = () => {
         email: "",
         message: "",
     });
-    const logoRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [successMessage, setSuccessMessage] = useState("");
     const [isBigHeight, setIsBigHeight] = useState(window.innerHeight > 700);
@@ -131,9 +130,13 @@ const ContactForm = () => {
                 <meta name="description" content="Contactez-moi pour toute demande de projet graphique, collaboration ou toute question." />
                 <meta property="og:title" content="Contact | Maëlle Camissogo" />
                 <meta property="og:description" content="Besoin d'un projet graphique ? Contactez Maëlle Camissogo pour discuter de vos idées." />
-                <meta property="og:image" content="https://maellecamissogo.com/image-partage-contact.jpg" />
-                <meta property="og:url" content="https://maellecamissogo.com/contact" />
+                <meta property="og:image" content="https://maellecamissogo.com/image-partage-contact.png" />
+                <meta property="og:url" content="https://maellecamissogo.com/contact/" />
+
+                <link rel="canonical" href="https://maellecamissogo.com/contact/" />
+
             </Helmet>
+
             <div className="container">
                 <Header />
                 <Link to="/" className={`retour-accueil ${isMenuOpen ? "open" : ""}`}>
@@ -193,6 +196,10 @@ const ContactForm = () => {
                     <img src="/images/mail.svg" alt="Mail" className="rs mail" onClick={() => window.open("mailto:m.camissogo@gmail.com", "_blank")}/>
                     <img src="/images/malt.svg" alt="Malt" className="rs malt" onClick={() => window.open("https://www.malt.fr/profile/maellecamissogo", "_blank")}/>
                     <img src="/images/linkedin.svg" alt="Linkedin" className="rs linkedin" onClick={() => window.open("https://www.linkedin.com/in/ma%C3%ABlle-camissogo/", "_blank")}/>
+                </motion.div>
+
+                <motion.div className="contact-link-mentions-legales" {...fromRightTransition}>
+                    <Link to="/mentions-legales" >Mentions Légales</Link>
                 </motion.div>
             </div>
         </>

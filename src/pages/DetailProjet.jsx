@@ -92,6 +92,8 @@ function DetailProjet() {
                 <meta property="og:description" content={`Détails et présentation du projet "${project.title}". Découvrez mon travail de graphiste.`} />
                 <meta property="og:image" content={project.image} />
                 <meta property="og:url" content={`https://maellecamissogo.com/projet/${project.id}`} />
+
+                <link rel="canonical" href={`https://maellecamissogo.com/projet/${project.id}`} />
             </Helmet>
 
 

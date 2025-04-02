@@ -14,7 +14,8 @@ const PortfolioContainer = React.lazy(() => import('./pages/PortfolioContainer.j
 const ListingProject = React.lazy(() => import('./pages/ListingProjects.jsx'));
 const Contact = React.lazy(() => import('./pages/Contact.jsx'));
 const DetailProjet = React.lazy(() => import('./pages/DetailProjet.jsx'));
-const LegalPage = React.lazy(() => import('./pages/LegalPage.jsx'));
+const MentionsLegales = React.lazy(() => import('./pages/MentionsLegales.jsx'));
+const PolitiqueConfidentialite = React.lazy(() => import('./pages/PolitiqueConfidentialite.jsx'));
 
 function App() {
     const location = useLocation();
@@ -130,6 +131,7 @@ function App() {
         });
     }, []);
 
+    // Anti clic droit, F12, Ctrl+Shift+I et Ctrl+U
     document.addEventListener("contextmenu", function(event) {
         event.preventDefault();
     });
@@ -159,7 +161,8 @@ function App() {
                             <Route path="/projet/:projectId" element={<DetailProjet />} />
                             <Route path="/contact" element={<Contact />} />
 
-                            <Route path="/mentions-legales" element={<LegalPage />} />
+                            <Route path="/mentions-legales" element={<MentionsLegales />} />
+                            <Route path="/politique-de-confidentialite" element={<PolitiqueConfidentialite />} />
                             <Route path="*" element={<Navigate to="/" replace />} />
                         </Routes>
                     </AnimatePresence>
