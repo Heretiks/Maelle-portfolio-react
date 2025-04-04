@@ -288,11 +288,11 @@ const projects = [
     {
         id: 6,
         category: 'Packaging',
-        title: 'Domaine de l\'Aiglade',
+        title: 'Domaine de l\'Aigalade',
         image: DomaineAigladeImg,
         imageMobile: DomaineAigladeImgMobile,
         imageCarre: DomaineAigladeCarre,
-        link: '/projects/domaine-de-laiglade',
+        link: '/projects/domaine-de-laigalade',
         couleurPrimaire: '#000000',
         couleurSecondaire: '#FFFFFF',
         blocks: [
