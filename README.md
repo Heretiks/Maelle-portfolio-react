@@ -1,8 +1,35 @@
-# React + Vite
+# 🎨 Portfolio Graphiste / DA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue sur le portfolio d'une **Graphiste / Directrice Artistique**, conçu pour présenter son univers créatif et ses réalisations.
 
-Currently, two official plugins are available:
+Ce site a été développé en **React** avec **Vite** pour offrir une navigation rapide et fluide.  
+Hébergement : [maellecamissogo.com](https://maellecamissogo.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## ✨ Technologies utilisées
+
+- **React** — Front-end moderne
+- **Vite** — Build ultra-rapide
+- **Sass** — Styling
+- **Framer Motion** — Animations légères
+- **Vercel** — Hébergement
+
+---
+
+## 🛠️ À propos du projet
+
+Ce projet a été **designé** par une **Graphiste / DA** et **développé** par moi-même avec soin pour refléter son style unique, sa sensibilité artistique et assurer une expérience utilisateur optimale.
+
+Le site est responsive, animé avec subtilité, et optimisé pour une belle visibilité de ses créations.
+
+---
+
+> **Développement** : [Julien Larguier]  
+> **Design** : [Maële Camissogo]  
+> **Site en ligne** : [https://maellecamissogo.com](https://maellecamissogo.com)
+
+> **Mon contact** : [julienlarguier1@gmail.com]
+> **Contact de Maëlle Camissogo** : [m.camissogo@gmail.com]
+
+---
